@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>GetCryptoFeeBack | Crypto Fee Calculator: get 20% to 40% of your trading fees back</title>
-<meta name="description" content="Free crypto fee calculator. Enter your 30-day futures volume and see how much you get back with 20% to 40% cashback on your OKX trading fees, paid every Friday.">
+<meta name="description" content="Free crypto fee calculator. Enter your 30-day futures volume and see how much you get back with 20% to 40% cashback on your OKX trading fees, paid every week.">
 <link rel="canonical" href="https://getcryptofeeback.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getcryptofeeback.com/">
 <meta property="og:title" content="GetCryptoFeeBack: get 20% to 40% of your trading fees back">
-<meta property="og:description" content="How much did you pay in trading fees last month? Find out in seconds and get 20% to 40% back every Friday.">
+<meta property="og:description" content="How much did you pay in trading fees last month? Find out in seconds and get 20% to 40% back every week.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GetCryptoFeeBack: get 20% to 40% of your trading fees back">
-<meta name="twitter:description" content="How much did you pay in trading fees last month? Find out in seconds and get 20% to 40% back every Friday.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E7C5A'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='900' font-size='34' text-anchor='middle' fill='white'%3E%25%3C/text%3E%3C/svg%3E">
+<meta name="twitter:description" content="How much did you pay in trading fees last month? Find out in seconds and get 20% to 40% back every week.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='30' fill='%230E7C5A'/%3E%3Cpath d='M60 24 A36 36 0 1 1 24 60' fill='none' stroke='white' stroke-width='9' stroke-linecap='round'/%3E%3Cpolygon points='13,66 35,66 24,47' fill='white'/%3E%3Ccircle cx='50' cy='50' r='6.5' fill='none' stroke='white' stroke-width='5'/%3E%3Ccircle cx='71' cy='71' r='6.5' fill='none' stroke='white' stroke-width='5'/%3E%3Cline x1='73' y1='47' x2='48' y2='74' stroke='white' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
@@ -52,7 +52,7 @@ h2 { font-family: var(--display); font-weight: 800; font-stretch: 75%; font-size
 .lead { color: var(--muted); margin: 0; max-width: 44rem; }
 button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 
-.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; position: relative; z-index: 20; }
 .brand { font-family: var(--display); font-weight: 800; font-stretch: 75%; font-size: 1.15rem; letter-spacing: .02em; text-transform: uppercase; }
 .brand span { color: var(--accent); }
 .nav { display: flex; gap: 8px; align-items: center; }
@@ -245,6 +245,34 @@ a.ghost { text-decoration: none; }
   .bar .seg.small button { padding: 4px 7px; font-size: .72rem; }
   .kpi { padding: 12px; }
 }
+/* logo + language picker */
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); white-space: nowrap; }
+.brand .mark { flex: none; display: block; }
+.brand .word span { color: var(--accent); }
+.lang { position: relative; }
+.langbtn { display: inline-flex; align-items: center; gap: 7px; font: 600 .85rem var(--body); color: var(--ink); padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); cursor: pointer; }
+.langbtn #langflag, .langmenu .fl { display: inline-flex; width: 21px; height: 14px; border-radius: 2px; overflow: hidden; box-shadow: 0 0 0 1px var(--line); flex: none; }
+.langbtn #langflag svg, .langmenu .fl svg { width: 100%; height: 100%; display: block; }
+.langbtn[aria-expanded="true"] > svg { transform: rotate(180deg); }
+.langmenu { position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; min-width: 176px; display: flex; flex-direction: column; gap: 2px; padding: 6px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 12px 32px rgba(0,0,0,.14); }
+.langmenu button { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; font: 500 .92rem var(--body); color: var(--ink); background: none; border: 0; border-radius: 8px; padding: 8px 10px; cursor: pointer; }
+.langmenu button:hover { background: var(--bg); }
+.langmenu button[aria-current="true"] { background: var(--accent-soft); font-weight: 700; }
+footer .mail { font-family: var(--mono); }
+[hidden] { display: none !important; }
+@media (max-width: 600px) {
+  .brand .mark { width: 28px; height: 28px; }
+  .brand { gap: 8px; }
+  .nav { gap: 6px; }
+  .nav a[href="#faq"] { display: none; }
+  .langbtn { padding: 7px 8px; }
+  .langbtn #langcode { display: none; }
+  .top { gap: 8px; }
+  .brand .word { font-size: .95rem; }
+  .nav a.navcta { padding: 7px 9px; white-space: nowrap; }
+  .range { overflow-x: auto; }
+}
+@media (max-width: 430px) { .nav a.navcta { display: none; } }
 </style>
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0} img{max-width:100%} [hidden]{display:none!important} html{scroll-behavior:smooth}</style>
 </head>
@@ -253,135 +281,146 @@ a.ghost { text-decoration: none; }
 
 <div class="wrap">
   <header class="top">
-    <div class="brand">GetCrypto<span>FeeBack</span></div>
-    <nav class="nav"><a href="#faq">FAQ</a><a class="navcta" href="#getcashback">Get cashback</a></nav>
+    <a class="brand" href="#" aria-label="GetCryptoFeeBack">
+      <svg class="mark" width="34" height="34" viewBox="0 0 120 120" aria-hidden="true"><rect width="120" height="120" rx="30" fill="var(--accent)"></rect><path d="M60 24 A36 36 0 1 1 24 60" fill="none" stroke="var(--bg)" stroke-width="9" stroke-linecap="round"></path><polygon points="13,66 35,66 24,47" fill="var(--bg)"></polygon><circle cx="50" cy="50" r="6.5" fill="none" stroke="var(--bg)" stroke-width="5"></circle><circle cx="71" cy="71" r="6.5" fill="none" stroke="var(--bg)" stroke-width="5"></circle><line x1="73" y1="47" x2="48" y2="74" stroke="var(--bg)" stroke-width="5" stroke-linecap="round"></line></svg>
+      <span class="word">GetCrypto<span>FeeBack</span></span>
+    </a>
+    <nav class="nav">
+      <div class="lang" id="lang">
+        <button type="button" class="langbtn" id="langbtn" aria-haspopup="true" aria-expanded="false" aria-label="Language"><span id="langflag"></span><span id="langcode">EN</span><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        <div class="langmenu" id="langmenu" hidden></div>
+      </div>
+      <a href="#faq" data-t="nav_faq">FAQ</a>
+      <a class="navcta" href="#getcashback" data-t="nav_cta">Get cashback</a>
+    </nav>
   </header>
 
   <div class="hero">
-    <span class="label">Crypto Fee Calculator</span>
-    <h1>How much did you pay in <em>trading fees</em> last month?</h1>
-    <p>Most traders never check. Enter your 30-day volume to see your real fee bill, then get 20% to 40% of it back every Friday.</p>
+    <span class="label" data-t="eyebrow">Crypto Fee Calculator</span>
+    <h1 data-t="h1">How much did you pay in <em>trading fees</em> last month?</h1>
+    <p data-t="lede">Most traders never check. Enter your 30-day volume to see your real fee bill, then get 20% to 40% of it back every week.</p>
   </div>
 
   <section id="calc" class="calcbox">
     <div class="bar">
       <div class="field fvol">
-        <label class="label" for="vol">Your futures volume, last 30 days</label>
+        <label class="label" for="vol" data-t="l_vol">Your futures volume, last 30 days</label>
         <div class="money"><span>US$</span><input id="vol" inputmode="numeric" autocomplete="off" value="5,000,000"></div>
         <div class="seg small" id="chips"></div>
       </div>
       <div class="field">
-        <span class="label">Where do you trade today?</span>
+        <span class="label" data-t="l_ex">Where do you trade today?</span>
         <div class="seg" id="exch"></div>
       </div>
       <div class="field" id="tierField">
-        <label class="label" for="tier">Your OKX fee tier</label>
+        <label class="label" for="tier" data-t="l_tier">Your OKX fee tier</label>
         <select id="tier"></select>
       </div>
       <div class="field" id="feeField" hidden>
-        <span class="label">Your current fees (%)</span>
+        <span class="label" data-t="l_fee">Your current fees (%)</span>
         <div class="fees2">
-          <label for="mk"><span>Maker</span><input id="mk" class="feein" inputmode="decimal"></label>
-          <label for="tk"><span>Taker</span><input id="tk" class="feein" inputmode="decimal"></label>
+          <label for="mk"><span data-t="maker">Maker</span><input id="mk" class="feein" inputmode="decimal"></label>
+          <label for="tk"><span data-t="taker">Taker</span><input id="tk" class="feein" inputmode="decimal"></label>
         </div>
       </div>
     </div>
 
     <div class="statement" aria-live="polite">
-      <div class="rhead"><span>Your fee statement</span><span id="rTier">OKX · VIP 1</span></div>
+      <div class="rhead"><span data-t="r_title">Your fee statement</span><span id="rTier">OKX · VIP 1</span></div>
       <div class="kpis">
-        <div class="kpi cost"><span class="label">Your fee bill</span><b id="oBill">$0</b><span class="sub">a month in trading fees</span></div>
-        <div class="kpi main"><span class="label">Back to you, at least</span><b id="oBack">$0</b><span class="sub" id="oWeek">a month</span></div>
-        <div class="kpi"><span class="label">You save per year</span><b id="oYear">$0</b><span class="sub">in trading fees</span></div>
-        <div class="kpi"><span class="label">In 40% boost weeks</span><b id="oBoost">$0</b><span class="sub">a month, up to</span></div>
+        <div class="kpi cost"><span class="label" data-t="k_bill">Your fee bill</span><b id="oBill">$0</b><span class="sub" data-t="k_bill_sub">a month in trading fees</span></div>
+        <div class="kpi main"><span class="label" data-t="k_back">Back to you, at least</span><b id="oBack">$0</b><span class="sub" id="oWeek">a month</span></div>
+        <div class="kpi"><span class="label" data-t="k_year">You save per year</span><b id="oYear">$0</b><span class="sub" data-t="k_year_sub">in trading fees</span></div>
+        <div class="kpi"><span class="label" data-t="k_boost">In 40% boost weeks</span><b id="oBoost">$0</b><span class="sub" data-t="k_boost_sub">a month, up to</span></div>
       </div>
       <div class="callout" id="callout"></div>
       <div class="cta" id="getcashback">
         <div class="choice">
-          <a class="opt" href="https://okx.com/join/CRYPTOFEEBACK" target="_blank" rel="noopener"><b>New to OKX</b><span>Open an account with cashback</span></a>
-          <a class="opt" id="rebind" href="https://okx.com/join/BUSINESSPARTNER" target="_blank" rel="noopener"><b>Already on OKX</b><span>Link your existing account</span></a>
+          <a class="opt" href="https://okx.com/join/CRYPTOFEEBACK" target="_blank" rel="noopener"><b data-t="new_t">New to OKX</b><span data-t="new_s">Open an account with cashback</span></a>
+          <a class="opt" id="rebind" href="https://okx.com/join/BUSINESSPARTNER" target="_blank" rel="noopener"><b data-t="ex_t">Already on OKX</b><span data-t="ex_s">Link your existing account</span></a>
         </div>
-        <p class="note">Existing accounts can be linked if they are not already tied to another referrer. Link not working? Message <code>@andolker</code> on Telegram.</p>
+        <p class="note" data-t="note">Existing accounts can be linked if they are not already tied to another referrer. Link not working? Message <code>@andolker</code> on Telegram.</p>
       </div>
 
       <details class="more">
-        <summary>See the full breakdown</summary>
+        <summary data-t="more">See the full breakdown</summary>
         <div class="morebody">
           <div class="field">
-            <label class="label" for="mix">Your order mix</label>
+            <label class="label" for="mix" data-t="l_mix">Your order mix</label>
             <input id="mix" type="range" min="0" max="100" step="5" value="30">
             <div class="mixrow"><span id="mixM">30% maker</span><span id="mixT">70% taker</span></div>
-            <p class="hint">Limit orders that wait on the book are maker. Market orders are taker. Volume is position size, leverage included.</p>
+            <p class="hint" data-t="h_mix">Limit orders that wait on the book are maker. Market orders are taker. Volume is position size, leverage included.</p>
           </div>
           <div class="range">
-            <span class="label">Cashback by rate</span>
-            <table class="rt"><thead><tr><th>Rate</th><th>Per week</th><th>Per month</th><th>Net fee cost</th></tr></thead><tbody id="rtb"></tbody></table>
+            <span class="label" data-t="l_rate">Cashback by rate</span>
+            <table class="rt"><thead><tr><th data-t="th_rate">Rate</th><th data-t="th_week">Per week</th><th data-t="th_month">Per month</th><th data-t="th_net">Net fee cost</th></tr></thead><tbody id="rtb"></tbody></table>
           </div>
           <div class="lines">
             <div class="ln cost"><span class="k" id="kNow">Fees you pay now</span><b id="oNow">$0</b></div>
-            <div class="ln" id="lnOkx" hidden><span class="k">Fees on OKX at your volume</span><b id="oOkx">$0</b></div>
-            <div class="ln good"><span class="k">Guaranteed 20% cashback per month</span><b id="oCb">$0</b></div>
-            <div class="ln total"><span>Your net fee cost</span><b id="oNet">$0</b></div>
-            <div class="ln good" id="lnSave" hidden><span class="k">Total saving vs. today</span><b id="oSave">$0</b></div>
+            <div class="ln" id="lnOkx" hidden><span class="k" data-t="ln_okx">Fees on OKX at your volume</span><b id="oOkx">$0</b></div>
+            <div class="ln good"><span class="k" data-t="ln_cb">Guaranteed 20% cashback per month</span><b id="oCb">$0</b></div>
+            <div class="ln total"><span data-t="ln_net">Your net fee cost</span><b id="oNet">$0</b></div>
+            <div class="ln good" id="lnSave" hidden><span class="k" data-t="ln_save">Total saving vs. today</span><b id="oSave">$0</b></div>
           </div>
-          <div class="linkrow"><code id="link">okx.com/join/CRYPTOFEEBACK</code><button class="ghost" id="copy" type="button">Copy link</button><a class="ghost" href="https://t.me/+Z4K5lgP9M6EwYmZk" target="_blank" rel="noopener">Join the Telegram</a></div>
-          <span class="approx">Approximate values, based on your volume and order mix and the public OKX fee schedule. Your real cashback follows the fees you actually pay each week. Fees on other exchanges are pre-filled with their standard VIP 0 rate.</span>
+          <div class="linkrow"><code id="link">okx.com/join/CRYPTOFEEBACK</code><button class="ghost" id="copy" type="button">Copy link</button><a class="ghost" href="https://t.me/+Z4K5lgP9M6EwYmZk" target="_blank" rel="noopener" data-t="tg_short">Join the Telegram</a></div>
+          <span class="approx" data-t="approx">Approximate values, based on your volume and order mix and the public OKX fee schedule. Your real cashback follows the fees you actually pay each week. Fees on other exchanges are pre-filled with their standard VIP 0 rate.</span>
         </div>
       </details>
     </div>
   </section>
 
   <section>
-    <h2>How it works</h2>
+    <h2 data-t="how">How it works</h2>
     <div class="steps">
-      <div class="step"><span class="n">STEP 1</span><h3>Join or link your account</h3><p>New to OKX? Sign up through our link and verify your identity. Already on OKX? Link your existing account.</p></div>
-      <div class="step"><span class="n">STEP 2</span><h3>Trade as usual</h3><p>Spot, futures and TradFi. No minimum volume and no expiration.</p></div>
-      <div class="step"><span class="n">STEP 3</span><h3>Get paid on Friday</h3><p>At least 20% of the fees you paid that week comes back to your OKX account, and up to 40% in boost weeks.</p></div>
+      <div class="step"><span class="n"><span data-t="step">STEP</span> 1</span><h3 data-t="s1t">Join or link your account</h3><p data-t="s1p">New to OKX? Sign up through our link and verify your identity. Already on OKX? Link your existing account.</p></div>
+      <div class="step"><span class="n"><span data-t="step">STEP</span> 2</span><h3 data-t="s2t">Trade as usual</h3><p data-t="s2p">Spot, futures and TradFi. No minimum volume and no expiration.</p></div>
+      <div class="step"><span class="n"><span data-t="step">STEP</span> 3</span><h3 data-t="s3t">Get paid every week</h3><p data-t="s3p">At least 20% of the fees you paid that week comes back to your OKX account, and up to 40% in boost weeks.</p></div>
     </div>
   </section>
 
   <section id="exchanges">
-    <h2>More exchanges coming soon</h2>
-    <p class="hint">Cashback is live on OKX today. We are working on cashback deals with more exchanges. Trade somewhere else? Tell us on Telegram which one you want next.</p>
-    <div class="soon"><span class="live">OKX · Live</span><span>Bybit</span><span>MEXC</span><span>Bitget</span><span>Binance</span><span>BTCC</span></div>
+    <h2 data-t="soon_h">More exchanges coming soon</h2>
+    <p class="hint" data-t="soon_p">Cashback is live on OKX today. We are working on cashback deals with more exchanges. Trade somewhere else? Tell us on Telegram which one you want next.</p>
+    <div class="soon"><span class="live" data-t="live">OKX · Live</span><span>Bybit</span><span>MEXC</span><span>Bitget</span><span>Binance</span><span>BTCC</span></div>
   </section>
 
   <section>
-    <h2>OKX futures fees by tier</h2>
-    <p class="hint">Main pairs (BTC, ETH and other majors), per trade. Tier by 30-day futures volume. Your row is highlighted.</p>
+    <h2 data-t="tbl_h">OKX futures fees by tier</h2>
+    <p class="hint" data-t="tbl_p">Main pairs (BTC, ETH and other majors), per trade. Tier by 30-day futures volume. Your row is highlighted.</p>
     <div class="tablewrap">
       <table>
-        <thead><tr><th>Tier</th><th>30-day volume</th><th>Maker</th><th>Taker</th><th>Cashback per $1M traded (20%)</th></tr></thead>
+        <thead><tr><th data-t="th_tier">Tier</th><th data-t="th_vol30">30-day volume</th><th data-t="maker">Maker</th><th data-t="taker">Taker</th><th data-t="th_cb1m">Cashback per $1M traded (20%)</th></tr></thead>
         <tbody id="tbody"></tbody>
       </table>
     </div>
   </section>
 
   <section id="faq">
-    <h2>Frequently asked questions</h2>
+    <h2 data-t="faq_h">Frequently asked questions</h2>
     <div class="faq">
-      <details open><summary>How do exchange referral programs work?</summary><div class="a"><p>Exchanges pay affiliates to bring in new traders. When you open an account through someone's link, the exchange sends that person a share of every trading fee you pay, on every trade, for as long as you trade. Depending on the deal, that share is often between 20% and 50% of your fees.</p><p>Most influencers keep all of it. You pay the full fee and get nothing back.</p></div></details>
-      <details><summary>How can you give me 20% to 40% back?</summary><div class="a"><p>We have an affiliate agreement with OKX. Instead of keeping the whole commission, we split it with you: at least 20% of the fees you pay comes back to your account every week.</p></div></details>
-      <details><summary>Why does the cashback go from 20% to 40%?</summary><div class="a"><p>20% is the minimum you get back, every week. In boost weeks, announced on our Telegram, we raise it up to 40%.</p></div></details>
-      <details><summary>Do you have access to my account or my money?</summary><div class="a"><p>No. Your account, your funds and your keys stay with you at OKX. The cashback is paid into your OKX account. We will never ask for your password, your 2FA codes or a deposit.</p></div></details>
-      <details><summary>When and how is the cashback paid?</summary><div class="a"><p>Every Friday, straight to your OKX account. It covers the fees you paid during that week.</p></div></details>
-      <details><summary>Does this change the fees I pay?</summary><div class="a"><p>No. You pay the standard OKX fee for your tier, and 20% to 40% of it comes back to you. Your effective fee is at least 20% lower.</p></div></details>
-      <details><summary>What does it cover? Is there a minimum?</summary><div class="a"><p>Spot, futures and TradFi trading on OKX. There is no minimum volume and no expiration.</p></div></details>
-      <details><summary>I already have an OKX account. Can I still get cashback?</summary><div class="a"><p>Yes, if your account is not already linked to another referrer. Use the "Already on OKX" button to link your existing account to us. You keep your account, balance and history.</p><p>If your account is already tied to someone else's link, or the link does not work for you, message @andolker on Telegram and we will look at your options.</p></div></details>
-      <details><summary>Why are the results approximate?</summary><div class="a"><p>The calculator uses your 30-day volume, your order mix and the public OKX fee schedule. Your real cashback follows the fees you actually pay each week, so it moves with your trading.</p></div></details>
-      <details><summary>Which exchanges are supported?</summary><div class="a"><p>OKX is live today. Bybit, MEXC, Bitget, Binance and BTCC are coming soon.</p></div></details>
-      <details><summary>Is OKX available in my country?</summary><div class="a"><p>OKX does not serve every country. If you can open an OKX account where you live, you can get cashback.</p></div></details>
-      <details><summary>Do you give trading signals or investment advice?</summary><div class="a"><p>No. We only return part of your trading fees. Every trading decision is yours. Crypto involves risk; only trade what you can afford to lose.</p></div></details>
+      <details open><summary data-t="q1">How do exchange referral programs work?</summary><div class="a" data-t="a1"><p>Exchanges pay affiliates to bring in new traders. When you open an account through someone's link, the exchange sends that person a share of every trading fee you pay, on every trade, for as long as you trade. Depending on the deal, that share is often between 20% and 50% of your fees.</p><p>Most influencers keep all of it. You pay the full fee and get nothing back.</p></div></details>
+      <details><summary data-t="q2">How can you give me 20% to 40% back?</summary><div class="a" data-t="a2"><p>We have an affiliate agreement with OKX. Instead of keeping the whole commission, we split it with you: at least 20% of the fees you pay comes back to your account every week.</p></div></details>
+      <details><summary data-t="q3">Why does the cashback go from 20% to 40%?</summary><div class="a" data-t="a3"><p>20% is the minimum you get back, every week. In boost weeks, announced on our Telegram, we raise it up to 40%.</p></div></details>
+      <details><summary data-t="q4">Do you have access to my account or my money?</summary><div class="a" data-t="a4"><p>No. Your account, your funds and your keys stay with you at OKX. The cashback is paid into your OKX account. We will never ask for your password, your 2FA codes or a deposit.</p></div></details>
+      <details><summary data-t="q5">When and how is the cashback paid?</summary><div class="a" data-t="a5"><p>Every week, straight to your OKX account. It covers the fees you paid during that week.</p></div></details>
+      <details><summary data-t="q6">Does this change the fees I pay?</summary><div class="a" data-t="a6"><p>No. You pay the standard OKX fee for your tier, and 20% to 40% of it comes back to you. Your effective fee is at least 20% lower.</p></div></details>
+      <details><summary data-t="q7">What does it cover? Is there a minimum?</summary><div class="a" data-t="a7"><p>Spot, futures and TradFi trading on OKX. There is no minimum volume and no expiration.</p></div></details>
+      <details><summary data-t="q8">I already have an OKX account. Can I still get cashback?</summary><div class="a" data-t="a8"><p>Yes, if your account is not already linked to another referrer. Use the "Already on OKX" button to link your existing account to us. You keep your account, balance and history.</p><p>If your account is already tied to someone else's link, or the link does not work for you, message @andolker on Telegram or write to support@getcryptofeeback.com and we will look at your options.</p></div></details>
+      <details><summary data-t="q9">Why are the results approximate?</summary><div class="a" data-t="a9"><p>The calculator uses your 30-day volume, your order mix and the public OKX fee schedule. Your real cashback follows the fees you actually pay each week, so it moves with your trading.</p></div></details>
+      <details><summary data-t="q10">Which exchanges are supported?</summary><div class="a" data-t="a10"><p>OKX is live today. Bybit, MEXC, Bitget, Binance and BTCC are coming soon.</p></div></details>
+      <details><summary data-t="q11">Is OKX available in my country?</summary><div class="a" data-t="a11"><p>OKX does not serve every country. If you can open an OKX account where you live, you can get cashback.</p></div></details>
+      <details><summary data-t="q12">Do you give trading signals or investment advice?</summary><div class="a" data-t="a12"><p>No. We only return part of your trading fees. Every trading decision is yours. Crypto involves risk; only trade what you can afford to lose.</p></div></details>
     </div>
   </section>
 
   <section class="tgband" id="telegram">
-    <div><h2>Every Friday, in public</h2><p>We post how much was paid back to traders each week. Join the channel to follow the payouts, ask questions and get help moving your account.</p></div>
-    <a class="btn" href="https://t.me/+Z4K5lgP9M6EwYmZk" target="_blank" rel="noopener">Join on Telegram</a>
+    <div><h2 data-t="tg_h">Every week, in public</h2><p data-t="tg_p">We post how much was paid back to traders each week. Join the channel to follow the payouts, ask questions and get help moving your account.</p></div>
+    <a class="btn" href="https://t.me/+Z4K5lgP9M6EwYmZk" target="_blank" rel="noopener" data-t="tg_btn">Join on Telegram</a>
   </section>
 
   <footer>
     <strong>GETCRYPTOFEEBACK.COM © 2026</strong>
+    <span class="mail">support@getcryptofeeback.com</span>
   </footer>
 </div>
 
@@ -398,6 +437,449 @@ a.ghost { text-decoration: none; }
   const CB = 0.20, CBMAX = 0.40, REF = 0.40;
   const LINK = 'https://okx.com/join/CRYPTOFEEBACK';
 
+  const I18N = {
+  en: {
+    title: "GetCryptoFeeBack | Crypto Fee Calculator: get 20% to 40% of your trading fees back",
+    nav_faq: "FAQ", nav_cta: "Get cashback", eyebrow: "Crypto Fee Calculator",
+    h1: "How much did you pay in <em>trading fees</em> last month?",
+    lede: "Most traders never check. Enter your 30-day volume to see your real fee bill, then get 20% to 40% of it back every week.",
+    l_vol: "Your futures volume, last 30 days", l_ex: "Where do you trade today?", l_tier: "Your OKX fee tier", l_fee: "Your current fees (%)",
+    maker: "Maker", taker: "Taker", r_title: "Your fee statement",
+    k_bill: "Your fee bill", k_bill_sub: "a month in trading fees", k_back: "Back to you, at least",
+    k_year: "You save per year", k_year_sub: "in trading fees", k_boost: "In 40% boost weeks", k_boost_sub: "a month, up to",
+    new_t: "New to OKX", new_s: "Open an account with cashback", ex_t: "Already on OKX", ex_s: "Link your existing account",
+    note: "Existing accounts can be linked if they are not already tied to another referrer. Link not working? Message <code>@andolker</code> on Telegram.",
+    more: "See the full breakdown", l_mix: "Your order mix",
+    h_mix: "Limit orders that wait on the book are maker. Market orders are taker. Volume is position size, leverage included.",
+    l_rate: "Cashback by rate", th_rate: "Rate", th_week: "Per week", th_month: "Per month", th_net: "Net fee cost",
+    ln_okx: "Fees on OKX at your volume", ln_cb: "Guaranteed 20% cashback per month", ln_net: "Your net fee cost", ln_save: "Total saving vs. today",
+    tg_short: "Join the Telegram",
+    approx: "Approximate values, based on your volume and order mix and the public OKX fee schedule. Your real cashback follows the fees you actually pay each week. Fees on other exchanges are pre-filled with their standard VIP 0 rate.",
+    how: "How it works", step: "STEP",
+    s1t: "Join or link your account", s1p: "New to OKX? Sign up through our link and verify your identity. Already on OKX? Link your existing account.",
+    s2t: "Trade as usual", s2p: "Spot, futures and TradFi. No minimum volume and no expiration.",
+    s3t: "Get paid every week", s3p: "At least 20% of the fees you paid that week comes back to your OKX account, and up to 40% in boost weeks.",
+    soon_h: "More exchanges coming soon",
+    soon_p: "Cashback is live on OKX today. We are working on cashback deals with more exchanges. Trade somewhere else? Tell us on Telegram which one you want next.",
+    live: "OKX · Live",
+    tbl_h: "OKX futures fees by tier", tbl_p: "Main pairs (BTC, ETH and other majors), per trade. Tier by 30-day futures volume. Your row is highlighted.",
+    th_tier: "Tier", th_vol30: "30-day volume", th_cb1m: "Cashback per $1M traded (20%)",
+    faq_h: "Frequently asked questions",
+    q1: "How do exchange referral programs work?",
+    a1: "<p>Exchanges pay affiliates to bring in new traders. When you open an account through someone's link, the exchange sends that person a share of every trading fee you pay, on every trade, for as long as you trade. Depending on the deal, that share is often between 20% and 50% of your fees.</p><p>Most influencers keep all of it. You pay the full fee and get nothing back.</p>",
+    q2: "How can you give me 20% to 40% back?",
+    a2: "<p>We have an affiliate agreement with OKX. Instead of keeping the whole commission, we split it with you: at least 20% of the fees you pay comes back to your account every week.</p>",
+    q3: "Why does the cashback go from 20% to 40%?",
+    a3: "<p>20% is the minimum you get back, every week. In boost weeks, announced on our Telegram, we raise it up to 40%.</p>",
+    q4: "Do you have access to my account or my money?",
+    a4: "<p>No. Your account, your funds and your keys stay with you at OKX. The cashback is paid into your OKX account. We will never ask for your password, your 2FA codes or a deposit.</p>",
+    q5: "When and how is the cashback paid?",
+    a5: "<p>Every week, straight to your OKX account. It covers the fees you paid during that week.</p>",
+    q6: "Does this change the fees I pay?",
+    a6: "<p>No. You pay the standard OKX fee for your tier, and 20% to 40% of it comes back to you. Your effective fee is at least 20% lower.</p>",
+    q7: "What does it cover? Is there a minimum?",
+    a7: "<p>Spot, futures and TradFi trading on OKX. There is no minimum volume and no expiration.</p>",
+    q8: "I already have an OKX account. Can I still get cashback?",
+    a8: "<p>Yes, if your account is not already linked to another referrer. Use the \"Already on OKX\" button to link your existing account to us. You keep your account, balance and history.</p><p>If your account is already tied to someone else's link, or the link does not work for you, message @andolker on Telegram or write to support@getcryptofeeback.com and we will look at your options.</p>",
+    q9: "Why are the results approximate?",
+    a9: "<p>The calculator uses your 30-day volume, your order mix and the public OKX fee schedule. Your real cashback follows the fees you actually pay each week, so it moves with your trading.</p>",
+    q10: "Which exchanges are supported?",
+    a10: "<p>OKX is live today. Bybit, MEXC, Bitget, Binance and BTCC are coming soon.</p>",
+    q11: "Is OKX available in my country?",
+    a11: "<p>OKX does not serve every country. If you can open an OKX account where you live, you can get cashback.</p>",
+    q12: "Do you give trading signals or investment advice?",
+    a12: "<p>No. We only return part of your trading fees. Every trading decision is yours. Crypto involves risk; only trade what you can afford to lose.</p>",
+    tg_h: "Every week, in public",
+    tg_p: "We post how much was paid back to traders each week. Join the channel to follow the payouts, ask questions and get help moving your account.",
+    tg_btn: "Join on Telegram",
+    auto: "Auto (by volume)", ex_other: "Other", copy: "Copy link", copied: "Copied", sel: "Select the link",
+    mk_pct: "{n}% maker", tk_pct: "{n}% taker",
+    c1: "If you joined through someone's referral link, up to <b>{x}</b> of the fees you pay each month can go to them. You get none of it back.",
+    c2: "With GetCryptoFeeBack, at least 20% of the fees you pay comes back to you: <b>{cb}</b> a month, and up to <b>{max}</b> in boost weeks.",
+    week: "a month · ≈ {x} every week", rmin: "20% (minimum)", rboost: "40% (boost)",
+    k_now_okx: "Fees you pay on OKX", k_now: "Fees you pay now"
+  },
+  pt: {
+    title: "GetCryptoFeeBack | Calculadora de taxas cripto: receba de volta 20% a 40% das suas taxas",
+    nav_faq: "Dúvidas", nav_cta: "Quero cashback", eyebrow: "Calculadora de taxas cripto",
+    h1: "Quanto você pagou em <em>taxas de trading</em> no mês passado?",
+    lede: "A maioria dos traders nunca confere. Informe seu volume de 30 dias, veja quanto paga de verdade em taxas e receba de volta de 20% a 40% disso toda semana.",
+    l_vol: "Seu volume em futuros, últimos 30 dias", l_ex: "Onde você opera hoje?", l_tier: "Seu nível de taxa na OKX", l_fee: "Suas taxas atuais (%)",
+    maker: "Maker", taker: "Taker", r_title: "Seu extrato de taxas",
+    k_bill: "Sua conta de taxas", k_bill_sub: "por mês em taxas de trading", k_back: "Volta para você, no mínimo",
+    k_year: "Você economiza por ano", k_year_sub: "em taxas de trading", k_boost: "Nas semanas boost de 40%", k_boost_sub: "por mês, até",
+    new_t: "Novo na OKX", new_s: "Abra uma conta com cashback", ex_t: "Já tenho OKX", ex_s: "Vincule sua conta atual",
+    note: "Contas existentes podem ser vinculadas se ainda não estiverem ligadas a outro indicador. O link não funcionou? Chame <code>@andolker</code> no Telegram.",
+    more: "Ver o detalhamento completo", l_mix: "Seu mix de ordens",
+    h_mix: "Ordens limitadas que ficam no livro são maker. Ordens a mercado são taker. Volume é o tamanho da posição, com alavancagem.",
+    l_rate: "Cashback por percentual", th_rate: "Percentual", th_week: "Por semana", th_month: "Por mês", th_net: "Custo líquido",
+    ln_okx: "Taxas na OKX no seu volume", ln_cb: "Cashback garantido de 20% por mês", ln_net: "Seu custo líquido em taxas", ln_save: "Economia total vs. hoje",
+    tg_short: "Entrar no Telegram",
+    approx: "Valores aproximados, com base no seu volume, no seu mix de ordens e na tabela pública de taxas da OKX. O cashback real segue as taxas que você paga de fato a cada semana. As taxas de outras corretoras vêm preenchidas com a taxa padrão VIP 0.",
+    how: "Como funciona", step: "PASSO",
+    s1t: "Cadastre ou vincule sua conta", s1p: "Novo na OKX? Cadastre-se pelo nosso link e verifique sua identidade. Já tem OKX? Vincule sua conta atual.",
+    s2t: "Opere normalmente", s2p: "Spot, futuros e TradFi. Sem volume mínimo e sem prazo de validade.",
+    s3t: "Receba toda semana", s3p: "Pelo menos 20% das taxas que você pagou na semana voltam para sua conta OKX, e até 40% nas semanas boost.",
+    soon_h: "Mais corretoras em breve",
+    soon_p: "O cashback já funciona na OKX. Estamos fechando acordos de cashback com mais corretoras. Opera em outra? Conte no Telegram qual você quer a seguir.",
+    live: "OKX · Ativo",
+    tbl_h: "Taxas de futuros da OKX por nível", tbl_p: "Pares principais (BTC, ETH e outras majors), por operação. Nível pelo volume de futuros de 30 dias. Sua linha fica destacada.",
+    th_tier: "Nível", th_vol30: "Volume 30 dias", th_cb1m: "Cashback a cada $1M operado (20%)",
+    faq_h: "Perguntas frequentes",
+    q1: "Como funcionam os programas de indicação das corretoras?",
+    a1: "<p>As corretoras pagam afiliados para trazer novos traders. Quando você abre conta pelo link de alguém, a corretora repassa a essa pessoa uma parte de cada taxa que você paga, em cada operação, enquanto você operar. Dependendo do acordo, essa parte costuma ficar entre 20% e 50% das suas taxas.</p><p>A maioria dos influenciadores fica com tudo. Você paga a taxa cheia e não recebe nada de volta.</p>",
+    q2: "Como vocês conseguem devolver 20% a 40%?",
+    a2: "<p>Temos um acordo de afiliado com a OKX. Em vez de ficar com toda a comissão, dividimos com você: pelo menos 20% das taxas que você paga voltam para sua conta toda semana.</p>",
+    q3: "Por que o cashback vai de 20% a 40%?",
+    a3: "<p>20% é o mínimo que você recebe, toda semana. Nas semanas boost, anunciadas no nosso Telegram, aumentamos para até 40%.</p>",
+    q4: "Vocês têm acesso à minha conta ou ao meu dinheiro?",
+    a4: "<p>Não. Sua conta, seus fundos e suas chaves continuam com você na OKX. O cashback é pago na sua conta OKX. Nunca vamos pedir sua senha, seus códigos 2FA ou um depósito.</p>",
+    q5: "Quando e como o cashback é pago?",
+    a5: "<p>Toda semana, direto na sua conta OKX. Ele cobre as taxas que você pagou naquela semana.</p>",
+    q6: "Isso muda as taxas que eu pago?",
+    a6: "<p>Não. Você paga a taxa padrão da OKX para o seu nível, e de 20% a 40% dela volta para você. Sua taxa efetiva fica pelo menos 20% menor.</p>",
+    q7: "O que está incluído? Tem mínimo?",
+    a7: "<p>Operações de spot, futuros e TradFi na OKX. Não há volume mínimo nem prazo de validade.</p>",
+    q8: "Já tenho conta na OKX. Ainda posso receber cashback?",
+    a8: "<p>Sim, se sua conta ainda não estiver vinculada a outro indicador. Use o botão \"Já tenho OKX\" para vincular sua conta atual a nós. Você mantém sua conta, saldo e histórico.</p><p>Se sua conta já estiver ligada ao link de outra pessoa, ou o link não funcionar, chame @andolker no Telegram ou escreva para support@getcryptofeeback.com e vemos suas opções.</p>",
+    q9: "Por que os resultados são aproximados?",
+    a9: "<p>A calculadora usa seu volume de 30 dias, seu mix de ordens e a tabela pública de taxas da OKX. O cashback real segue as taxas que você paga de fato a cada semana, então acompanha suas operações.</p>",
+    q10: "Quais corretoras são suportadas?",
+    a10: "<p>A OKX já está ativa. Bybit, MEXC, Bitget, Binance e BTCC chegam em breve.</p>",
+    q11: "A OKX está disponível no meu país?",
+    a11: "<p>A OKX não atende todos os países. Se você consegue abrir uma conta OKX onde mora, pode receber cashback.</p>",
+    q12: "Vocês dão sinais de trading ou recomendação de investimento?",
+    a12: "<p>Não. Só devolvemos parte das suas taxas de trading. Toda decisão de operação é sua. Cripto envolve risco; opere só o que você pode perder.</p>",
+    tg_h: "Toda semana, em público",
+    tg_p: "Publicamos quanto foi devolvido aos traders a cada semana. Entre no canal para acompanhar os pagamentos, tirar dúvidas e ter ajuda para vincular sua conta.",
+    tg_btn: "Entrar no Telegram",
+    auto: "Automático (pelo volume)", ex_other: "Outra", copy: "Copiar link", copied: "Copiado", sel: "Selecione o link",
+    mk_pct: "{n}% maker", tk_pct: "{n}% taker",
+    c1: "Se você entrou pelo link de indicação de alguém, até <b>{x}</b> das taxas que você paga por mês podem ir para essa pessoa. Você não recebe nada de volta.",
+    c2: "Com a GetCryptoFeeBack, pelo menos 20% das taxas que você paga voltam para você: <b>{cb}</b> por mês, e até <b>{max}</b> nas semanas boost.",
+    week: "por mês · ≈ {x} toda semana", rmin: "20% (mínimo)", rboost: "40% (boost)",
+    k_now_okx: "Taxas que você paga na OKX", k_now: "Taxas que você paga hoje"
+  },
+  es: {
+    title: "GetCryptoFeeBack | Calculadora de comisiones cripto: recupera del 20% al 40% de tus comisiones",
+    nav_faq: "Preguntas", nav_cta: "Quiero cashback", eyebrow: "Calculadora de comisiones cripto",
+    h1: "¿Cuánto pagaste en <em>comisiones de trading</em> el mes pasado?",
+    lede: "La mayoría de los traders nunca lo revisa. Ingresa tu volumen de 30 días, mira cuánto pagas de verdad en comisiones y recupera del 20% al 40% cada semana.",
+    l_vol: "Tu volumen en futuros, últimos 30 días", l_ex: "¿Dónde operas hoy?", l_tier: "Tu nivel de comisión en OKX", l_fee: "Tus comisiones actuales (%)",
+    maker: "Maker", taker: "Taker", r_title: "Tu estado de comisiones",
+    k_bill: "Tu factura de comisiones", k_bill_sub: "al mes en comisiones de trading", k_back: "Vuelve a ti, como mínimo",
+    k_year: "Ahorras al año", k_year_sub: "en comisiones de trading", k_boost: "En semanas boost del 40%", k_boost_sub: "al mes, hasta",
+    new_t: "Nuevo en OKX", new_s: "Abre una cuenta con cashback", ex_t: "Ya uso OKX", ex_s: "Vincula tu cuenta actual",
+    note: "Las cuentas existentes se pueden vincular si no están ligadas a otro referidor. ¿El enlace no funciona? Escribe a <code>@andolker</code> en Telegram.",
+    more: "Ver el desglose completo", l_mix: "Tu mezcla de órdenes",
+    h_mix: "Las órdenes límite que esperan en el libro son maker. Las órdenes a mercado son taker. El volumen es el tamaño de la posición, con apalancamiento.",
+    l_rate: "Cashback por porcentaje", th_rate: "Porcentaje", th_week: "Por semana", th_month: "Por mes", th_net: "Costo neto",
+    ln_okx: "Comisiones en OKX con tu volumen", ln_cb: "Cashback garantizado del 20% al mes", ln_net: "Tu costo neto en comisiones", ln_save: "Ahorro total vs. hoy",
+    tg_short: "Unirse al Telegram",
+    approx: "Valores aproximados, según tu volumen, tu mezcla de órdenes y la tabla pública de comisiones de OKX. Tu cashback real sigue las comisiones que pagas realmente cada semana. Las comisiones de otros exchanges vienen con su tarifa estándar VIP 0.",
+    how: "Cómo funciona", step: "PASO",
+    s1t: "Regístrate o vincula tu cuenta", s1p: "¿Nuevo en OKX? Regístrate con nuestro enlace y verifica tu identidad. ¿Ya usas OKX? Vincula tu cuenta actual.",
+    s2t: "Opera como siempre", s2p: "Spot, futuros y TradFi. Sin volumen mínimo y sin vencimiento.",
+    s3t: "Cobra cada semana", s3p: "Al menos el 20% de las comisiones que pagaste esa semana vuelve a tu cuenta OKX, y hasta el 40% en semanas boost.",
+    soon_h: "Más exchanges muy pronto",
+    soon_p: "El cashback ya funciona en OKX. Estamos cerrando acuerdos de cashback con más exchanges. ¿Operas en otro? Dinos en Telegram cuál quieres después.",
+    live: "OKX · Activo",
+    tbl_h: "Comisiones de futuros de OKX por nivel", tbl_p: "Pares principales (BTC, ETH y otras majors), por operación. Nivel según el volumen de futuros de 30 días. Tu fila aparece resaltada.",
+    th_tier: "Nivel", th_vol30: "Volumen 30 días", th_cb1m: "Cashback por cada $1M operado (20%)",
+    faq_h: "Preguntas frecuentes",
+    q1: "¿Cómo funcionan los programas de referidos de los exchanges?",
+    a1: "<p>Los exchanges pagan a afiliados por traer nuevos traders. Cuando abres una cuenta con el enlace de alguien, el exchange le envía a esa persona una parte de cada comisión que pagas, en cada operación, mientras sigas operando. Según el acuerdo, esa parte suele estar entre el 20% y el 50% de tus comisiones.</p><p>La mayoría de los influencers se queda con todo. Tú pagas la comisión completa y no recuperas nada.</p>",
+    q2: "¿Cómo pueden devolverme del 20% al 40%?",
+    a2: "<p>Tenemos un acuerdo de afiliado con OKX. En lugar de quedarnos con toda la comisión, la compartimos contigo: al menos el 20% de las comisiones que pagas vuelve a tu cuenta cada semana.</p>",
+    q3: "¿Por qué el cashback va del 20% al 40%?",
+    a3: "<p>El 20% es lo mínimo que recibes, cada semana. En las semanas boost, anunciadas en nuestro Telegram, lo subimos hasta el 40%.</p>",
+    q4: "¿Tienen acceso a mi cuenta o a mi dinero?",
+    a4: "<p>No. Tu cuenta, tus fondos y tus claves siguen contigo en OKX. El cashback se paga en tu cuenta OKX. Nunca te pediremos tu contraseña, tus códigos 2FA ni un depósito.</p>",
+    q5: "¿Cuándo y cómo se paga el cashback?",
+    a5: "<p>Cada semana, directo a tu cuenta OKX. Cubre las comisiones que pagaste durante esa semana.</p>",
+    q6: "¿Esto cambia las comisiones que pago?",
+    a6: "<p>No. Pagas la comisión estándar de OKX para tu nivel y del 20% al 40% vuelve a ti. Tu comisión efectiva es al menos un 20% más baja.</p>",
+    q7: "¿Qué incluye? ¿Hay un mínimo?",
+    a7: "<p>Operaciones de spot, futuros y TradFi en OKX. No hay volumen mínimo ni vencimiento.</p>",
+    q8: "Ya tengo cuenta en OKX. ¿Puedo recibir cashback?",
+    a8: "<p>Sí, si tu cuenta no está vinculada a otro referidor. Usa el botón \"Ya uso OKX\" para vincular tu cuenta actual con nosotros. Conservas tu cuenta, saldo e historial.</p><p>Si tu cuenta ya está ligada al enlace de otra persona, o el enlace no te funciona, escribe a @andolker en Telegram o a support@getcryptofeeback.com y revisamos tus opciones.</p>",
+    q9: "¿Por qué los resultados son aproximados?",
+    a9: "<p>La calculadora usa tu volumen de 30 días, tu mezcla de órdenes y la tabla pública de comisiones de OKX. Tu cashback real sigue las comisiones que pagas cada semana, así que varía con tu operativa.</p>",
+    q10: "¿Qué exchanges están disponibles?",
+    a10: "<p>OKX ya está activo. Bybit, MEXC, Bitget, Binance y BTCC llegan pronto.</p>",
+    q11: "¿OKX está disponible en mi país?",
+    a11: "<p>OKX no opera en todos los países. Si puedes abrir una cuenta OKX donde vives, puedes recibir cashback.</p>",
+    q12: "¿Dan señales de trading o asesoría de inversión?",
+    a12: "<p>No. Solo devolvemos parte de tus comisiones de trading. Cada decisión de operar es tuya. Las criptomonedas implican riesgo; opera solo lo que puedas permitirte perder.</p>",
+    tg_h: "Cada semana, en público",
+    tg_p: "Publicamos cuánto se devolvió a los traders cada semana. Únete al canal para seguir los pagos, hacer preguntas y recibir ayuda para vincular tu cuenta.",
+    tg_btn: "Unirse en Telegram",
+    auto: "Automático (por volumen)", ex_other: "Otro", copy: "Copiar enlace", copied: "Copiado", sel: "Selecciona el enlace",
+    mk_pct: "{n}% maker", tk_pct: "{n}% taker",
+    c1: "Si te registraste con el enlace de referido de alguien, hasta <b>{x}</b> de las comisiones que pagas cada mes pueden ir a esa persona. Tú no recuperas nada.",
+    c2: "Con GetCryptoFeeBack, al menos el 20% de las comisiones que pagas vuelve a ti: <b>{cb}</b> al mes, y hasta <b>{max}</b> en semanas boost.",
+    week: "al mes · ≈ {x} cada semana", rmin: "20% (mínimo)", rboost: "40% (boost)",
+    k_now_okx: "Comisiones que pagas en OKX", k_now: "Comisiones que pagas hoy"
+  },
+  de: {
+    title: "GetCryptoFeeBack | Krypto-Gebührenrechner: 20 % bis 40 % deiner Trading-Gebühren zurück",
+    nav_faq: "FAQ", nav_cta: "Cashback holen", eyebrow: "Krypto-Gebührenrechner",
+    h1: "Wie viel hast du letzten Monat an <em>Trading-Gebühren</em> bezahlt?",
+    lede: "Die meisten Trader prüfen es nie. Gib dein 30-Tage-Volumen ein, sieh deine echten Gebühren und hol dir jede Woche 20 % bis 40 % davon zurück.",
+    l_vol: "Dein Futures-Volumen, letzte 30 Tage", l_ex: "Wo tradest du heute?", l_tier: "Deine OKX-Gebührenstufe", l_fee: "Deine aktuellen Gebühren (%)",
+    maker: "Maker", taker: "Taker", r_title: "Deine Gebührenübersicht",
+    k_bill: "Deine Gebühren", k_bill_sub: "pro Monat an Trading-Gebühren", k_back: "Zurück an dich, mindestens",
+    k_year: "Ersparnis pro Jahr", k_year_sub: "an Trading-Gebühren", k_boost: "In 40-%-Boost-Wochen", k_boost_sub: "pro Monat, bis zu",
+    new_t: "Neu bei OKX", new_s: "Konto mit Cashback eröffnen", ex_t: "Schon bei OKX", ex_s: "Bestehendes Konto verknüpfen",
+    note: "Bestehende Konten lassen sich verknüpfen, wenn sie noch keinem anderen Werber zugeordnet sind. Link funktioniert nicht? Schreib <code>@andolker</code> auf Telegram.",
+    more: "Vollständige Aufschlüsselung", l_mix: "Dein Order-Mix",
+    h_mix: "Limit-Orders, die im Orderbuch warten, sind Maker. Market-Orders sind Taker. Volumen ist die Positionsgröße inklusive Hebel.",
+    l_rate: "Cashback nach Satz", th_rate: "Satz", th_week: "Pro Woche", th_month: "Pro Monat", th_net: "Netto-Gebühren",
+    ln_okx: "Gebühren bei OKX mit deinem Volumen", ln_cb: "Garantierte 20 % Cashback pro Monat", ln_net: "Deine Netto-Gebühren", ln_save: "Gesamtersparnis vs. heute",
+    tg_short: "Zum Telegram",
+    approx: "Näherungswerte auf Basis deines Volumens, deines Order-Mix und der öffentlichen OKX-Gebührentabelle. Dein echtes Cashback richtet sich nach den Gebühren, die du jede Woche tatsächlich zahlst. Gebühren anderer Börsen sind mit ihrem Standardsatz VIP 0 vorausgefüllt.",
+    how: "So funktioniert's", step: "SCHRITT",
+    s1t: "Registrieren oder verknüpfen", s1p: "Neu bei OKX? Registriere dich über unseren Link und verifiziere deine Identität. Schon bei OKX? Verknüpfe dein bestehendes Konto.",
+    s2t: "Trade wie gewohnt", s2p: "Spot, Futures und TradFi. Kein Mindestvolumen, kein Ablaufdatum.",
+    s3t: "Jede Woche ausgezahlt", s3p: "Mindestens 20 % der Gebühren dieser Woche gehen zurück auf dein OKX-Konto, in Boost-Wochen bis zu 40 %.",
+    soon_h: "Weitere Börsen bald verfügbar",
+    soon_p: "Cashback läuft heute bei OKX. Wir arbeiten an Cashback-Deals mit weiteren Börsen. Du tradest woanders? Sag uns auf Telegram, welche Börse du als Nächstes willst.",
+    live: "OKX · Aktiv",
+    tbl_h: "OKX-Futures-Gebühren nach Stufe", tbl_p: "Hauptpaare (BTC, ETH und andere Majors), pro Trade. Stufe nach 30-Tage-Futures-Volumen. Deine Zeile ist markiert.",
+    th_tier: "Stufe", th_vol30: "30-Tage-Volumen", th_cb1m: "Cashback pro $1M Volumen (20 %)",
+    faq_h: "Häufige Fragen",
+    q1: "Wie funktionieren Empfehlungsprogramme von Börsen?",
+    a1: "<p>Börsen bezahlen Affiliates dafür, neue Trader zu bringen. Wenn du ein Konto über den Link einer Person eröffnest, gibt die Börse ihr einen Anteil an jeder Gebühr, die du zahlst, bei jedem Trade, solange du tradest. Je nach Vertrag liegt dieser Anteil oft zwischen 20 % und 50 % deiner Gebühren.</p><p>Die meisten Influencer behalten alles. Du zahlst die volle Gebühr und bekommst nichts zurück.</p>",
+    q2: "Wie könnt ihr mir 20 % bis 40 % zurückgeben?",
+    a2: "<p>Wir haben einen Affiliate-Vertrag mit OKX. Statt die ganze Provision zu behalten, teilen wir sie mit dir: Mindestens 20 % deiner Gebühren gehen jede Woche zurück auf dein Konto.</p>",
+    q3: "Warum liegt das Cashback zwischen 20 % und 40 %?",
+    a3: "<p>20 % bekommst du mindestens, jede Woche. In Boost-Wochen, die wir auf Telegram ankündigen, erhöhen wir auf bis zu 40 %.</p>",
+    q4: "Habt ihr Zugriff auf mein Konto oder mein Geld?",
+    a4: "<p>Nein. Dein Konto, dein Guthaben und deine Schlüssel bleiben bei dir auf OKX. Das Cashback wird auf dein OKX-Konto gezahlt. Wir fragen nie nach deinem Passwort, deinen 2FA-Codes oder einer Einzahlung.</p>",
+    q5: "Wann und wie wird das Cashback ausgezahlt?",
+    a5: "<p>Jede Woche, direkt auf dein OKX-Konto. Es deckt die Gebühren, die du in dieser Woche gezahlt hast.</p>",
+    q6: "Ändert das meine Gebühren?",
+    a6: "<p>Nein. Du zahlst die normale OKX-Gebühr deiner Stufe, und 20 % bis 40 % davon kommen zu dir zurück. Deine effektive Gebühr sinkt um mindestens 20 %.</p>",
+    q7: "Was ist abgedeckt? Gibt es ein Minimum?",
+    a7: "<p>Spot-, Futures- und TradFi-Trading auf OKX. Kein Mindestvolumen und kein Ablaufdatum.</p>",
+    q8: "Ich habe schon ein OKX-Konto. Bekomme ich trotzdem Cashback?",
+    a8: "<p>Ja, wenn dein Konto noch keinem anderen Werber zugeordnet ist. Nutze den Button \"Schon bei OKX\", um dein bestehendes Konto mit uns zu verknüpfen. Konto, Guthaben und Verlauf bleiben erhalten.</p><p>Ist dein Konto schon an den Link einer anderen Person gebunden oder funktioniert der Link nicht, schreib @andolker auf Telegram oder an support@getcryptofeeback.com und wir prüfen deine Optionen.</p>",
+    q9: "Warum sind die Ergebnisse nur Näherungswerte?",
+    a9: "<p>Der Rechner nutzt dein 30-Tage-Volumen, deinen Order-Mix und die öffentliche OKX-Gebührentabelle. Dein echtes Cashback folgt den Gebühren, die du jede Woche tatsächlich zahlst, und schwankt mit deinem Trading.</p>",
+    q10: "Welche Börsen werden unterstützt?",
+    a10: "<p>OKX ist heute aktiv. Bybit, MEXC, Bitget, Binance und BTCC folgen bald.</p>",
+    q11: "Ist OKX in meinem Land verfügbar?",
+    a11: "<p>OKX ist nicht in jedem Land verfügbar. Wenn du dort, wo du lebst, ein OKX-Konto eröffnen kannst, bekommst du Cashback.</p>",
+    q12: "Gebt ihr Trading-Signale oder Anlageberatung?",
+    a12: "<p>Nein. Wir geben nur einen Teil deiner Trading-Gebühren zurück. Jede Trading-Entscheidung triffst du selbst. Krypto ist riskant; trade nur, was du verlieren kannst.</p>",
+    tg_h: "Jede Woche, öffentlich",
+    tg_p: "Wir veröffentlichen jede Woche, wie viel an Trader zurückgezahlt wurde. Tritt dem Kanal bei, um die Auszahlungen zu verfolgen, Fragen zu stellen und Hilfe beim Verknüpfen deines Kontos zu bekommen.",
+    tg_btn: "Auf Telegram beitreten",
+    auto: "Automatisch (nach Volumen)", ex_other: "Andere", copy: "Link kopieren", copied: "Kopiert", sel: "Link markieren",
+    mk_pct: "{n} % Maker", tk_pct: "{n} % Taker",
+    c1: "Wenn du dich über den Empfehlungslink einer Person angemeldet hast, können bis zu <b>{x}</b> deiner monatlichen Gebühren an sie gehen. Du bekommst nichts davon zurück.",
+    c2: "Mit GetCryptoFeeBack kommen mindestens 20 % deiner Gebühren zu dir zurück: <b>{cb}</b> pro Monat und bis zu <b>{max}</b> in Boost-Wochen.",
+    week: "pro Monat · ≈ {x} jede Woche", rmin: "20 % (Minimum)", rboost: "40 % (Boost)",
+    k_now_okx: "Deine Gebühren bei OKX", k_now: "Deine Gebühren heute"
+  },
+  fr: {
+    title: "GetCryptoFeeBack | Calculateur de frais crypto : récupérez 20 % à 40 % de vos frais de trading",
+    nav_faq: "FAQ", nav_cta: "Cashback", eyebrow: "Calculateur de frais crypto",
+    h1: "Combien avez-vous payé en <em>frais de trading</em> le mois dernier ?",
+    lede: "La plupart des traders ne vérifient jamais. Entrez votre volume sur 30 jours, voyez vos vrais frais et récupérez-en 20 % à 40 % chaque semaine.",
+    l_vol: "Votre volume futures, 30 derniers jours", l_ex: "Où tradez-vous aujourd'hui ?", l_tier: "Votre niveau de frais OKX", l_fee: "Vos frais actuels (%)",
+    maker: "Maker", taker: "Taker", r_title: "Votre relevé de frais",
+    k_bill: "Vos frais", k_bill_sub: "par mois en frais de trading", k_back: "Vous revient, au minimum",
+    k_year: "Économie par an", k_year_sub: "en frais de trading", k_boost: "Semaines boost à 40 %", k_boost_sub: "par mois, jusqu'à",
+    new_t: "Nouveau sur OKX", new_s: "Ouvrir un compte avec cashback", ex_t: "Déjà sur OKX", ex_s: "Lier votre compte existant",
+    note: "Un compte existant peut être lié s'il n'est pas déjà rattaché à un autre parrain. Le lien ne marche pas ? Écrivez à <code>@andolker</code> sur Telegram.",
+    more: "Voir le détail complet", l_mix: "Votre mix d'ordres",
+    h_mix: "Les ordres limites qui attendent dans le carnet sont maker. Les ordres au marché sont taker. Le volume est la taille de position, levier compris.",
+    l_rate: "Cashback par taux", th_rate: "Taux", th_week: "Par semaine", th_month: "Par mois", th_net: "Coût net",
+    ln_okx: "Frais OKX à votre volume", ln_cb: "Cashback garanti de 20 % par mois", ln_net: "Votre coût net en frais", ln_save: "Économie totale vs. aujourd'hui",
+    tg_short: "Rejoindre le Telegram",
+    approx: "Valeurs approximatives, selon votre volume, votre mix d'ordres et la grille publique de frais OKX. Votre cashback réel suit les frais que vous payez réellement chaque semaine. Les frais des autres plateformes sont préremplis avec leur taux standard VIP 0.",
+    how: "Comment ça marche", step: "ÉTAPE",
+    s1t: "Inscrivez-vous ou liez votre compte", s1p: "Nouveau sur OKX ? Inscrivez-vous via notre lien et vérifiez votre identité. Déjà sur OKX ? Liez votre compte existant.",
+    s2t: "Tradez comme d'habitude", s2p: "Spot, futures et TradFi. Pas de volume minimum, pas d'expiration.",
+    s3t: "Payé chaque semaine", s3p: "Au moins 20 % des frais payés dans la semaine reviennent sur votre compte OKX, et jusqu'à 40 % les semaines boost.",
+    soon_h: "D'autres plateformes bientôt",
+    soon_p: "Le cashback fonctionne déjà sur OKX. Nous préparons des accords de cashback avec d'autres plateformes. Vous tradez ailleurs ? Dites-nous sur Telegram laquelle vous voulez ensuite.",
+    live: "OKX · Actif",
+    tbl_h: "Frais futures OKX par niveau", tbl_p: "Paires principales (BTC, ETH et autres majors), par trade. Niveau selon le volume futures sur 30 jours. Votre ligne est surlignée.",
+    th_tier: "Niveau", th_vol30: "Volume 30 jours", th_cb1m: "Cashback par 1 M$ tradé (20 %)",
+    faq_h: "Questions fréquentes",
+    q1: "Comment fonctionnent les programmes de parrainage des plateformes ?",
+    a1: "<p>Les plateformes paient des affiliés pour amener de nouveaux traders. Quand vous ouvrez un compte via le lien de quelqu'un, la plateforme lui reverse une part de chaque frais que vous payez, sur chaque trade, tant que vous tradez. Selon l'accord, cette part se situe souvent entre 20 % et 50 % de vos frais.</p><p>La plupart des influenceurs gardent tout. Vous payez les frais complets et ne récupérez rien.</p>",
+    q2: "Comment pouvez-vous me reverser 20 % à 40 % ?",
+    a2: "<p>Nous avons un accord d'affiliation avec OKX. Au lieu de garder toute la commission, nous la partageons avec vous : au moins 20 % de vos frais reviennent sur votre compte chaque semaine.</p>",
+    q3: "Pourquoi le cashback va-t-il de 20 % à 40 % ?",
+    a3: "<p>20 % est le minimum que vous recevez, chaque semaine. Pendant les semaines boost, annoncées sur notre Telegram, nous montons jusqu'à 40 %.</p>",
+    q4: "Avez-vous accès à mon compte ou à mon argent ?",
+    a4: "<p>Non. Votre compte, vos fonds et vos clés restent chez vous sur OKX. Le cashback est versé sur votre compte OKX. Nous ne vous demanderons jamais votre mot de passe, vos codes 2FA ni un dépôt.</p>",
+    q5: "Quand et comment le cashback est-il versé ?",
+    a5: "<p>Chaque semaine, directement sur votre compte OKX. Il couvre les frais payés pendant la semaine.</p>",
+    q6: "Est-ce que cela change mes frais ?",
+    a6: "<p>Non. Vous payez les frais OKX standard de votre niveau, et 20 % à 40 % vous reviennent. Vos frais effectifs baissent d'au moins 20 %.</p>",
+    q7: "Qu'est-ce qui est couvert ? Y a-t-il un minimum ?",
+    a7: "<p>Le trading spot, futures et TradFi sur OKX. Pas de volume minimum, pas d'expiration.</p>",
+    q8: "J'ai déjà un compte OKX. Puis-je quand même avoir le cashback ?",
+    a8: "<p>Oui, si votre compte n'est pas déjà lié à un autre parrain. Utilisez le bouton « Déjà sur OKX » pour lier votre compte existant. Vous gardez votre compte, votre solde et votre historique.</p><p>Si votre compte est déjà rattaché au lien de quelqu'un d'autre, ou si le lien ne fonctionne pas, écrivez à @andolker sur Telegram ou à support@getcryptofeeback.com et nous verrons vos options.</p>",
+    q9: "Pourquoi les résultats sont-ils approximatifs ?",
+    a9: "<p>Le calculateur utilise votre volume sur 30 jours, votre mix d'ordres et la grille publique de frais OKX. Votre cashback réel suit les frais que vous payez chaque semaine, il varie donc avec votre trading.</p>",
+    q10: "Quelles plateformes sont prises en charge ?",
+    a10: "<p>OKX est actif aujourd'hui. Bybit, MEXC, Bitget, Binance et BTCC arrivent bientôt.</p>",
+    q11: "OKX est-il disponible dans mon pays ?",
+    a11: "<p>OKX ne couvre pas tous les pays. Si vous pouvez ouvrir un compte OKX là où vous vivez, vous pouvez recevoir le cashback.</p>",
+    q12: "Donnez-vous des signaux de trading ou des conseils d'investissement ?",
+    a12: "<p>Non. Nous reversons seulement une partie de vos frais de trading. Chaque décision de trading vous appartient. La crypto comporte des risques ; ne tradez que ce que vous pouvez vous permettre de perdre.</p>",
+    tg_h: "Chaque semaine, en public",
+    tg_p: "Nous publions chaque semaine le montant reversé aux traders. Rejoignez le canal pour suivre les paiements, poser vos questions et être aidé pour lier votre compte.",
+    tg_btn: "Rejoindre sur Telegram",
+    auto: "Auto (selon le volume)", ex_other: "Autre", copy: "Copier le lien", copied: "Copié", sel: "Sélectionnez le lien",
+    mk_pct: "{n} % maker", tk_pct: "{n} % taker",
+    c1: "Si vous vous êtes inscrit via le lien de parrainage de quelqu'un, jusqu'à <b>{x}</b> de vos frais mensuels peuvent lui revenir. Vous n'en récupérez rien.",
+    c2: "Avec GetCryptoFeeBack, au moins 20 % de vos frais vous reviennent : <b>{cb}</b> par mois, et jusqu'à <b>{max}</b> les semaines boost.",
+    week: "par mois · ≈ {x} chaque semaine", rmin: "20 % (minimum)", rboost: "40 % (boost)",
+    k_now_okx: "Vos frais sur OKX", k_now: "Vos frais actuels"
+  },
+  ru: {
+    title: "GetCryptoFeeBack | Калькулятор комиссий: верните 20–40% торговых комиссий",
+    nav_faq: "Вопросы", nav_cta: "Кэшбэк", eyebrow: "Калькулятор криптокомиссий",
+    h1: "Сколько вы заплатили <em>торговых комиссий</em> в прошлом месяце?",
+    lede: "Большинство трейдеров никогда это не проверяют. Введите объём за 30 дней, узнайте реальную сумму комиссий и возвращайте 20–40% от неё каждую неделю.",
+    l_vol: "Ваш объём фьючерсов за 30 дней", l_ex: "Где вы торгуете сейчас?", l_tier: "Ваш уровень комиссий OKX", l_fee: "Ваши текущие комиссии (%)",
+    maker: "Мейкер", taker: "Тейкер", r_title: "Ваша выписка по комиссиям",
+    k_bill: "Ваши комиссии", k_bill_sub: "в месяц на торговые комиссии", k_back: "Вернётся вам, минимум",
+    k_year: "Экономия за год", k_year_sub: "на торговых комиссиях", k_boost: "В boost-недели 40%", k_boost_sub: "в месяц, до",
+    new_t: "Новичок в OKX", new_s: "Откройте аккаунт с кэшбэком", ex_t: "Уже на OKX", ex_s: "Привяжите текущий аккаунт",
+    note: "Существующий аккаунт можно привязать, если он ещё не закреплён за другим реферером. Ссылка не работает? Напишите <code>@andolker</code> в Telegram.",
+    more: "Показать полный расчёт", l_mix: "Ваш состав ордеров",
+    h_mix: "Лимитные ордера, ожидающие в стакане, — мейкер. Рыночные ордера — тейкер. Объём — размер позиции с учётом плеча.",
+    l_rate: "Кэшбэк по ставке", th_rate: "Ставка", th_week: "В неделю", th_month: "В месяц", th_net: "Чистые комиссии",
+    ln_okx: "Комиссии OKX при вашем объёме", ln_cb: "Гарантированный кэшбэк 20% в месяц", ln_net: "Ваши чистые комиссии", ln_save: "Общая экономия по сравнению с сейчас",
+    tg_short: "Перейти в Telegram",
+    approx: "Приблизительные значения на основе вашего объёма, состава ордеров и публичной таблицы комиссий OKX. Реальный кэшбэк зависит от комиссий, которые вы фактически платите каждую неделю. Для других бирж подставлена стандартная ставка VIP 0.",
+    how: "Как это работает", step: "ШАГ",
+    s1t: "Зарегистрируйтесь или привяжите аккаунт", s1p: "Новичок в OKX? Зарегистрируйтесь по нашей ссылке и пройдите верификацию. Уже на OKX? Привяжите текущий аккаунт.",
+    s2t: "Торгуйте как обычно", s2p: "Спот, фьючерсы и TradFi. Без минимального объёма и без срока действия.",
+    s3t: "Выплаты каждую неделю", s3p: "Минимум 20% комиссий за неделю возвращается на ваш аккаунт OKX, а в boost-недели — до 40%.",
+    soon_h: "Скоро другие биржи",
+    soon_p: "Кэшбэк уже работает на OKX. Мы договариваемся о кэшбэке с другими биржами. Торгуете в другом месте? Напишите в Telegram, какую биржу добавить следующей.",
+    live: "OKX · Работает",
+    tbl_h: "Комиссии фьючерсов OKX по уровням", tbl_p: "Основные пары (BTC, ETH и другие крупные монеты), за сделку. Уровень по объёму фьючерсов за 30 дней. Ваша строка выделена.",
+    th_tier: "Уровень", th_vol30: "Объём за 30 дней", th_cb1m: "Кэшбэк на $1M объёма (20%)",
+    faq_h: "Частые вопросы",
+    q1: "Как работают реферальные программы бирж?",
+    a1: "<p>Биржи платят партнёрам за привлечение новых трейдеров. Когда вы открываете аккаунт по чьей-то ссылке, биржа отдаёт этому человеку часть каждой комиссии, которую вы платите, с каждой сделки, всё время, пока вы торгуете. В зависимости от условий эта доля часто составляет от 20% до 50% ваших комиссий.</p><p>Большинство инфлюенсеров оставляют всё себе. Вы платите полную комиссию и ничего не получаете обратно.</p>",
+    q2: "Как вы можете возвращать 20–40%?",
+    a2: "<p>У нас партнёрское соглашение с OKX. Вместо того чтобы оставлять всю комиссию себе, мы делим её с вами: минимум 20% ваших комиссий каждую неделю возвращается на ваш аккаунт.</p>",
+    q3: "Почему кэшбэк от 20% до 40%?",
+    a3: "<p>20% — это минимум, который вы получаете каждую неделю. В boost-недели, о которых мы объявляем в Telegram, ставка поднимается до 40%.</p>",
+    q4: "У вас есть доступ к моему аккаунту или деньгам?",
+    a4: "<p>Нет. Аккаунт, средства и ключи остаются у вас на OKX. Кэшбэк зачисляется на ваш аккаунт OKX. Мы никогда не попросим пароль, коды 2FA или депозит.</p>",
+    q5: "Когда и как выплачивается кэшбэк?",
+    a5: "<p>Каждую неделю, напрямую на ваш аккаунт OKX. Он покрывает комиссии, уплаченные за эту неделю.</p>",
+    q6: "Это меняет мои комиссии?",
+    a6: "<p>Нет. Вы платите стандартную комиссию OKX для своего уровня, а 20–40% от неё возвращаются вам. Ваша эффективная комиссия становится минимум на 20% ниже.</p>",
+    q7: "Что входит? Есть ли минимум?",
+    a7: "<p>Спот, фьючерсы и TradFi на OKX. Нет минимального объёма и срока действия.</p>",
+    q8: "У меня уже есть аккаунт OKX. Можно получать кэшбэк?",
+    a8: "<p>Да, если ваш аккаунт ещё не привязан к другому рефереру. Нажмите кнопку «Уже на OKX», чтобы привязать текущий аккаунт к нам. Аккаунт, баланс и история сохраняются.</p><p>Если аккаунт уже закреплён за чужой ссылкой или ссылка не срабатывает, напишите @andolker в Telegram или на support@getcryptofeeback.com, и мы подберём вариант.</p>",
+    q9: "Почему результаты приблизительные?",
+    a9: "<p>Калькулятор использует ваш объём за 30 дней, состав ордеров и публичную таблицу комиссий OKX. Реальный кэшбэк зависит от комиссий, которые вы фактически платите каждую неделю, поэтому меняется вместе с вашей торговлей.</p>",
+    q10: "Какие биржи поддерживаются?",
+    a10: "<p>OKX уже работает. Bybit, MEXC, Bitget, Binance и BTCC появятся скоро.</p>",
+    q11: "Доступна ли OKX в моей стране?",
+    a11: "<p>OKX работает не во всех странах. Если вы можете открыть аккаунт OKX там, где живёте, вы можете получать кэшбэк.</p>",
+    q12: "Вы даёте торговые сигналы или инвестиционные советы?",
+    a12: "<p>Нет. Мы только возвращаем часть ваших торговых комиссий. Все торговые решения принимаете вы. Криптовалюты связаны с риском; торгуйте только тем, что можете позволить себе потерять.</p>",
+    tg_h: "Каждую неделю, публично",
+    tg_p: "Каждую неделю мы публикуем, сколько вернули трейдерам. Подписывайтесь на канал, чтобы следить за выплатами, задавать вопросы и получить помощь с привязкой аккаунта.",
+    tg_btn: "Открыть Telegram",
+    auto: "Авто (по объёму)", ex_other: "Другая", copy: "Скопировать", copied: "Скопировано", sel: "Выделите ссылку",
+    mk_pct: "{n}% мейкер", tk_pct: "{n}% тейкер",
+    c1: "Если вы зарегистрировались по чьей-то реферальной ссылке, до <b>{x}</b> ваших комиссий в месяц может уходить этому человеку. Вам ничего не возвращается.",
+    c2: "С GetCryptoFeeBack минимум 20% ваших комиссий возвращается вам: <b>{cb}</b> в месяц и до <b>{max}</b> в boost-недели.",
+    week: "в месяц · ≈ {x} каждую неделю", rmin: "20% (минимум)", rboost: "40% (boost)",
+    k_now_okx: "Ваши комиссии на OKX", k_now: "Ваши комиссии сейчас"
+  },
+  zh: {
+    title: "GetCryptoFeeBack | 加密手续费计算器：返还 20% 至 40% 交易手续费",
+    nav_faq: "常见问题", nav_cta: "领取返佣", eyebrow: "加密手续费计算器",
+    h1: "上个月你付了多少<em>交易手续费</em>？",
+    lede: "大多数交易者从不核算。输入你 30 天的交易量，看清真实手续费，每周拿回其中的 20% 至 40%。",
+    l_vol: "你近 30 天的合约交易量", l_ex: "你现在在哪里交易？", l_tier: "你的 OKX 费率等级", l_fee: "你当前的费率 (%)",
+    maker: "挂单", taker: "吃单", r_title: "你的手续费账单",
+    k_bill: "你的手续费", k_bill_sub: "每月交易手续费", k_back: "返还给你，至少",
+    k_year: "每年节省", k_year_sub: "交易手续费", k_boost: "40% 加码周", k_boost_sub: "每月，最高",
+    new_t: "OKX 新用户", new_s: "注册带返佣的账户", ex_t: "已有 OKX 账户", ex_s: "绑定现有账户",
+    note: "现有账户如未绑定其他邀请人即可绑定。链接无法使用？请在 Telegram 联系 <code>@andolker</code>。",
+    more: "查看完整明细", l_mix: "你的订单构成",
+    h_mix: "挂在订单簿上等待成交的限价单为挂单，市价单为吃单。交易量为仓位规模，含杠杆。",
+    l_rate: "不同返佣比例", th_rate: "比例", th_week: "每周", th_month: "每月", th_net: "净手续费",
+    ln_okx: "按你的交易量在 OKX 的手续费", ln_cb: "每月保底 20% 返佣", ln_net: "你的净手续费", ln_save: "相比现在总共节省",
+    tg_short: "加入 Telegram",
+    approx: "数值为估算，基于你的交易量、订单构成和 OKX 公开费率表。实际返佣取决于你每周实际支付的手续费。其他交易所预填其标准 VIP 0 费率。",
+    how: "如何运作", step: "步骤",
+    s1t: "注册或绑定账户", s1p: "OKX 新用户？通过我们的链接注册并完成身份认证。已有 OKX？绑定你的现有账户。",
+    s2t: "照常交易", s2p: "现货、合约和 TradFi。无最低交易量，无有效期限制。",
+    s3t: "每周发放", s3p: "你当周支付手续费的至少 20% 返还到你的 OKX 账户，加码周最高 40%。",
+    soon_h: "更多交易所即将上线",
+    soon_p: "返佣目前已在 OKX 上线。我们正在与更多交易所洽谈返佣合作。在别处交易？在 Telegram 告诉我们你希望下一个支持哪家。",
+    live: "OKX · 已上线",
+    tbl_h: "OKX 合约各等级手续费", tbl_p: "主流交易对（BTC、ETH 等），按每笔交易计。等级按 30 天合约交易量划分。你的等级已高亮。",
+    th_tier: "等级", th_vol30: "30 天交易量", th_cb1m: "每交易 100 万美元的返佣 (20%)",
+    faq_h: "常见问题",
+    q1: "交易所的邀请返佣计划是怎么运作的？",
+    a1: "<p>交易所向推广者付费以吸引新交易者。当你通过某人的链接开户后，只要你还在交易，交易所就会把你每笔交易手续费的一部分分给那个人。根据协议不同，这部分通常占你手续费的 20% 到 50%。</p><p>大多数网红会全部留下。你付全额手续费，却什么也拿不回来。</p>",
+    q2: "你们怎么能返还 20% 至 40%？",
+    a2: "<p>我们与 OKX 签有推广协议。我们不独占全部佣金，而是与你分享：你所付手续费的至少 20% 每周返还到你的账户。</p>",
+    q3: "为什么返佣是 20% 到 40%？",
+    a3: "<p>20% 是你每周至少能拿到的比例。在我们于 Telegram 公布的加码周，比例最高提升至 40%。</p>",
+    q4: "你们能访问我的账户或资金吗？",
+    a4: "<p>不能。你的账户、资金和密钥都留在你自己的 OKX 账户中。返佣直接发放到你的 OKX 账户。我们绝不会索要你的密码、2FA 验证码或任何充值。</p>",
+    q5: "返佣何时、如何发放？",
+    a5: "<p>每周直接发放到你的 OKX 账户，覆盖你当周支付的手续费。</p>",
+    q6: "这会改变我支付的手续费吗？",
+    a6: "<p>不会。你按自己等级支付 OKX 标准手续费，其中 20% 至 40% 返还给你。你的实际费率至少降低 20%。</p>",
+    q7: "包括哪些交易？有最低要求吗？",
+    a7: "<p>OKX 上的现货、合约和 TradFi 交易。无最低交易量，无有效期限制。</p>",
+    q8: "我已经有 OKX 账户，还能拿返佣吗？",
+    a8: "<p>可以，只要你的账户尚未绑定其他邀请人。点击“已有 OKX 账户”按钮，将现有账户绑定到我们。账户、余额和历史记录都保持不变。</p><p>如果你的账户已绑定他人链接，或链接无法使用，请在 Telegram 联系 @andolker 或发邮件至 support@getcryptofeeback.com，我们会为你查看可行方案。</p>",
+    q9: "为什么结果是估算值？",
+    a9: "<p>计算器使用你 30 天的交易量、订单构成和 OKX 公开费率表。实际返佣取决于你每周实际支付的手续费，会随你的交易而变化。</p>",
+    q10: "支持哪些交易所？",
+    a10: "<p>OKX 已上线。Bybit、MEXC、Bitget、Binance 和 BTCC 即将支持。</p>",
+    q11: "OKX 在我的国家可用吗？",
+    a11: "<p>OKX 并非在所有国家提供服务。只要你能在居住地开设 OKX 账户，就能获得返佣。</p>",
+    q12: "你们提供交易信号或投资建议吗？",
+    a12: "<p>不提供。我们只返还你的部分交易手续费。所有交易决定由你自己做出。加密货币有风险，只用你能承受损失的资金交易。</p>",
+    tg_h: "每周公开",
+    tg_p: "我们每周公布返还给交易者的金额。加入频道，关注发放情况、提问，并获得绑定账户的帮助。",
+    tg_btn: "加入 Telegram",
+    auto: "自动（按交易量）", ex_other: "其他", copy: "复制链接", copied: "已复制", sel: "请选中链接",
+    mk_pct: "{n}% 挂单", tk_pct: "{n}% 吃单",
+    c1: "如果你是通过别人的邀请链接注册的，你每月手续费中最多 <b>{x}</b> 可能归对方所有，而你一分也拿不回来。",
+    c2: "使用 GetCryptoFeeBack，你所付手续费的至少 20% 会返还给你：每月 <b>{cb}</b>，加码周最高 <b>{max}</b>。",
+    week: "每月 · 每周约 {x}", rmin: "20%（保底）", rboost: "40%（加码）",
+    k_now_okx: "你在 OKX 支付的手续费", k_now: "你现在支付的手续费"
+  }
+  };
+  const FLAGS = {
+    en: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#B22234"/><g fill="#fff"><rect y="1.54" width="30" height="1.54"/><rect y="4.62" width="30" height="1.54"/><rect y="7.69" width="30" height="1.54"/><rect y="10.77" width="30" height="1.54"/><rect y="13.85" width="30" height="1.54"/><rect y="16.92" width="30" height="1.54"/></g><rect width="13" height="10.77" fill="#3C3B6E"/></svg>',
+    pt: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#009C3B"/><polygon points="15,2.5 27.5,10 15,17.5 2.5,10" fill="#FFDF00"/><circle cx="15" cy="10" r="4.4" fill="#002776"/></svg>',
+    es: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg>',
+    de: '<svg viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#000"/><rect y="6.67" width="30" height="6.67" fill="#DD0000"/><rect y="13.33" width="30" height="6.67" fill="#FFCE00"/></svg>',
+    fr: '<svg viewBox="0 0 30 20"><rect width="10" height="20" fill="#0055A4"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#EF4135"/></svg>',
+    ru: '<svg viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#fff"/><rect y="6.67" width="30" height="6.67" fill="#0039A6"/><rect y="13.33" width="30" height="6.67" fill="#D52B1E"/></svg>',
+    zh: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#DE2910"/><polygon points="5,2 5.9,4.8 8.8,4.8 6.5,6.5 7.4,9.3 5,7.6 2.6,9.3 3.5,6.5 1.2,4.8 4.1,4.8" fill="#FFDE00"/></svg>'
+  };
+  const LANGS = [['en', 'English'], ['pt', 'Português'], ['es', 'Español'], ['de', 'Deutsch'], ['fr', 'Français'], ['ru', 'Русский'], ['zh', '中文']];
+
+  let lang = 'en';
+  try { const s = localStorage.getItem('gcfb-lang'); if (s && I18N[s]) lang = s; } catch (e) {}
+  const T = (k, v) => { let s = (I18N[lang] && I18N[lang][k] != null) ? I18N[lang][k] : I18N.en[k]; if (v) Object.keys(v).forEach(n => { s = s.split('{' + n + '}').join(v[n]); }); return s; };
   let ex = 'OKX';
   const $ = (id) => document.getElementById(id);
   const fmt = (v) => '$' + Math.round(v).toLocaleString('en-US');
@@ -414,11 +896,11 @@ a.ghost { text-decoration: none; }
     $('chips').appendChild(b);
   });
   Object.keys(EXCH).forEach(k => {
-    const b = document.createElement('button'); b.type = 'button'; b.textContent = k; b.id = 'ex-' + k;
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = k === 'Other' ? T('ex_other') : k; b.id = 'ex-' + k;
     b.addEventListener('click', () => { ex = k; if (EXCH[k]) { $('mk').value = EXCH[k][0].toFixed(3); $('tk').value = EXCH[k][1].toFixed(3); } render(); });
     $('exch').appendChild(b);
   });
-  const o = document.createElement('option'); o.value = 'auto'; o.textContent = 'Auto (by volume)'; $('tier').appendChild(o);
+  const o = document.createElement('option'); o.value = 'auto'; o.id = 'optAuto'; o.textContent = T('auto'); $('tier').appendChild(o);
   TIERS.forEach((t, i) => { const op = document.createElement('option'); op.value = i; op.textContent = t[0]; $('tier').appendChild(op); });
 
   $('vol').addEventListener('input', () => {
@@ -429,14 +911,14 @@ a.ghost { text-decoration: none; }
   });
   ['tier', 'mk', 'tk', 'mix'].forEach(id => $(id).addEventListener('input', render));
   $('copy').addEventListener('click', () => {
-    const done = (ok) => { $('copy').textContent = ok ? 'Copied' : 'Select the link'; setTimeout(() => { $('copy').textContent = 'Copy link'; }, 1800); };
+    const done = (ok) => { $('copy').textContent = ok ? T('copied') : T('sel'); setTimeout(() => { $('copy').textContent = T('copy'); }, 1800); };
     const sel = () => { const r = document.createRange(); r.selectNodeContents($('link')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
     try { navigator.clipboard.writeText(LINK).then(() => done(true), () => { sel(); done(false); }); } catch (e) { sel(); done(false); }
   });
 
   function render() {
     const vol = readVol(); const m = Number($('mix').value) / 100;
-    $('mixM').textContent = Math.round(m * 100) + '% maker'; $('mixT').textContent = Math.round((1 - m) * 100) + '% taker';
+    $('mixM').textContent = T('mk_pct', { n: Math.round(m * 100) }); $('mixT').textContent = T('tk_pct', { n: Math.round((1 - m) * 100) });
     document.querySelectorAll('#exch button').forEach(b => b.setAttribute('aria-pressed', b.id === 'ex-' + ex));
     const onOkx = ex === 'OKX';
     $('tierField').hidden = !onOkx; $('feeField').hidden = onOkx;
@@ -451,20 +933,20 @@ a.ghost { text-decoration: none; }
 
     $('rTier').textContent = 'OKX · ' + okxT[0];
     $('oBill').textContent = '≈ ' + fmt(now);
-    $('callout').innerHTML = `<span class="c1">If you joined through someone's referral link, up to <b>${fmt(now * REF)}</b> of the fees you pay each month can go to them. You get none of it back.</span><span class="c2">With GetCryptoFeeBack, at least 20% of the fees you pay comes back to you: <b>${fmt(cb)}</b> a month, and up to <b>${fmt(cbMax)}</b> in boost weeks.</span>`;
+    $('callout').innerHTML = '<span class="c1">' + T('c1', { x: fmt(now * REF) }) + '</span><span class="c2">' + T('c2', { cb: fmt(cb), max: fmt(cbMax) }) + '</span>';
     $('oBack').textContent = '≈ ' + fmt(cb);
     $('oYear').textContent = '≈ ' + fmt(saveMonth * 12);
-    $('oWeek').textContent = 'a month · ≈ ' + fmt(cb * 12 / 52) + ' every Friday';
+    $('oWeek').textContent = T('week', { x: fmt(cb * 12 / 52) });
     $('oBoost').textContent = '≈ ' + fmt(cbMax);
 
     const rtb = $('rtb'); rtb.textContent = '';
-    [[0.20, '20% (minimum)'], [0.30, '30%'], [0.40, '40% (boost)']].forEach(([r, l], i) => {
+    [[0.20, T('rmin')], [0.30, '30%'], [0.40, T('rboost')]].forEach(([r, l], i) => {
       const tr = document.createElement('tr'); if (i === 0) tr.className = 'min';
       [l, fmt(okxFees * r * 12 / 52), fmt(okxFees * r), fmt(okxFees * (1 - r))].forEach(v => { const td = document.createElement('td'); td.textContent = v; tr.appendChild(td); });
       rtb.appendChild(tr);
     });
 
-    $('kNow').textContent = onOkx ? 'Fees you pay on OKX' : 'Fees you pay now';
+    $('kNow').textContent = onOkx ? T('k_now_okx') : T('k_now');
     $('oNow').textContent = fmt(now);
     $('lnOkx').hidden = onOkx; $('oOkx').textContent = fmt(okxFees);
     $('oCb').textContent = '−' + fmt(cb);
@@ -478,7 +960,30 @@ a.ghost { text-decoration: none; }
       tb.appendChild(tr);
     });
   }
-  render();
+
+  const menu = $('langmenu'), lbtn = $('langbtn');
+  LANGS.forEach(([c, name]) => {
+    const b = document.createElement('button'); b.type = 'button'; b.dataset.l = c; b.setAttribute('lang', c);
+    b.innerHTML = '<span class="fl">' + FLAGS[c] + '</span><span>' + name + '</span>';
+    b.addEventListener('click', () => { setLang(c); closeMenu(); lbtn.focus(); });
+    menu.appendChild(b);
+  });
+  function closeMenu() { menu.hidden = true; lbtn.setAttribute('aria-expanded', 'false'); }
+  lbtn.addEventListener('click', (e) => { e.stopPropagation(); const open = menu.hidden; menu.hidden = !open; lbtn.setAttribute('aria-expanded', String(open)); });
+  document.addEventListener('click', (e) => { if (!$('lang').contains(e.target)) closeMenu(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+  function setLang(c) {
+    lang = I18N[c] ? c : 'en';
+    try { localStorage.setItem('gcfb-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+    document.title = T('title');
+    document.querySelectorAll('[data-t]').forEach(el => { el.innerHTML = T(el.dataset.t); });
+    $('langflag').innerHTML = FLAGS[lang]; $('langcode').textContent = lang.toUpperCase();
+    menu.querySelectorAll('button').forEach(b => b.setAttribute('aria-current', String(b.dataset.l === lang)));
+    $('optAuto').textContent = T('auto'); $('ex-Other').textContent = T('ex_other'); $('copy').textContent = T('copy');
+    render();
+  }
+  setLang(lang);
 })();
 </script>
 
