@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CryptoFeeBack | Crypto Fee Calculator: get 20% to 40% of your trading fees back</title>
+<meta name="description" content="Free crypto fee calculator. Enter your 30-day futures volume and see how much you get back with 20% to 40% cashback on your OKX trading fees, paid every Friday.">
+<link rel="canonical" href="https://getcryptofeeback.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getcryptofeeback.com/">
+<meta property="og:title" content="CryptoFeeBack: get 20% to 40% of your trading fees back">
+<meta property="og:description" content="How much did you pay in trading fees last month? Find out in seconds and get 20% to 40% back every Friday.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CryptoFeeBack: get 20% to 40% of your trading fees back">
+<meta name="twitter:description" content="How much did you pay in trading fees last month? Find out in seconds and get 20% to 40% back every Friday.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E7C5A'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='900' font-size='34' text-anchor='middle' fill='white'%3E%25%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: hero with the question and proof chips → fee story strip → calculator + fee statement → where fees go → trust → steps → existing-account band → exchanges → OKX table → FAQ → Telegram → footer. */
+:root {
+  --bg: #F2F4F1;
+  --panel: #FFFFFF;
+  --ink: #13201B;
+  --muted: #5C6B64;
+  --line: #D9E0DB;
+  --accent: #0E7C5A;
+  --accent-soft: #DDF1E8;
+  --cost: #B4541A;
+  --cost-soft: #F8E7DB;
+  --focus: #0E7C5A;
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0E1412; --panel: #161E1B; --ink: #E5ECE8; --muted: #93A29B; --line: #2A3631;
+  --accent: #3CC28F; --accent-soft: #173A2D; --cost: #F08A4B; --cost-soft: #3A2417; --focus: #3CC28F; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0E1412; --panel: #161E1B; --ink: #E5ECE8; --muted: #93A29B; --line: #2A3631;
+  --accent: #3CC28F; --accent-soft: #173A2D; --cost: #F08A4B; --cost-soft: #3A2417; --focus: #3CC28F; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 1120px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 16px 48px; display: flex; flex-direction: column; gap: 56px; }
+.hero + .calcbox { margin-top: -32px; }
+section { display: flex; flex-direction: column; gap: 20px; }
+h2 { font-family: var(--display); font-weight: 800; font-stretch: 75%; font-size: clamp(1.7rem, 4vw, 2.2rem); line-height: 1.05; text-transform: uppercase; margin: 0; text-wrap: balance; }
+.label { font-size: .74rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.hint { font-size: .85rem; color: var(--muted); margin: 0; }
+.lead { color: var(--muted); margin: 0; max-width: 44rem; }
+button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.brand { font-family: var(--display); font-weight: 800; font-stretch: 75%; font-size: 1.15rem; letter-spacing: .02em; text-transform: uppercase; }
+.brand span { color: var(--accent); }
+.nav { display: flex; gap: 8px; align-items: center; }
+.nav a { font: 600 .9rem var(--body); color: var(--ink); text-decoration: none; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); }
+.nav a.navcta { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+
+.hero { display: flex; flex-direction: column; gap: 10px; max-width: 62rem; }
+.hero h1 { font-family: var(--display); font-weight: 900; font-stretch: 68%; font-size: clamp(2.1rem, 5vw, 3.6rem); line-height: .95; letter-spacing: -.01em; margin: 0; text-transform: uppercase; text-wrap: balance; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p { margin: 0; color: var(--muted); font-size: 1.12rem; max-width: 42rem; }
+.hero p b { color: var(--ink); }
+.herocta { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn { display: inline-flex; justify-content: center; align-items: center; gap: 8px; text-decoration: none; font: 700 1rem var(--body); background: var(--accent); color: var(--bg); padding: 14px 20px; border-radius: 10px; border: 0; cursor: pointer; }
+.btn.line { background: none; color: var(--ink); border: 1px solid var(--ink); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips span { font-size: .86rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: var(--accent-soft); color: var(--ink); }
+.chips span::before { content: "✓ "; color: var(--accent); }
+
+.story { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+.st { flex: 1 1 120px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.st b { font-family: var(--display); font-weight: 900; font-stretch: 72%; font-size: 1.8rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.st span { font-size: .82rem; color: var(--muted); }
+.st.total { background: var(--cost-soft); border-color: transparent; flex-basis: 200px; }
+.st.total b { color: var(--cost); font-size: 2.4rem; }
+.st.back { background: var(--accent-soft); border-color: transparent; flex-basis: 200px; }
+.st.back b { color: var(--accent); font-size: 2.4rem; }
+
+.calc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); gap: 24px; align-items: start; }
+@media (max-width: 860px) { .calc { grid-template-columns: minmax(0, 1fr); } }
+.inputs, .presets button { min-width: 0; }
+.inputs { display: flex; flex-direction: column; gap: 22px; }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg button { font: 500 .95rem var(--body); border: 1px solid var(--line); background: var(--panel); color: var(--ink); padding: 9px 14px; border-radius: 8px; cursor: pointer; }
+.seg button[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+.presets { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+@media (max-width: 480px) { .presets { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.presets button { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); padding: 8px 10px; border-radius: 8px; cursor: pointer; font: 600 .9rem var(--body); }
+.presets button small { font: 400 .78rem var(--mono); color: var(--muted); }
+.presets button[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.money { display: flex; align-items: center; border: 1px solid var(--line); background: var(--panel); border-radius: 10px; padding: 0 14px; }
+.money span { font-family: var(--mono); color: var(--muted); }
+.money input { flex: 1; min-width: 0; border: 0; background: none; color: var(--ink); font: 600 1.6rem var(--mono); padding: 12px 8px; font-variant-numeric: tabular-nums; }
+.money input:focus { outline: none; }
+.money:focus-within { border-color: var(--focus); box-shadow: 0 0 0 3px var(--accent-soft); }
+.trade { font-family: var(--mono); font-size: .85rem; color: var(--ink); }
+select, .feein { font: 500 1rem var(--body); color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+.fees2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.fees2 label { display: flex; flex-direction: column; gap: 4px; font-size: .8rem; color: var(--muted); }
+.feein { font-family: var(--mono); width: 100%; }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+.mixrow { display: flex; justify-content: space-between; font-family: var(--mono); font-size: .82rem; color: var(--muted); }
+
+.receipt { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.rhead { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; font-family: var(--mono); font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; border-bottom: 1px dashed var(--line); padding-bottom: 12px; }
+.bill { display: flex; flex-direction: column; gap: 4px; }
+.billnum { font-size: 1.05rem; color: var(--muted); }
+.billnum b { font-family: var(--display); font-weight: 900; font-stretch: 72%; font-size: 2.2rem; color: var(--cost); font-variant-numeric: tabular-nums; line-height: 1; }
+.callout { background: var(--cost-soft); color: var(--ink); border-radius: 12px; padding: 16px 18px; font-size: 1rem; display: flex; flex-direction: column; gap: 8px; }
+.callout .c1 b { color: var(--cost); font-family: var(--display); font-weight: 900; font-stretch: 72%; font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+.callout .c2 { font-weight: 600; }
+.callout .c2 b { color: var(--accent); font-family: var(--mono); }
+.results { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; align-items: end; }
+@media (max-width: 420px) { .results { grid-template-columns: 1fr; } }
+.seg.small button { font-family: var(--mono); font-size: .8rem; padding: 6px 10px; }
+.res { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.res .num { font-family: var(--display); font-weight: 900; font-stretch: 72%; font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1; white-space: nowrap; color: var(--accent); font-variant-numeric: tabular-nums; }
+.res .num2 { font-family: var(--display); font-weight: 900; font-stretch: 72%; font-size: clamp(1.5rem, 3.2vw, 2rem); line-height: 1; white-space: nowrap; color: var(--ink); font-variant-numeric: tabular-nums; }
+.res .sub { font-family: var(--mono); font-size: .8rem; color: var(--muted); }
+.urgency { font-size: .92rem; color: var(--ink); background: var(--bg); border-radius: 8px; padding: 10px 12px; }
+.urgency b { color: var(--cost); font-family: var(--mono); }
+.range { display: flex; flex-direction: column; gap: 6px; overflow-x: auto; }
+.approx { font-size: .8rem; color: var(--muted); }
+.lines { display: flex; flex-direction: column; border-top: 1px dashed var(--line); }
+.ln { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: .95rem; }
+.ln b { font-family: var(--mono); font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ln .k { color: var(--muted); }
+.ln.cost b { color: var(--cost); }
+.ln.good b { color: var(--accent); }
+.ln.total { font-weight: 600; }
+.cta { display: flex; flex-direction: column; gap: 10px; }
+.choice { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 420px) { .choice { grid-template-columns: 1fr; } }
+.opt { display: flex; flex-direction: column; gap: 2px; text-decoration: none; padding: 14px 16px; border-radius: 10px; background: var(--accent); color: var(--bg); }
+.opt + .opt { background: var(--ink); }
+.opt b { font-size: 1.02rem; }
+.opt span { font-size: .85rem; opacity: .85; }
+.linkrow { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-family: var(--mono); font-size: .85rem; color: var(--muted); }
+.linkrow code, .note code { user-select: all; color: var(--ink); background: var(--bg); border: 1px solid var(--line); padding: 3px 8px; border-radius: 6px; overflow-wrap: anywhere; }
+.ghost { font: 600 .8rem var(--body); background: none; border: 1px solid var(--line); color: var(--ink); padding: 5px 10px; border-radius: 6px; cursor: pointer; }
+.note { font-size: .82rem; color: var(--muted); margin: 0; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; font-size: .9rem; }
+th, td { padding: 10px 14px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+td { font-family: var(--mono); }
+tr.on td { background: var(--accent-soft); font-weight: 600; }
+.rt th, .rt td { padding: 7px 6px; font-size: .82rem; }
+.rt th { letter-spacing: .04em; }
+.rt tr.min td { color: var(--accent); font-weight: 600; }
+
+.flow { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .flow { grid-template-columns: 1fr; } }
+.lane { border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; border: 1px solid var(--line); background: var(--panel); }
+.lane.us { background: var(--accent-soft); border-color: transparent; }
+.lane h3 { margin: 0; font-size: 1rem; }
+.steps-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.node { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font-size: .9rem; font-weight: 600; }
+.lane.us .node { background: var(--panel); border-color: transparent; }
+.arr { color: var(--muted); font-family: var(--mono); }
+.node.zero { color: var(--cost); }
+.node.win { color: var(--accent); }
+
+.trust { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 860px) { .trust { grid-template-columns: 1fr; } }
+.tc { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.tc h3 { margin: 0; font-size: 1.05rem; }
+.tc ul { margin: 0; padding-left: 1.1rem; color: var(--muted); display: flex; flex-direction: column; gap: 4px; font-size: .93rem; }
+.tc p { margin: 0; color: var(--muted); font-size: .93rem; }
+
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
+.step { display: flex; flex-direction: column; gap: 8px; padding-top: 14px; border-top: 2px solid var(--ink); }
+.step .n { font-family: var(--mono); font-size: .8rem; color: var(--accent); font-weight: 600; }
+.step h3 { margin: 0; font-size: 1.1rem; }
+.step p { margin: 0; color: var(--muted); }
+
+.band { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; border-radius: 14px; padding: 22px 24px; background: var(--ink); color: var(--bg); }
+.band h2 { color: var(--bg); }
+.band p { margin: 6px 0 0; opacity: .8; max-width: 40rem; }
+.tgband { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; border: 1px solid var(--line); background: var(--panel); border-radius: 14px; padding: 22px 24px; }
+.tgband p { margin: 4px 0 0; color: var(--muted); max-width: 38rem; }
+
+.soon { display: flex; flex-wrap: wrap; gap: 8px; }
+.soon span { font-family: var(--mono); font-size: .9rem; border: 1px dashed var(--line); color: var(--muted); background: var(--panel); padding: 8px 14px; border-radius: 999px; }
+.soon .live { border-style: solid; border-color: var(--accent); color: var(--accent); font-weight: 600; }
+
+.faq { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; font-weight: 600; font-size: 1.05rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: var(--mono); color: var(--accent); font-size: 1.2rem; line-height: 1; }
+.faq details[open] summary::after { content: "−"; }
+.faq .a { padding: 0 0 18px; color: var(--muted); max-width: 46rem; display: flex; flex-direction: column; gap: 10px; }
+.faq .a p { margin: 0; }
+
+footer { display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--line); padding-top: 18px; font-size: .8rem; color: var(--muted); }
+footer strong { color: var(--ink); letter-spacing: .06em; }
+
+/* single-column calculator: input bar on top, statement below, both in the first screen */
+.calcbox { gap: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.bar { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.2fr) minmax(0, .8fr); gap: 20px; padding: 20px 22px; border-bottom: 1px dashed var(--line); align-items: start; }
+@media (max-width: 860px) { .bar { grid-template-columns: minmax(0, 1fr); gap: 16px; } }
+.statement { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 860px) { .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.kpi { display: flex; flex-direction: column; gap: 4px; padding: 14px; border-radius: 12px; background: var(--bg); min-width: 0; }
+.kpi b { font-family: var(--display); font-weight: 900; font-stretch: 72%; font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.kpi .sub { font-family: var(--mono); font-size: .78rem; color: var(--muted); }
+.kpi.cost b { color: var(--cost); }
+.kpi.main { background: var(--accent-soft); }
+.kpi.main b { color: var(--accent); font-size: clamp(2rem, 4.2vw, 3rem); }
+.statement .callout { font-size: .95rem; }
+.statement .callout .c1 b { font-size: 1.25rem; }
+.more summary { cursor: pointer; font-weight: 600; color: var(--accent); list-style: none; }
+.more summary::-webkit-details-marker { display: none; }
+.more summary::after { content: " +"; font-family: var(--mono); }
+.more[open] summary::after { content: " −"; }
+.morebody { display: flex; flex-direction: column; gap: 16px; padding-top: 14px; }
+a.ghost { text-decoration: none; }
+
+.top { flex-wrap: nowrap; }
+.top + .hero { margin-top: -24px; }
+.bar .seg button { padding: 7px 11px; font-size: .88rem; }
+.bar .seg.small button { padding: 5px 8px; font-size: .76rem; }
+@media (max-width: 600px) {
+  .wrap { gap: 44px; }
+  .nav a { padding: 7px 10px; font-size: .85rem; }
+  .brand { font-size: 1rem; }
+  .hero > .label { display: none; }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: .98rem; }
+  .bar { padding: 16px; gap: 14px; }
+  .statement { padding: 16px; }
+  .money input { font-size: 1.35rem; padding: 9px 6px; }
+  .bar .seg { gap: 4px; }
+  .bar .seg button { padding: 6px 9px; font-size: .82rem; }
+  .bar .seg.small button { padding: 4px 7px; font-size: .72rem; }
+  .kpi { padding: 12px; }
+}
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0} img{max-width:100%} [hidden]{display:none!important} html{scroll-behavior:smooth}</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">Crypto<span>FeeBack</span></div>
+    <nav class="nav"><a href="#faq">FAQ</a><a class="navcta" href="#getcashback">Get cashback</a></nav>
+  </header>
+
+  <div class="hero">
+    <span class="label">Crypto Fee Calculator</span>
+    <h1>How much did you pay in <em>trading fees</em> last month?</h1>
+    <p>Most traders never check. Enter your 30-day volume to see your real fee bill, then get 20% to 40% of it back every Friday.</p>
+  </div>
+
+  <section id="calc" class="calcbox">
+    <div class="bar">
+      <div class="field fvol">
+        <label class="label" for="vol">Your futures volume, last 30 days</label>
+        <div class="money"><span>US$</span><input id="vol" inputmode="numeric" autocomplete="off" value="5,000,000"></div>
+        <div class="seg small" id="chips"></div>
+      </div>
+      <div class="field">
+        <span class="label">Where do you trade today?</span>
+        <div class="seg" id="exch"></div>
+      </div>
+      <div class="field" id="tierField">
+        <label class="label" for="tier">Your OKX fee tier</label>
+        <select id="tier"></select>
+      </div>
+      <div class="field" id="feeField" hidden>
+        <span class="label">Your current fees (%)</span>
+        <div class="fees2">
+          <label for="mk"><span>Maker</span><input id="mk" class="feein" inputmode="decimal"></label>
+          <label for="tk"><span>Taker</span><input id="tk" class="feein" inputmode="decimal"></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="statement" aria-live="polite">
+      <div class="rhead"><span>Your fee statement</span><span id="rTier">OKX · VIP 1</span></div>
+      <div class="kpis">
+        <div class="kpi cost"><span class="label">Your fee bill</span><b id="oBill">$0</b><span class="sub">a month in trading fees</span></div>
+        <div class="kpi main"><span class="label">Back to you, at least</span><b id="oBack">$0</b><span class="sub" id="oWeek">a month</span></div>
+        <div class="kpi"><span class="label">You save per year</span><b id="oYear">$0</b><span class="sub">in trading fees</span></div>
+        <div class="kpi"><span class="label">In 40% boost weeks</span><b id="oBoost">$0</b><span class="sub">a month, up to</span></div>
+      </div>
+      <div class="callout" id="callout"></div>
+      <div class="cta" id="getcashback">
+        <div class="choice">
+          <a class="opt" href="https://okx.com/join/CRYPTOFEEBACK" target="_blank" rel="noopener"><b>New to OKX</b><span>Open an account with cashback</span></a>
+          <a class="opt" id="rebind" href="https://okx.com/join/BUSINESSPARTNER" target="_blank" rel="noopener"><b>Already on OKX</b><span>Link your existing account</span></a>
+        </div>
+        <p class="note">Existing accounts can be linked if they are not already tied to another referrer. Link not working? Message <code>@andolker</code> on Telegram.</p>
+      </div>
+
+      <details class="more">
+        <summary>See the full breakdown</summary>
+        <div class="morebody">
+          <div class="field">
+            <label class="label" for="mix">Your order mix</label>
+            <input id="mix" type="range" min="0" max="100" step="5" value="30">
+            <div class="mixrow"><span id="mixM">30% maker</span><span id="mixT">70% taker</span></div>
+            <p class="hint">Limit orders that wait on the book are maker. Market orders are taker. Volume is position size, leverage included.</p>
+          </div>
+          <div class="range">
+            <span class="label">Cashback by rate</span>
+            <table class="rt"><thead><tr><th>Rate</th><th>Per week</th><th>Per month</th><th>Net fee cost</th></tr></thead><tbody id="rtb"></tbody></table>
+          </div>
+          <div class="lines">
+            <div class="ln cost"><span class="k" id="kNow">Fees you pay now</span><b id="oNow">$0</b></div>
+            <div class="ln" id="lnOkx" hidden><span class="k">Fees on OKX at your volume</span><b id="oOkx">$0</b></div>
+            <div class="ln good"><span class="k">Guaranteed 20% cashback per month</span><b id="oCb">$0</b></div>
+            <div class="ln total"><span>Your net fee cost</span><b id="oNet">$0</b></div>
+            <div class="ln good" id="lnSave" hidden><span class="k">Total saving vs. today</span><b id="oSave">$0</b></div>
+          </div>
+          <div class="linkrow"><code id="link">okx.com/join/CRYPTOFEEBACK</code><button class="ghost" id="copy" type="button">Copy link</button><a class="ghost" href="https://t.me/+Z4K5lgP9M6EwYmZk" target="_blank" rel="noopener">Join the Telegram</a></div>
+          <span class="approx">Approximate values, based on your volume and order mix and the public OKX fee schedule. Your real cashback follows the fees you actually pay each week. Fees on other exchanges are pre-filled with their standard VIP 0 rate.</span>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step"><span class="n">STEP 1</span><h3>Join or link your account</h3><p>New to OKX? Sign up through our link and verify your identity. Already on OKX? Link your existing account.</p></div>
+      <div class="step"><span class="n">STEP 2</span><h3>Trade as usual</h3><p>Spot, futures and TradFi. No minimum volume and no expiration.</p></div>
+      <div class="step"><span class="n">STEP 3</span><h3>Get paid on Friday</h3><p>At least 20% of the fees you paid that week comes back to your OKX account, and up to 40% in boost weeks.</p></div>
+    </div>
+  </section>
+
+  <section id="exchanges">
+    <h2>More exchanges coming soon</h2>
+    <p class="hint">Cashback is live on OKX today. We are working on cashback deals with more exchanges. Trade somewhere else? Tell us on Telegram which one you want next.</p>
+    <div class="soon"><span class="live">OKX · Live</span><span>Bybit</span><span>MEXC</span><span>Bitget</span><span>Binance</span><span>BTCC</span></div>
+  </section>
+
+  <section>
+    <h2>OKX futures fees by tier</h2>
+    <p class="hint">Main pairs (BTC, ETH and other majors), per trade. Tier by 30-day futures volume. Your row is highlighted.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Tier</th><th>30-day volume</th><th>Maker</th><th>Taker</th><th>Cashback per $1M traded (20%)</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently asked questions</h2>
+    <div class="faq">
+      <details open><summary>How do exchange referral programs work?</summary><div class="a"><p>Exchanges pay affiliates to bring in new traders. When you open an account through someone's link, the exchange sends that person a share of every trading fee you pay, on every trade, for as long as you trade. Depending on the deal, that share is often between 20% and 50% of your fees.</p><p>Most influencers keep all of it. You pay the full fee and get nothing back.</p></div></details>
+      <details><summary>How can you give me 20% to 40% back?</summary><div class="a"><p>We have an affiliate agreement with OKX. Instead of keeping the whole commission, we split it with you: at least 20% of the fees you pay comes back to your account every week.</p></div></details>
+      <details><summary>Why does the cashback go from 20% to 40%?</summary><div class="a"><p>20% is the minimum you get back, every week. In boost weeks, announced on our Telegram, we raise it up to 40%.</p></div></details>
+      <details><summary>Do you have access to my account or my money?</summary><div class="a"><p>No. Your account, your funds and your keys stay with you at OKX. The cashback is paid into your OKX account. We will never ask for your password, your 2FA codes or a deposit.</p></div></details>
+      <details><summary>When and how is the cashback paid?</summary><div class="a"><p>Every Friday, straight to your OKX account. It covers the fees you paid during that week.</p></div></details>
+      <details><summary>Does this change the fees I pay?</summary><div class="a"><p>No. You pay the standard OKX fee for your tier, and 20% to 40% of it comes back to you. Your effective fee is at least 20% lower.</p></div></details>
+      <details><summary>What does it cover? Is there a minimum?</summary><div class="a"><p>Spot, futures and TradFi trading on OKX. There is no minimum volume and no expiration.</p></div></details>
+      <details><summary>I already have an OKX account. Can I still get cashback?</summary><div class="a"><p>Yes, if your account is not already linked to another referrer. Use the "Already on OKX" button to link your existing account to us. You keep your account, balance and history.</p><p>If your account is already tied to someone else's link, or the link does not work for you, message @andolker on Telegram and we will look at your options.</p></div></details>
+      <details><summary>Why are the results approximate?</summary><div class="a"><p>The calculator uses your 30-day volume, your order mix and the public OKX fee schedule. Your real cashback follows the fees you actually pay each week, so it moves with your trading.</p></div></details>
+      <details><summary>Which exchanges are supported?</summary><div class="a"><p>OKX is live today. Bybit, MEXC, Bitget, Binance and BTCC are coming soon.</p></div></details>
+      <details><summary>Is OKX available in my country?</summary><div class="a"><p>OKX does not serve every country. If you can open an OKX account where you live, you can get cashback.</p></div></details>
+      <details><summary>Do you give trading signals or investment advice?</summary><div class="a"><p>No. We only return part of your trading fees. Every trading decision is yours. Crypto involves risk; only trade what you can afford to lose.</p></div></details>
+    </div>
+  </section>
+
+  <section class="tgband" id="telegram">
+    <div><h2>Every Friday, in public</h2><p>We post how much was paid back to traders each week. Join the channel to follow the payouts, ask questions and get help moving your account.</p></div>
+    <a class="btn" href="https://t.me/+Z4K5lgP9M6EwYmZk" target="_blank" rel="noopener">Join on Telegram</a>
+  </section>
+
+  <footer>
+    <strong>CRYPTOFEEBACK © 2026</strong>
+    <span>Estimates only. Fees follow the public OKX schedule (update of 8 April 2026) and can change; check okx.com/fees. Cashback is at least 20% and up to 40% of the trading fees you pay, net of discounts. Negative maker fees earn no cashback. VIP status from another exchange does not carry over automatically. OKX is not available in every country. Crypto involves risk; only trade what you can afford to lose.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  const TIERS = [
+    ["Regular", 0.020, 0.050, 0], ["VIP 1", 0.016, 0.045, 5e6], ["VIP 2", 0.015, 0.036, 10e6],
+    ["VIP 3", 0.010, 0.028, 50e6], ["VIP 4", 0.008, 0.027, 200e6], ["VIP 5", 0.005, 0.026, 600e6],
+    ["VIP 6", 0.000, 0.025, 1e9], ["VIP 7", -0.002, 0.020, 1.5e9], ["VIP 8", -0.005, 0.020, 2e9],
+    ["VIP 9", -0.005, 0.015, 20e9]
+  ];
+  const EXCH = { OKX: null, Binance: [0.020, 0.050], Bybit: [0.020, 0.055], Bitget: [0.020, 0.060], Other: [0.020, 0.050] };
+  const CHIPS = [1e5, 1e6, 5e6, 20e6, 50e6, 100e6];
+  const CB = 0.20, CBMAX = 0.40, REF = 0.40;
+  const LINK = 'https://okx.com/join/CRYPTOFEEBACK';
+
+  let ex = 'OKX';
+  const $ = (id) => document.getElementById(id);
+  const fmt = (v) => '$' + Math.round(v).toLocaleString('en-US');
+  const comp = (v) => { if (v >= 1e9) return '$' + +(v / 1e9).toFixed(1) + 'B'; if (v >= 1e6) return '$' + +(v / 1e6).toFixed(1) + 'M'; if (v >= 1e3) return '$' + +(v / 1e3).toFixed(0) + 'K'; return '$' + Math.round(v); };
+  const pct = (v) => (+v.toFixed(4)) + '%';
+  function tierFor(vol) { let t = TIERS[0]; TIERS.forEach(x => { if (vol >= x[3]) t = x; }); return t; }
+  function eff(mk, tk, m) { return m * Math.max(mk, 0) + (1 - m) * tk; }
+  function readVol() { const n = Number(String($('vol').value).replace(/[^\d]/g, '')); return isFinite(n) ? n : 0; }
+  function readFee(id, d) { const n = parseFloat(String($(id).value).replace(',', '.')); return isFinite(n) ? n : d; }
+
+  CHIPS.forEach(v => {
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = comp(v);
+    b.addEventListener('click', () => { $('vol').value = v.toLocaleString('en-US'); render(); });
+    $('chips').appendChild(b);
+  });
+  Object.keys(EXCH).forEach(k => {
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = k; b.id = 'ex-' + k;
+    b.addEventListener('click', () => { ex = k; if (EXCH[k]) { $('mk').value = EXCH[k][0].toFixed(3); $('tk').value = EXCH[k][1].toFixed(3); } render(); });
+    $('exch').appendChild(b);
+  });
+  const o = document.createElement('option'); o.value = 'auto'; o.textContent = 'Auto (by volume)'; $('tier').appendChild(o);
+  TIERS.forEach((t, i) => { const op = document.createElement('option'); op.value = i; op.textContent = t[0]; $('tier').appendChild(op); });
+
+  $('vol').addEventListener('input', () => {
+    const n = readVol(); const pos = $('vol').selectionStart; const before = $('vol').value.length;
+    $('vol').value = n ? n.toLocaleString('en-US') : '';
+    const diff = $('vol').value.length - before; try { $('vol').setSelectionRange(pos + diff, pos + diff); } catch (e) {}
+    render();
+  });
+  ['tier', 'mk', 'tk', 'mix'].forEach(id => $(id).addEventListener('input', render));
+  $('copy').addEventListener('click', () => {
+    const done = (ok) => { $('copy').textContent = ok ? 'Copied' : 'Select the link'; setTimeout(() => { $('copy').textContent = 'Copy link'; }, 1800); };
+    const sel = () => { const r = document.createRange(); r.selectNodeContents($('link')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+    try { navigator.clipboard.writeText(LINK).then(() => done(true), () => { sel(); done(false); }); } catch (e) { sel(); done(false); }
+  });
+
+  function render() {
+    const vol = readVol(); const m = Number($('mix').value) / 100;
+    $('mixM').textContent = Math.round(m * 100) + '% maker'; $('mixT').textContent = Math.round((1 - m) * 100) + '% taker';
+    document.querySelectorAll('#exch button').forEach(b => b.setAttribute('aria-pressed', b.id === 'ex-' + ex));
+    const onOkx = ex === 'OKX';
+    $('tierField').hidden = !onOkx; $('feeField').hidden = onOkx;
+
+    const okxT = onOkx && $('tier').value !== 'auto' ? TIERS[Number($('tier').value)] : tierFor(vol);
+    const okxFees = vol * eff(okxT[1], okxT[2], m) / 100;
+    const cb = okxFees * CB, cbMax = okxFees * CBMAX, net = okxFees - cb;
+    let now;
+    if (onOkx) now = okxFees;
+    else { const d = EXCH[ex]; now = vol * eff(readFee('mk', d[0]), readFee('tk', d[1]), m) / 100; }
+    const saveMonth = onOkx ? cb : now - net;
+
+    $('rTier').textContent = 'OKX · ' + okxT[0];
+    $('oBill').textContent = '≈ ' + fmt(now);
+    $('callout').innerHTML = `<span class="c1">If you joined through someone's referral link, up to <b>${fmt(now * REF)}</b> of the fees you pay each month can go to them. You get none of it back.</span><span class="c2">With CryptoFeeBack, at least 20% of the fees you pay comes back to you: <b>${fmt(cb)}</b> a month, and up to <b>${fmt(cbMax)}</b> in boost weeks.</span>`;
+    $('oBack').textContent = '≈ ' + fmt(cb);
+    $('oYear').textContent = '≈ ' + fmt(saveMonth * 12);
+    $('oWeek').textContent = 'a month · ≈ ' + fmt(cb * 12 / 52) + ' every Friday';
+    $('oBoost').textContent = '≈ ' + fmt(cbMax);
+
+    const rtb = $('rtb'); rtb.textContent = '';
+    [[0.20, '20% (minimum)'], [0.30, '30%'], [0.40, '40% (boost)']].forEach(([r, l], i) => {
+      const tr = document.createElement('tr'); if (i === 0) tr.className = 'min';
+      [l, fmt(okxFees * r * 12 / 52), fmt(okxFees * r), fmt(okxFees * (1 - r))].forEach(v => { const td = document.createElement('td'); td.textContent = v; tr.appendChild(td); });
+      rtb.appendChild(tr);
+    });
+
+    $('kNow').textContent = onOkx ? 'Fees you pay on OKX' : 'Fees you pay now';
+    $('oNow').textContent = fmt(now);
+    $('lnOkx').hidden = onOkx; $('oOkx').textContent = fmt(okxFees);
+    $('oCb').textContent = '−' + fmt(cb);
+    $('oNet').textContent = fmt(net);
+    $('lnSave').hidden = onOkx; $('oSave').textContent = fmt(now - net);
+
+    const tb = $('tbody'); tb.textContent = '';
+    TIERS.forEach(t => {
+      const tr = document.createElement('tr'); if (t === okxT) tr.className = 'on';
+      [t[0], t[3] ? '≥ ' + comp(t[3]) : '—', pct(t[1]), pct(t[2]), fmt(1e6 * eff(t[1], t[2], m) / 100 * CB)].forEach(v => { const td = document.createElement('td'); td.textContent = v; tr.appendChild(td); });
+      tb.appendChild(tr);
+    });
+  }
+  render();
+})();
+</script>
+
+</body>
+</html>
