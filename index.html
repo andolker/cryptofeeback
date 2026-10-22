@@ -895,9 +895,12 @@ footer .mail { font-family: var(--mono); }
   const T = (k, v) => { let s = (I18N[lang] && I18N[lang][k] != null) ? I18N[lang][k] : I18N.en[k]; if (v) Object.keys(v).forEach(n => { s = s.split('{' + n + '}').join(v[n]); }); return s; };
   let ex = 'OKX';
   const $ = (id) => document.getElementById(id);
-  const fmt = (v) => '$' + Math.round(v).toLocaleString('en-US');
-  const comp = (v) => { if (v >= 1e9) return '$' + +(v / 1e9).toFixed(1) + 'B'; if (v >= 1e6) return '$' + +(v / 1e6).toFixed(1) + 'M'; if (v >= 1e3) return '$' + +(v / 1e3).toFixed(0) + 'K'; return '$' + Math.round(v); };
-  const pct = (v) => (+v.toFixed(4)) + '%';
+  const LOC = { en: 'en-US', pt: 'pt-BR', es: 'es-AR', de: 'de-DE', fr: 'fr-FR', ru: 'ru-RU', zh: 'zh-CN' };
+  const L = () => LOC[lang] || 'en-US';
+  const num = (v, d) => Number(v).toLocaleString(L(), d == null ? { maximumFractionDigits: 0 } : d);
+  const fmt = (v) => '$' + num(Math.round(v));
+  const comp = (v) => { const f = { maximumFractionDigits: 1 }; if (v >= 1e9) return '$' + num(v / 1e9, f) + 'B'; if (v >= 1e6) return '$' + num(v / 1e6, f) + 'M'; if (v >= 1e3) return '$' + num(Math.round(v / 1e3)) + 'K'; return '$' + num(v); };
+  const pct = (v) => num(v, { maximumFractionDigits: 4 }) + '%';
   function tierFor(vol) { let t = TIERS[0]; TIERS.forEach(x => { if (vol >= x[3]) t = x; }); return t; }
   function eff(mk, tk, m) { return m * Math.max(mk, 0) + (1 - m) * tk; }
   function readVol() { const n = Number(String($('vol').value).replace(/[^\d]/g, '')); return isFinite(n) ? n : 0; }
@@ -905,12 +908,12 @@ footer .mail { font-family: var(--mono); }
 
   CHIPS.forEach(v => {
     const b = document.createElement('button'); b.type = 'button'; b.textContent = comp(v);
-    b.addEventListener('click', () => { $('vol').value = v.toLocaleString('en-US'); render(); });
+    b.addEventListener('click', () => { $('vol').value = num(v); render(); });
     $('chips').appendChild(b);
   });
   Object.keys(EXCH).forEach(k => {
     const b = document.createElement('button'); b.type = 'button'; b.textContent = k === 'Other' ? T('ex_other') : k; b.id = 'ex-' + k;
-    b.addEventListener('click', () => { ex = k; if (EXCH[k]) { $('mk').value = EXCH[k][0].toFixed(3); $('tk').value = EXCH[k][1].toFixed(3); } render(); });
+    b.addEventListener('click', () => { ex = k; if (EXCH[k]) { $('mk').value = num(EXCH[k][0], { minimumFractionDigits: 3 }); $('tk').value = num(EXCH[k][1], { minimumFractionDigits: 3 }); } render(); });
     $('exch').appendChild(b);
   });
   const o = document.createElement('option'); o.value = 'auto'; o.id = 'optAuto'; o.textContent = T('auto'); $('tier').appendChild(o);
@@ -918,7 +921,7 @@ footer .mail { font-family: var(--mono); }
 
   $('vol').addEventListener('input', () => {
     const n = readVol(); const pos = $('vol').selectionStart; const before = $('vol').value.length;
-    $('vol').value = n ? n.toLocaleString('en-US') : '';
+    $('vol').value = n ? num(n) : '';
     const diff = $('vol').value.length - before; try { $('vol').setSelectionRange(pos + diff, pos + diff); } catch (e) {}
     render();
   });
@@ -996,6 +999,9 @@ footer .mail { font-family: var(--mono); }
     $('langflag').innerHTML = FLAGS[lang]; $('langcode').textContent = lang.toUpperCase();
     menu.querySelectorAll('button').forEach(b => b.setAttribute('aria-current', String(b.dataset.l === lang)));
     $('optAuto').textContent = T('auto'); $('ex-Other').textContent = T('ex_other'); $('copy').textContent = T('copy');
+    { const n = readVol(); $('vol').value = n ? num(n) : ''; }
+    if (EXCH[ex]) { ['mk', 'tk'].forEach((id, i) => { $(id).value = num(readFee(id, EXCH[ex][i]), { minimumFractionDigits: 3 }); }); }
+    document.querySelectorAll('#chips button').forEach((b, i) => { b.textContent = comp(CHIPS[i]); });
     render();
   }
   setLang(lang);
