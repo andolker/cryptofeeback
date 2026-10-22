@@ -245,6 +245,12 @@ a.ghost { text-decoration: none; }
   .bar .seg.small button { padding: 4px 7px; font-size: .72rem; }
   .kpi { padding: 12px; }
 }
+/* empty state */
+.isempty .callout { background: var(--accent-soft); }
+.callout .c0 { font-weight: 600; }
+.isempty .money { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.isempty .kpi b { color: var(--muted) !important; }
+.money input::placeholder { color: var(--muted); font-weight: 500; font-size: .7em; opacity: 1; }
 /* logo + language picker */
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); white-space: nowrap; }
 .brand .mark { flex: none; display: block; }
@@ -305,7 +311,7 @@ footer .mail { font-family: var(--mono); }
     <div class="bar">
       <div class="field fvol">
         <label class="label" for="vol" data-t="l_vol">Your futures volume, last 30 days</label>
-        <div class="money"><span>US$</span><input id="vol" inputmode="numeric" autocomplete="off" value="5,000,000"></div>
+        <div class="money"><span>US$</span><input id="vol" inputmode="numeric" autocomplete="off" value="" placeholder="Enter your 30-day volume"></div>
         <div class="seg small" id="chips"></div>
       </div>
       <div class="field">
@@ -381,7 +387,7 @@ footer .mail { font-family: var(--mono); }
   <section id="exchanges">
     <h2 data-t="soon_h">More exchanges coming soon</h2>
     <p class="hint" data-t="soon_p">Cashback is live on OKX today. We are working on cashback deals with more exchanges. Trade somewhere else? Tell us on Telegram which one you want next.</p>
-    <div class="soon"><span class="live" data-t="live">OKX · Live</span><span>Bybit</span><span>MEXC</span><span>Bitget</span><span>Binance</span><span>BTCC</span></div>
+    <div class="soon"><span class="live" data-t="live">OKX · Live</span><span>Bybit</span><span>MEXC</span><span>Bitget</span><span>Binance</span><span>BTCC</span><span>Gate</span><span>WEEX</span></div>
   </section>
 
   <section>
@@ -407,7 +413,7 @@ footer .mail { font-family: var(--mono); }
       <details><summary data-t="q7">What does it cover? Is there a minimum?</summary><div class="a" data-t="a7"><p>Spot, futures and TradFi trading on OKX. There is no minimum volume and no expiration.</p></div></details>
       <details><summary data-t="q8">I already have an OKX account. Can I still get cashback?</summary><div class="a" data-t="a8"><p>Yes, if your account is not already linked to another referrer. Use the "Already on OKX" button to link your existing account to us. You keep your account, balance and history.</p><p>If your account is already tied to someone else's link, or the link does not work for you, message @andolker on Telegram or write to support@getcryptofeeback.com and we will look at your options.</p></div></details>
       <details><summary data-t="q9">Why are the results approximate?</summary><div class="a" data-t="a9"><p>The calculator uses your 30-day volume, your order mix and the public OKX fee schedule. Your real cashback follows the fees you actually pay each week, so it moves with your trading.</p></div></details>
-      <details><summary data-t="q10">Which exchanges are supported?</summary><div class="a" data-t="a10"><p>OKX is live today. Bybit, MEXC, Bitget, Binance and BTCC are coming soon.</p></div></details>
+      <details><summary data-t="q10">Which exchanges are supported?</summary><div class="a" data-t="a10"><p>OKX is live today. Bybit, MEXC, Bitget, Binance, BTCC, Gate and WEEX are coming soon.</p></div></details>
       <details><summary data-t="q11">Is OKX available in my country?</summary><div class="a" data-t="a11"><p>OKX does not serve every country. If you can open an OKX account where you live, you can get cashback.</p></div></details>
       <details><summary data-t="q12">Do you give trading signals or investment advice?</summary><div class="a" data-t="a12"><p>No. We only return part of your trading fees. Every trading decision is yours. Crypto involves risk; only trade what you can afford to lose.</p></div></details>
     </div>
@@ -484,7 +490,7 @@ footer .mail { font-family: var(--mono); }
     q9: "Why are the results approximate?",
     a9: "<p>The calculator uses your 30-day volume, your order mix and the public OKX fee schedule. Your real cashback follows the fees you actually pay each week, so it moves with your trading.</p>",
     q10: "Which exchanges are supported?",
-    a10: "<p>OKX is live today. Bybit, MEXC, Bitget, Binance and BTCC are coming soon.</p>",
+    a10: "<p>OKX is live today. Bybit, MEXC, Bitget, Binance, BTCC, Gate and WEEX are coming soon.</p>",
     q11: "Is OKX available in my country?",
     a11: "<p>OKX does not serve every country. If you can open an OKX account where you live, you can get cashback.</p>",
     q12: "Do you give trading signals or investment advice?",
@@ -497,7 +503,8 @@ footer .mail { font-family: var(--mono); }
     c1: "If you joined through someone's referral link, up to <b>{x}</b> of the fees you pay each month can go to them. You get none of it back.",
     c2: "With GetCryptoFeeBack, at least 20% of the fees you pay comes back to you: <b>{cb}</b> a month, and up to <b>{max}</b> in boost weeks.",
     week: "a month · ≈ {x} every week", rmin: "20% (minimum)", rboost: "40% (boost)",
-    k_now_okx: "Fees you pay on OKX", k_now: "Fees you pay now"
+    k_now_okx: "Fees you pay on OKX", k_now: "Fees you pay now",
+    ph_vol: "Enter your 30-day volume", empty: "Fill in your futures volume from the last 30 days above to see how much you pay in fees each month, and how much comes back to you."
   },
   pt: {
     title: "GetCryptoFeeBack | Calculadora de taxas cripto: receba de volta 20% a 40% das suas taxas",
@@ -545,7 +552,7 @@ footer .mail { font-family: var(--mono); }
     q9: "Por que os resultados são aproximados?",
     a9: "<p>A calculadora usa seu volume de 30 dias, seu mix de ordens e a tabela pública de taxas da OKX. O cashback real segue as taxas que você paga de fato a cada semana, então acompanha suas operações.</p>",
     q10: "Quais corretoras são suportadas?",
-    a10: "<p>A OKX já está ativa. Bybit, MEXC, Bitget, Binance e BTCC chegam em breve.</p>",
+    a10: "<p>A OKX já está ativa. Bybit, MEXC, Bitget, Binance, BTCC, Gate e WEEX chegam em breve.</p>",
     q11: "A OKX está disponível no meu país?",
     a11: "<p>A OKX não atende todos os países. Se você consegue abrir uma conta OKX onde mora, pode receber cashback.</p>",
     q12: "Vocês dão sinais de trading ou recomendação de investimento?",
@@ -558,7 +565,8 @@ footer .mail { font-family: var(--mono); }
     c1: "Se você entrou pelo link de indicação de alguém, até <b>{x}</b> das taxas que você paga por mês podem ir para essa pessoa. Você não recebe nada de volta.",
     c2: "Com a GetCryptoFeeBack, pelo menos 20% das taxas que você paga voltam para você: <b>{cb}</b> por mês, e até <b>{max}</b> nas semanas boost.",
     week: "por mês · ≈ {x} toda semana", rmin: "20% (mínimo)", rboost: "40% (boost)",
-    k_now_okx: "Taxas que você paga na OKX", k_now: "Taxas que você paga hoje"
+    k_now_okx: "Taxas que você paga na OKX", k_now: "Taxas que você paga hoje",
+    ph_vol: "Digite seu volume de 30 dias", empty: "Preencha acima seu volume em futuros dos últimos 30 dias para ver quanto você paga de taxas por mês e quanto volta para você."
   },
   es: {
     title: "GetCryptoFeeBack | Calculadora de comisiones cripto: recupera del 20% al 40% de tus comisiones",
@@ -606,7 +614,7 @@ footer .mail { font-family: var(--mono); }
     q9: "¿Por qué los resultados son aproximados?",
     a9: "<p>La calculadora usa tu volumen de 30 días, tu mezcla de órdenes y la tabla pública de comisiones de OKX. Tu cashback real sigue las comisiones que pagas cada semana, así que varía con tu operativa.</p>",
     q10: "¿Qué exchanges están disponibles?",
-    a10: "<p>OKX ya está activo. Bybit, MEXC, Bitget, Binance y BTCC llegan pronto.</p>",
+    a10: "<p>OKX ya está activo. Bybit, MEXC, Bitget, Binance, BTCC, Gate y WEEX llegan pronto.</p>",
     q11: "¿OKX está disponible en mi país?",
     a11: "<p>OKX no opera en todos los países. Si puedes abrir una cuenta OKX donde vives, puedes recibir cashback.</p>",
     q12: "¿Dan señales de trading o asesoría de inversión?",
@@ -619,7 +627,8 @@ footer .mail { font-family: var(--mono); }
     c1: "Si te registraste con el enlace de referido de alguien, hasta <b>{x}</b> de las comisiones que pagas cada mes pueden ir a esa persona. Tú no recuperas nada.",
     c2: "Con GetCryptoFeeBack, al menos el 20% de las comisiones que pagas vuelve a ti: <b>{cb}</b> al mes, y hasta <b>{max}</b> en semanas boost.",
     week: "al mes · ≈ {x} cada semana", rmin: "20% (mínimo)", rboost: "40% (boost)",
-    k_now_okx: "Comisiones que pagas en OKX", k_now: "Comisiones que pagas hoy"
+    k_now_okx: "Comisiones que pagas en OKX", k_now: "Comisiones que pagas hoy",
+    ph_vol: "Escribe tu volumen de 30 días", empty: "Completa arriba tu volumen en futuros de los últimos 30 días para ver cuánto pagas en comisiones al mes y cuánto vuelve a ti."
   },
   de: {
     title: "GetCryptoFeeBack | Krypto-Gebührenrechner: 20 % bis 40 % deiner Trading-Gebühren zurück",
@@ -667,7 +676,7 @@ footer .mail { font-family: var(--mono); }
     q9: "Warum sind die Ergebnisse nur Näherungswerte?",
     a9: "<p>Der Rechner nutzt dein 30-Tage-Volumen, deinen Order-Mix und die öffentliche OKX-Gebührentabelle. Dein echtes Cashback folgt den Gebühren, die du jede Woche tatsächlich zahlst, und schwankt mit deinem Trading.</p>",
     q10: "Welche Börsen werden unterstützt?",
-    a10: "<p>OKX ist heute aktiv. Bybit, MEXC, Bitget, Binance und BTCC folgen bald.</p>",
+    a10: "<p>OKX ist heute aktiv. Bybit, MEXC, Bitget, Binance, BTCC, Gate und WEEX folgen bald.</p>",
     q11: "Ist OKX in meinem Land verfügbar?",
     a11: "<p>OKX ist nicht in jedem Land verfügbar. Wenn du dort, wo du lebst, ein OKX-Konto eröffnen kannst, bekommst du Cashback.</p>",
     q12: "Gebt ihr Trading-Signale oder Anlageberatung?",
@@ -680,7 +689,8 @@ footer .mail { font-family: var(--mono); }
     c1: "Wenn du dich über den Empfehlungslink einer Person angemeldet hast, können bis zu <b>{x}</b> deiner monatlichen Gebühren an sie gehen. Du bekommst nichts davon zurück.",
     c2: "Mit GetCryptoFeeBack kommen mindestens 20 % deiner Gebühren zu dir zurück: <b>{cb}</b> pro Monat und bis zu <b>{max}</b> in Boost-Wochen.",
     week: "pro Monat · ≈ {x} jede Woche", rmin: "20 % (Minimum)", rboost: "40 % (Boost)",
-    k_now_okx: "Deine Gebühren bei OKX", k_now: "Deine Gebühren heute"
+    k_now_okx: "Deine Gebühren bei OKX", k_now: "Deine Gebühren heute",
+    ph_vol: "30-Tage-Volumen eingeben", empty: "Gib oben dein Futures-Volumen der letzten 30 Tage ein, um zu sehen, wie viel du monatlich an Gebühren zahlst und wie viel zu dir zurückkommt."
   },
   fr: {
     title: "GetCryptoFeeBack | Calculateur de frais crypto : récupérez 20 % à 40 % de vos frais de trading",
@@ -728,7 +738,7 @@ footer .mail { font-family: var(--mono); }
     q9: "Pourquoi les résultats sont-ils approximatifs ?",
     a9: "<p>Le calculateur utilise votre volume sur 30 jours, votre mix d'ordres et la grille publique de frais OKX. Votre cashback réel suit les frais que vous payez chaque semaine, il varie donc avec votre trading.</p>",
     q10: "Quelles plateformes sont prises en charge ?",
-    a10: "<p>OKX est actif aujourd'hui. Bybit, MEXC, Bitget, Binance et BTCC arrivent bientôt.</p>",
+    a10: "<p>OKX est actif aujourd'hui. Bybit, MEXC, Bitget, Binance, BTCC, Gate et WEEX arrivent bientôt.</p>",
     q11: "OKX est-il disponible dans mon pays ?",
     a11: "<p>OKX ne couvre pas tous les pays. Si vous pouvez ouvrir un compte OKX là où vous vivez, vous pouvez recevoir le cashback.</p>",
     q12: "Donnez-vous des signaux de trading ou des conseils d'investissement ?",
@@ -741,7 +751,8 @@ footer .mail { font-family: var(--mono); }
     c1: "Si vous vous êtes inscrit via le lien de parrainage de quelqu'un, jusqu'à <b>{x}</b> de vos frais mensuels peuvent lui revenir. Vous n'en récupérez rien.",
     c2: "Avec GetCryptoFeeBack, au moins 20 % de vos frais vous reviennent : <b>{cb}</b> par mois, et jusqu'à <b>{max}</b> les semaines boost.",
     week: "par mois · ≈ {x} chaque semaine", rmin: "20 % (minimum)", rboost: "40 % (boost)",
-    k_now_okx: "Vos frais sur OKX", k_now: "Vos frais actuels"
+    k_now_okx: "Vos frais sur OKX", k_now: "Vos frais actuels",
+    ph_vol: "Saisissez votre volume sur 30 jours", empty: "Indiquez ci-dessus votre volume futures des 30 derniers jours pour voir combien vous payez de frais par mois et combien vous revient."
   },
   ru: {
     title: "GetCryptoFeeBack | Калькулятор комиссий: верните 20–40% торговых комиссий",
@@ -789,7 +800,7 @@ footer .mail { font-family: var(--mono); }
     q9: "Почему результаты приблизительные?",
     a9: "<p>Калькулятор использует ваш объём за 30 дней, состав ордеров и публичную таблицу комиссий OKX. Реальный кэшбэк зависит от комиссий, которые вы фактически платите каждую неделю, поэтому меняется вместе с вашей торговлей.</p>",
     q10: "Какие биржи поддерживаются?",
-    a10: "<p>OKX уже работает. Bybit, MEXC, Bitget, Binance и BTCC появятся скоро.</p>",
+    a10: "<p>OKX уже работает. Bybit, MEXC, Bitget, Binance, BTCC, Gate и WEEX появятся скоро.</p>",
     q11: "Доступна ли OKX в моей стране?",
     a11: "<p>OKX работает не во всех странах. Если вы можете открыть аккаунт OKX там, где живёте, вы можете получать кэшбэк.</p>",
     q12: "Вы даёте торговые сигналы или инвестиционные советы?",
@@ -802,7 +813,8 @@ footer .mail { font-family: var(--mono); }
     c1: "Если вы зарегистрировались по чьей-то реферальной ссылке, до <b>{x}</b> ваших комиссий в месяц может уходить этому человеку. Вам ничего не возвращается.",
     c2: "С GetCryptoFeeBack минимум 20% ваших комиссий возвращается вам: <b>{cb}</b> в месяц и до <b>{max}</b> в boost-недели.",
     week: "в месяц · ≈ {x} каждую неделю", rmin: "20% (минимум)", rboost: "40% (boost)",
-    k_now_okx: "Ваши комиссии на OKX", k_now: "Ваши комиссии сейчас"
+    k_now_okx: "Ваши комиссии на OKX", k_now: "Ваши комиссии сейчас",
+    ph_vol: "Введите объём за 30 дней", empty: "Укажите выше объём фьючерсов за последние 30 дней, чтобы увидеть, сколько вы платите комиссий в месяц и сколько вернётся вам."
   },
   zh: {
     title: "GetCryptoFeeBack | 加密手续费计算器：返还 20% 至 40% 交易手续费",
@@ -850,7 +862,7 @@ footer .mail { font-family: var(--mono); }
     q9: "为什么结果是估算值？",
     a9: "<p>计算器使用你 30 天的交易量、订单构成和 OKX 公开费率表。实际返佣取决于你每周实际支付的手续费，会随你的交易而变化。</p>",
     q10: "支持哪些交易所？",
-    a10: "<p>OKX 已上线。Bybit、MEXC、Bitget、Binance 和 BTCC 即将支持。</p>",
+    a10: "<p>OKX 已上线。Bybit、MEXC、Bitget、Binance、BTCC、Gate 和 WEEX 即将支持。</p>",
     q11: "OKX 在我的国家可用吗？",
     a11: "<p>OKX 并非在所有国家提供服务。只要你能在居住地开设 OKX 账户，就能获得返佣。</p>",
     q12: "你们提供交易信号或投资建议吗？",
@@ -863,7 +875,8 @@ footer .mail { font-family: var(--mono); }
     c1: "如果你是通过别人的邀请链接注册的，你每月手续费中最多 <b>{x}</b> 可能归对方所有，而你一分也拿不回来。",
     c2: "使用 GetCryptoFeeBack，你所付手续费的至少 20% 会返还给你：每月 <b>{cb}</b>，加码周最高 <b>{max}</b>。",
     week: "每月 · 每周约 {x}", rmin: "20%（保底）", rboost: "40%（加码）",
-    k_now_okx: "你在 OKX 支付的手续费", k_now: "你现在支付的手续费"
+    k_now_okx: "你在 OKX 支付的手续费", k_now: "你现在支付的手续费",
+    ph_vol: "输入你 30 天的交易量", empty: "在上方填写你近 30 天的合约交易量，即可查看你每月支付多少手续费，以及能拿回多少。"
   }
   };
   const FLAGS = {
@@ -931,13 +944,14 @@ footer .mail { font-family: var(--mono); }
     else { const d = EXCH[ex]; now = vol * eff(readFee('mk', d[0]), readFee('tk', d[1]), m) / 100; }
     const saveMonth = onOkx ? cb : now - net;
 
+    const empty = vol <= 0; $('calc').classList.toggle('isempty', empty);
     $('rTier').textContent = 'OKX · ' + okxT[0];
-    $('oBill').textContent = '≈ ' + fmt(now);
-    $('callout').innerHTML = '<span class="c1">' + T('c1', { x: fmt(now * REF) }) + '</span><span class="c2">' + T('c2', { cb: fmt(cb), max: fmt(cbMax) }) + '</span>';
-    $('oBack').textContent = '≈ ' + fmt(cb);
-    $('oYear').textContent = '≈ ' + fmt(saveMonth * 12);
-    $('oWeek').textContent = T('week', { x: fmt(cb * 12 / 52) });
-    $('oBoost').textContent = '≈ ' + fmt(cbMax);
+    $('oBill').textContent = empty ? '$0' : '≈ ' + fmt(now);
+    $('callout').innerHTML = empty ? '<span class="c0">' + T('empty') + '</span>' : '<span class="c1">' + T('c1', { x: fmt(now * REF) }) + '</span><span class="c2">' + T('c2', { cb: fmt(cb), max: fmt(cbMax) }) + '</span>';
+    $('oBack').textContent = empty ? '$0' : '≈ ' + fmt(cb);
+    $('oYear').textContent = empty ? '$0' : '≈ ' + fmt(saveMonth * 12);
+    $('oWeek').textContent = empty ? T('week', { x: '$0' }).replace('≈ ', '') : T('week', { x: fmt(cb * 12 / 52) });
+    $('oBoost').textContent = empty ? '$0' : '≈ ' + fmt(cbMax);
 
     const rtb = $('rtb'); rtb.textContent = '';
     [[0.20, T('rmin')], [0.30, '30%'], [0.40, T('rboost')]].forEach(([r, l], i) => {
@@ -978,6 +992,7 @@ footer .mail { font-family: var(--mono); }
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
     document.title = T('title');
     document.querySelectorAll('[data-t]').forEach(el => { el.innerHTML = T(el.dataset.t); });
+    $('vol').placeholder = T('ph_vol');
     $('langflag').innerHTML = FLAGS[lang]; $('langcode').textContent = lang.toUpperCase();
     menu.querySelectorAll('button').forEach(b => b.setAttribute('aria-current', String(b.dataset.l === lang)));
     $('optAuto').textContent = T('auto'); $('ex-Other').textContent = T('ex_other'); $('copy').textContent = T('copy');
