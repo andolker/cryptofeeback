@@ -120,8 +120,9 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 .ln.good b { color: var(--accent); }
 .ln.total { font-weight: 600; }
 .cta { display: flex; flex-direction: column; gap: 10px; }
-.choice { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-@media (max-width: 760px) { .choice { grid-template-columns: 1fr; } }
+.choice { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 960px) { .choice { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .choice { grid-template-columns: 1fr; } }
 .opt.wx { background: #1d2a26; }
 .soon span { text-transform: uppercase; }
 #exch button { text-transform: uppercase; }
@@ -129,7 +130,7 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 .cbx .label { margin-right: 4px; }
 .kpis.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 860px) { .kpis.three { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 420px) { .choice { grid-template-columns: 1fr; } }
+
 .opt { display: flex; flex-direction: column; gap: 2px; text-decoration: none; padding: 14px 16px; border-radius: 10px; background: var(--accent); color: var(--bg); }
 .opt + .opt { background: var(--panel); color: var(--ink); box-shadow: inset 0 0 0 2px var(--accent); }
 .opt b { font-size: 1.02rem; }
@@ -360,7 +361,7 @@ footer .mail { font-family: var(--mono); }
 
     <div class="statement" aria-live="polite">
       <div class="rhead"><span data-t="r_title">Your fee statement</span><span id="rTier">OKX · VIP 1</span></div>
-      <div class="cbx"><span class="label" data-t="cb_on">Cashback on</span><div class="seg small" id="cbxSeg"><button type="button" id="cbx-OKX">OKX · 20–40%</button><button type="button" id="cbx-WEEX">WEEX · 30%</button><button type="button" id="cbx-Bitget">BITGET · 20%</button></div></div>
+      <div class="cbx"><span class="label" data-t="cb_on">Cashback on</span><div class="seg small" id="cbxSeg"><button type="button" id="cbx-OKX">OKX · 20–40%</button><button type="button" id="cbx-WEEX">WEEX · 30%</button><button type="button" id="cbx-Bitget">BITGET · 20%</button><button type="button" id="cbx-BTCC">BTCC · 25%</button></div></div>
       <div class="kpis">
         <div class="kpi cost"><span class="label" data-t="k_bill">Your fee bill</span><b id="oBill">$0</b><span class="sub" data-t="k_bill_sub">a month in trading fees</span></div>
         <div class="kpi main"><span class="label" data-t="k_back">Back to you, at least</span><b id="oBack">$0</b><span class="sub" id="oWeek">a month</span></div>
@@ -373,6 +374,7 @@ footer .mail { font-family: var(--mono); }
           <a class="opt" href="https://okx.com/join/CRYPTOFEEBACK" target="_blank" rel="noopener"><b>OKX Exchange</b><span data-t="c_okx_s">At least 20% cashback</span></a>
           <a class="opt wx" href="https://www.weex.com/pt-BR/register?vipCode=cryptofee" target="_blank" rel="noopener"><b>WEEX Exchange</b><span data-t="c_wx_s">At least 30% cashback</span></a>
           <a class="opt bg" href="https://partner.bitget.com/bg/cryptoback" target="_blank" rel="noopener"><b>BITGET Exchange</b><span data-t="c_okx_s">At least 20% cashback</span></a>
+          <a class="opt bt" href="https://partner.btcc.com/us/c/CRYPTOBACK/55490602" target="_blank" rel="noopener"><b>BTCC Exchange</b><span data-t="c_bt_s">At least 25% cashback</span></a>
         </div>
         <div class="linkbox"><b data-t="link_h">Already have an account?</b><p data-t="link_p">Want to link your existing account to our cashback? Contact us at <a href="mailto:support@getcryptofeeback.com">support@getcryptofeeback.com</a> or on Telegram <a href="https://t.me/getcryptofeeback" target="_blank" rel="noopener">@getcryptofeeback</a>.</p></div>
       </div>
@@ -420,8 +422,8 @@ footer .mail { font-family: var(--mono); }
 
   <section id="exchanges">
     <h2 data-t="soon_h">More exchanges coming soon</h2>
-    <p class="hint" data-t="soon_p">Cashback is live on OKX, WEEX and BITGET today. We are working on cashback deals with more exchanges. Trade somewhere else? Tell us on Telegram which one you want next.</p>
-    <div class="soon"><span class="live" data-t="live">OKX · Live</span><span class="live" id="liveW">WEEX · Live</span><span class="live" id="liveB">BITGET · Live</span><span>Bybit</span><span>MEXC</span><span>Binance</span><span>BTCC</span><span>Gate</span></div>
+    <p class="hint" data-t="soon_p">Cashback is live on OKX, WEEX, BITGET and BTCC today. We are working on cashback deals with more exchanges. Trade somewhere else? Tell us on Telegram which one you want next.</p>
+    <div class="soon"><span class="live" data-t="live">OKX · Live</span><span class="live" id="liveW">WEEX · Live</span><span class="live" id="liveB">BITGET · Live</span><span class="live" id="liveC">BTCC · Live</span><span>Bybit</span><span>MEXC</span><span>Binance</span><span>Gate</span></div>
   </section>
 
   <section>
@@ -447,7 +449,7 @@ footer .mail { font-family: var(--mono); }
       <details><summary data-t="q7">What does it cover? Is there a minimum?</summary><div class="a" data-t="a7"><p>Spot, futures and TradFi trading on OKX. There is no minimum volume and no expiration.</p></div></details>
       <details><summary data-t="q8">I already have an OKX account. Can I still get cashback?</summary><div class="a" data-t="a8"><p>Yes, if your account is not already linked to another referrer. Contact us at support@getcryptofeeback.com or on Telegram @getcryptofeeback and we will help you link it. You keep your account, balance and history.</p></div></details>
       <details><summary data-t="q9">Why are the results approximate?</summary><div class="a" data-t="a9"><p>The calculator uses your 30-day volume, your order mix and the public OKX fee schedule. Your real cashback follows the fees you actually pay each week, so it moves with your trading.</p></div></details>
-      <details><summary data-t="q10">Which exchanges are supported?</summary><div class="a" data-t="a10"><p>OKX (20% to 40% back), WEEX (30% back) and BITGET (20% back) are live today. BYBIT, MEXC, BINANCE, BTCC and GATE are coming soon.</p></div></details>
+      <details><summary data-t="q10">Which exchanges are supported?</summary><div class="a" data-t="a10"><p>OKX (20% to 40% back), WEEX (30% back), BITGET (20% back) and BTCC (25% back) are live today. BYBIT, MEXC, BINANCE and GATE are coming soon.</p></div></details>
       <details><summary data-t="q13">Do I need to verify my identity (KYC) on WEEX?</summary><div class="a" data-t="a13"><p>It depends on your country. In some countries WEEX lets you open an account and start trading without identity verification, usually with lower limits (for example on withdrawals). Check the rules that apply where you live before you start.</p></div></details>
       <details><summary data-t="q11">Is OKX available in my country?</summary><div class="a" data-t="a11"><p>OKX does not serve every country. If you can open an OKX account where you live, you can get cashback.</p></div></details>
       <details><summary data-t="q12">Do you give trading signals or investment advice?</summary><div class="a" data-t="a12"><p>No. We only return part of your trading fees. Every trading decision is yours. Crypto involves risk; only trade what you can afford to lose.</p></div></details>
@@ -473,8 +475,8 @@ footer .mail { font-family: var(--mono); }
     ["VIP 6", 0.000, 0.025, 1e9], ["VIP 7", -0.002, 0.020, 1.5e9], ["VIP 8", -0.005, 0.020, 2e9],
     ["VIP 9", -0.005, 0.015, 20e9]
   ];
-  const EXCH = { OKX: null, WEEX: [0.020, 0.080], Binance: [0.020, 0.050], Bybit: [0.020, 0.055], Bitget: [0.020, 0.060], Other: [0.020, 0.050] };
-  const WEEX_FEE = [0.020, 0.080], WEEX_CB = 0.30, BITGET_FEE = [0.020, 0.060], BITGET_CB = 0.20;
+  const EXCH = { OKX: null, WEEX: [0.020, 0.080], Binance: [0.020, 0.050], Bybit: [0.020, 0.055], Bitget: [0.020, 0.060], BTCC: [0.025, 0.045], Other: [0.020, 0.050] };
+  const WEEX_FEE = [0.020, 0.080], WEEX_CB = 0.30, BITGET_FEE = [0.020, 0.060], BITGET_CB = 0.20, BTCC_FEE = [0.025, 0.045], BTCC_CB = 0.25;
   let cbx = 'OKX';
   const CHIPS = [1e5, 1e6, 5e6, 20e6, 50e6, 100e6];
   const CB = 0.20, CBMAX = 0.40, REF = 0.40;
@@ -503,7 +505,7 @@ footer .mail { font-family: var(--mono); }
     s2t: "Trade as usual", s2p: "Spot and futures, as usual. No minimum volume and no expiration.",
     s3t: "Get paid every week", s3p: "Part of the fees you paid comes back to your exchange account: at least 20%, every week.",
     soon_h: "More exchanges coming soon",
-    soon_p: "Cashback is live on OKX, WEEX and BITGET today. We are working on cashback deals with more exchanges. Trade somewhere else? Tell us on Telegram which one you want next.",
+    soon_p: "Cashback is live on OKX, WEEX, BITGET and BTCC today. We are working on cashback deals with more exchanges. Trade somewhere else? Tell us on Telegram which one you want next.",
     live: "OKX · Live",
     tbl_h: "OKX futures fees by tier", tbl_p: "Main pairs (BTC, ETH and other majors), per trade. Tier by 30-day futures volume. Your row is highlighted.",
     th_tier: "Tier", th_vol30: "30-day volume", th_cb1m: "Cashback per $1M traded (20%)",
@@ -527,7 +529,7 @@ footer .mail { font-family: var(--mono); }
     q9: "Why are the results approximate?",
     a9: "<p>The calculator uses your 30-day volume, your order mix and the public OKX fee schedule. Your real cashback follows the fees you actually pay each week, so it moves with your trading.</p>",
     q10: "Which exchanges are supported?",
-    a10: "<p>OKX (20% to 40% back), WEEX (30% back) and BITGET (20% back) are live today. BYBIT, MEXC, BINANCE, BTCC and GATE are coming soon.</p>",
+    a10: "<p>OKX (20% to 40% back), WEEX (30% back), BITGET (20% back) and BTCC (25% back) are live today. BYBIT, MEXC, BINANCE and GATE are coming soon.</p>",
     q11: "Is OKX available in my country?",
     a11: "<p>OKX does not serve every country. If you can open an OKX account where you live, you can get cashback.</p>",
     q12: "Do you give trading signals or investment advice?",
@@ -541,7 +543,7 @@ footer .mail { font-family: var(--mono); }
     c2: "With GetCryptoFeeBack, at least 20% of the fees you pay comes back to you: <b>{cb}</b> a month, and up to <b>{max}</b> in boost weeks.",
     week: "a month · ≈ {x} every week", rmin: "20% (minimum)", rboost: "40% (boost)",
     k_now_okx: "Fees you pay on OKX", k_now: "Fees you pay now",
-    ph_vol: "Enter your 30-day volume", empty: "Fill in your futures volume from the last 30 days above to see how much you pay in fees each month, and how much comes back to you.", cb_on: "Cashback on", wx_t: "New to WEEX", wx_s: "Open an account with 30% cashback", c2w: "With GetCryptoFeeBack on WEEX, 30% of the fees you pay comes back to you: <b>{cb}</b> a month.", c_okx_s: "At least 20% cashback", c_wx_s: "At least 30% cashback", link_h: "Already have an account?", link_p: "Want to link your existing account to our cashback? Contact us at <a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a> or on Telegram <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a>.", q13: "Do I need to verify my identity (KYC) on WEEX?", a13: "<p>It depends on your country. In some countries WEEX lets you open an account and start trading without identity verification, usually with lower limits (for example on withdrawals). Check the rules that apply where you live before you start.</p>", camp_tag: "Coming soon", camp_h: "Trade with our link. Win prizes.", camp_p: "We're preparing prize campaigns with our partner exchanges, only for traders who use our links: trips, smartphones, laptops and more. Open your account through our links now so you're eligible when they launch.", pz1: "Trips", pz2: "Smartphones", pz3: "Laptops", camp_btn: "Get notified on Telegram", camp_fine: "Each campaign will have its own official rules, published at launch.", bn_h: "Win trips, smartphones and laptops", bn_s: "Prize campaigns for traders who use our link", bn_cta: "Learn more →", nav_prizes: "Prizes"
+    ph_vol: "Enter your 30-day volume", empty: "Fill in your futures volume from the last 30 days above to see how much you pay in fees each month, and how much comes back to you.", cb_on: "Cashback on", wx_t: "New to WEEX", wx_s: "Open an account with 30% cashback", c2w: "With GetCryptoFeeBack on WEEX, 30% of the fees you pay comes back to you: <b>{cb}</b> a month.", c_okx_s: "At least 20% cashback", c_wx_s: "At least 30% cashback", c_bt_s: "At least 25% cashback", link_h: "Already have an account?", link_p: "Want to link your existing account to our cashback? Contact us at <a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a> or on Telegram <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a>.", q13: "Do I need to verify my identity (KYC) on WEEX?", a13: "<p>It depends on your country. In some countries WEEX lets you open an account and start trading without identity verification, usually with lower limits (for example on withdrawals). Check the rules that apply where you live before you start.</p>", camp_tag: "Coming soon", camp_h: "Trade with our link. Win prizes.", camp_p: "We're preparing prize campaigns with our partner exchanges, only for traders who use our links: trips, smartphones, laptops and more. Open your account through our links now so you're eligible when they launch.", pz1: "Trips", pz2: "Smartphones", pz3: "Laptops", camp_btn: "Get notified on Telegram", camp_fine: "Each campaign will have its own official rules, published at launch.", bn_h: "Win trips, smartphones and laptops", bn_s: "Prize campaigns for traders who use our link", bn_cta: "Learn more →", nav_prizes: "Prizes"
   },
   pt: {
     title: "GetCryptoFeeBack | Calculadora de taxas cripto: receba de volta 20% a 40% das suas taxas",
@@ -565,7 +567,7 @@ footer .mail { font-family: var(--mono); }
     s2t: "Opere normalmente", s2p: "Spot e futuros, como você já faz. Sem volume mínimo e sem prazo de validade.",
     s3t: "Receba toda semana", s3p: "Parte das taxas que você pagou volta para a sua conta na corretora: no mínimo 20%, toda semana.",
     soon_h: "Mais corretoras em breve",
-    soon_p: "O cashback já funciona na OKX, na WEEX e na BITGET. Estamos fechando acordos de cashback com mais corretoras. Opera em outra? Conte no Telegram qual você quer a seguir.",
+    soon_p: "O cashback já funciona na OKX, na WEEX, na BITGET e na BTCC. Estamos fechando acordos de cashback com mais corretoras. Opera em outra? Conte no Telegram qual você quer a seguir.",
     live: "OKX · Ativo",
     tbl_h: "Taxas de futuros da OKX por nível", tbl_p: "Pares principais (BTC, ETH e outras majors), por operação. Nível pelo volume de futuros de 30 dias. Sua linha fica destacada.",
     th_tier: "Nível", th_vol30: "Volume 30 dias", th_cb1m: "Cashback a cada $1M operado (20%)",
@@ -589,7 +591,7 @@ footer .mail { font-family: var(--mono); }
     q9: "Por que os resultados são aproximados?",
     a9: "<p>A calculadora usa seu volume de 30 dias, seu mix de ordens e a tabela pública de taxas da OKX. O cashback real segue as taxas que você paga de fato a cada semana, então acompanha suas operações.</p>",
     q10: "Quais corretoras são suportadas?",
-    a10: "<p>OKX (20% a 40% de volta), WEEX (30% de volta) e BITGET (20% de volta) já estão ativas. BYBIT, MEXC, BINANCE, BTCC e GATE chegam em breve.</p>",
+    a10: "<p>OKX (20% a 40% de volta), WEEX (30% de volta), BITGET (20% de volta) e BTCC (25% de volta) já estão ativas. BYBIT, MEXC, BINANCE e GATE chegam em breve.</p>",
     q11: "A OKX está disponível no meu país?",
     a11: "<p>A OKX não atende todos os países. Se você consegue abrir uma conta OKX onde mora, pode receber cashback.</p>",
     q12: "Vocês dão sinais de trading ou recomendação de investimento?",
@@ -603,7 +605,7 @@ footer .mail { font-family: var(--mono); }
     c2: "Com a GetCryptoFeeBack, pelo menos 20% das taxas que você paga voltam para você: <b>{cb}</b> por mês, e até <b>{max}</b> nas semanas boost.",
     week: "por mês · ≈ {x} toda semana", rmin: "20% (mínimo)", rboost: "40% (boost)",
     k_now_okx: "Taxas que você paga na OKX", k_now: "Taxas que você paga hoje",
-    ph_vol: "Digite seu volume de 30 dias", empty: "Preencha acima seu volume em futuros dos últimos 30 dias para ver quanto você paga de taxas por mês e quanto volta para você.", cb_on: "Cashback na", wx_t: "Novo na WEEX", wx_s: "Abra uma conta com 30% de cashback", c2w: "Com a GetCryptoFeeBack na WEEX, 30% das taxas que você paga voltam para você: <b>{cb}</b> por mês.", c_okx_s: "Mínimo 20% de cashback", c_wx_s: "Mínimo 30% de cashback", link_h: "Já tem conta?", link_p: "Quer vincular sua conta atual aos nossos cashbacks? Fale com a gente pelo e-mail <a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a> ou no Telegram <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a>.", q13: "Preciso fazer verificação de identidade (KYC) na WEEX?", a13: "<p>Depende do seu país. Em alguns países, a WEEX permite abrir conta e começar a operar sem verificação de identidade, normalmente com limites menores (por exemplo, para saques). Confira as regras que valem onde você mora antes de começar.</p>", camp_tag: "Em breve", camp_h: "Opere pelo nosso link. Concorra a prêmios.", camp_p: "Estamos preparando campanhas com prêmios junto com as corretoras parceiras, só para quem usa nossos links: viagens, smartphones, notebooks e mais. Abra sua conta pelos nossos links agora para participar quando elas começarem.", pz1: "Viagens", pz2: "Smartphones", pz3: "Notebooks", camp_btn: "Seja avisado no Telegram", camp_fine: "Cada campanha terá regulamento próprio, publicado no lançamento.", bn_h: "Concorra a viagens, smartphones e notebooks", bn_s: "Campanhas com prêmios para quem usa nosso link", bn_cta: "Saiba mais →", nav_prizes: "Prêmios"
+    ph_vol: "Digite seu volume de 30 dias", empty: "Preencha acima seu volume em futuros dos últimos 30 dias para ver quanto você paga de taxas por mês e quanto volta para você.", cb_on: "Cashback na", wx_t: "Novo na WEEX", wx_s: "Abra uma conta com 30% de cashback", c2w: "Com a GetCryptoFeeBack na WEEX, 30% das taxas que você paga voltam para você: <b>{cb}</b> por mês.", c_okx_s: "Mínimo 20% de cashback", c_wx_s: "Mínimo 30% de cashback", c_bt_s: "Mínimo 25% de cashback", link_h: "Já tem conta?", link_p: "Quer vincular sua conta atual aos nossos cashbacks? Fale com a gente pelo e-mail <a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a> ou no Telegram <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a>.", q13: "Preciso fazer verificação de identidade (KYC) na WEEX?", a13: "<p>Depende do seu país. Em alguns países, a WEEX permite abrir conta e começar a operar sem verificação de identidade, normalmente com limites menores (por exemplo, para saques). Confira as regras que valem onde você mora antes de começar.</p>", camp_tag: "Em breve", camp_h: "Opere pelo nosso link. Concorra a prêmios.", camp_p: "Estamos preparando campanhas com prêmios junto com as corretoras parceiras, só para quem usa nossos links: viagens, smartphones, notebooks e mais. Abra sua conta pelos nossos links agora para participar quando elas começarem.", pz1: "Viagens", pz2: "Smartphones", pz3: "Notebooks", camp_btn: "Seja avisado no Telegram", camp_fine: "Cada campanha terá regulamento próprio, publicado no lançamento.", bn_h: "Concorra a viagens, smartphones e notebooks", bn_s: "Campanhas com prêmios para quem usa nosso link", bn_cta: "Saiba mais →", nav_prizes: "Prêmios"
   },
   es: {
     title: "GetCryptoFeeBack | Calculadora de comisiones cripto: recupera del 20% al 40% de tus comisiones",
@@ -627,7 +629,7 @@ footer .mail { font-family: var(--mono); }
     s2t: "Opera como siempre", s2p: "Spot y futuros, como siempre. Sin volumen mínimo y sin vencimiento.",
     s3t: "Cobra cada semana", s3p: "Parte de las comisiones que pagaste vuelve a tu cuenta del exchange: al menos el 20%, cada semana.",
     soon_h: "Más exchanges muy pronto",
-    soon_p: "El cashback ya funciona en OKX, WEEX y BITGET. Estamos cerrando acuerdos de cashback con más exchanges. ¿Operas en otro? Dinos en Telegram cuál quieres después.",
+    soon_p: "El cashback ya funciona en OKX, WEEX, BITGET y BTCC. Estamos cerrando acuerdos de cashback con más exchanges. ¿Operas en otro? Dinos en Telegram cuál quieres después.",
     live: "OKX · Activo",
     tbl_h: "Comisiones de futuros de OKX por nivel", tbl_p: "Pares principales (BTC, ETH y otras majors), por operación. Nivel según el volumen de futuros de 30 días. Tu fila aparece resaltada.",
     th_tier: "Nivel", th_vol30: "Volumen 30 días", th_cb1m: "Cashback por cada $1M operado (20%)",
@@ -651,7 +653,7 @@ footer .mail { font-family: var(--mono); }
     q9: "¿Por qué los resultados son aproximados?",
     a9: "<p>La calculadora usa tu volumen de 30 días, tu mezcla de órdenes y la tabla pública de comisiones de OKX. Tu cashback real sigue las comisiones que pagas cada semana, así que varía con tu operativa.</p>",
     q10: "¿Qué exchanges están disponibles?",
-    a10: "<p>OKX (del 20% al 40% de vuelta), WEEX (30% de vuelta) y BITGET (20% de vuelta) ya están activos. BYBIT, MEXC, BINANCE, BTCC y GATE llegan pronto.</p>",
+    a10: "<p>OKX (del 20% al 40% de vuelta), WEEX (30% de vuelta), BITGET (20% de vuelta) y BTCC (25% de vuelta) ya están activos. BYBIT, MEXC, BINANCE y GATE llegan pronto.</p>",
     q11: "¿OKX está disponible en mi país?",
     a11: "<p>OKX no opera en todos los países. Si puedes abrir una cuenta OKX donde vives, puedes recibir cashback.</p>",
     q12: "¿Dan señales de trading o asesoría de inversión?",
@@ -665,7 +667,7 @@ footer .mail { font-family: var(--mono); }
     c2: "Con GetCryptoFeeBack, al menos el 20% de las comisiones que pagas vuelve a ti: <b>{cb}</b> al mes, y hasta <b>{max}</b> en semanas boost.",
     week: "al mes · ≈ {x} cada semana", rmin: "20% (mínimo)", rboost: "40% (boost)",
     k_now_okx: "Comisiones que pagas en OKX", k_now: "Comisiones que pagas hoy",
-    ph_vol: "Escribe tu volumen de 30 días", empty: "Completa arriba tu volumen en futuros de los últimos 30 días para ver cuánto pagas en comisiones al mes y cuánto vuelve a ti.", cb_on: "Cashback en", wx_t: "Nuevo en WEEX", wx_s: "Abre una cuenta con 30% de cashback", c2w: "Con GetCryptoFeeBack en WEEX, el 30% de las comisiones que pagas vuelve a ti: <b>{cb}</b> al mes.", c_okx_s: "Mínimo 20% de cashback", c_wx_s: "Mínimo 30% de cashback", link_h: "¿Ya tienes cuenta?", link_p: "¿Quieres vincular tu cuenta actual a nuestros cashbacks? Escríbenos a <a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a> o por Telegram a <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a>.", q13: "¿Necesito verificar mi identidad (KYC) en WEEX?", a13: "<p>Depende de tu país. En algunos países, WEEX permite abrir una cuenta y empezar a operar sin verificación de identidad, normalmente con límites más bajos (por ejemplo, en retiros). Revisa las reglas que aplican donde vives antes de empezar.</p>", camp_tag: "Próximamente", camp_h: "Opera con nuestro enlace. Gana premios.", camp_p: "Estamos preparando campañas con premios junto con los exchanges asociados, solo para quienes usan nuestros enlaces: viajes, smartphones, portátiles y más. Abre tu cuenta con nuestros enlaces ahora para participar cuando empiecen.", pz1: "Viajes", pz2: "Smartphones", pz3: "Portátiles", camp_btn: "Recibe el aviso en Telegram", camp_fine: "Cada campaña tendrá sus propias bases oficiales, publicadas en el lanzamiento.", bn_h: "Gana viajes, smartphones y portátiles", bn_s: "Campañas con premios para quienes usan nuestro enlace", bn_cta: "Más información →", nav_prizes: "Premios"
+    ph_vol: "Escribe tu volumen de 30 días", empty: "Completa arriba tu volumen en futuros de los últimos 30 días para ver cuánto pagas en comisiones al mes y cuánto vuelve a ti.", cb_on: "Cashback en", wx_t: "Nuevo en WEEX", wx_s: "Abre una cuenta con 30% de cashback", c2w: "Con GetCryptoFeeBack en WEEX, el 30% de las comisiones que pagas vuelve a ti: <b>{cb}</b> al mes.", c_okx_s: "Mínimo 20% de cashback", c_wx_s: "Mínimo 30% de cashback", c_bt_s: "Mínimo 25% de cashback", link_h: "¿Ya tienes cuenta?", link_p: "¿Quieres vincular tu cuenta actual a nuestros cashbacks? Escríbenos a <a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a> o por Telegram a <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a>.", q13: "¿Necesito verificar mi identidad (KYC) en WEEX?", a13: "<p>Depende de tu país. En algunos países, WEEX permite abrir una cuenta y empezar a operar sin verificación de identidad, normalmente con límites más bajos (por ejemplo, en retiros). Revisa las reglas que aplican donde vives antes de empezar.</p>", camp_tag: "Próximamente", camp_h: "Opera con nuestro enlace. Gana premios.", camp_p: "Estamos preparando campañas con premios junto con los exchanges asociados, solo para quienes usan nuestros enlaces: viajes, smartphones, portátiles y más. Abre tu cuenta con nuestros enlaces ahora para participar cuando empiecen.", pz1: "Viajes", pz2: "Smartphones", pz3: "Portátiles", camp_btn: "Recibe el aviso en Telegram", camp_fine: "Cada campaña tendrá sus propias bases oficiales, publicadas en el lanzamiento.", bn_h: "Gana viajes, smartphones y portátiles", bn_s: "Campañas con premios para quienes usan nuestro enlace", bn_cta: "Más información →", nav_prizes: "Premios"
   },
   de: {
     title: "GetCryptoFeeBack | Krypto-Gebührenrechner: 20 % bis 40 % deiner Trading-Gebühren zurück",
@@ -689,7 +691,7 @@ footer .mail { font-family: var(--mono); }
     s2t: "Trade wie gewohnt", s2p: "Spot und Futures wie gewohnt. Kein Mindestvolumen, kein Ablaufdatum.",
     s3t: "Jede Woche ausgezahlt", s3p: "Ein Teil deiner gezahlten Gebühren geht zurück auf dein Börsenkonto: mindestens 20 %, jede Woche.",
     soon_h: "Weitere Börsen bald verfügbar",
-    soon_p: "Cashback läuft heute bei OKX, WEEX und BITGET. Wir arbeiten an Cashback-Deals mit weiteren Börsen. Du tradest woanders? Sag uns auf Telegram, welche Börse du als Nächstes willst.",
+    soon_p: "Cashback läuft heute bei OKX, WEEX, BITGET und BTCC. Wir arbeiten an Cashback-Deals mit weiteren Börsen. Du tradest woanders? Sag uns auf Telegram, welche Börse du als Nächstes willst.",
     live: "OKX · Aktiv",
     tbl_h: "OKX-Futures-Gebühren nach Stufe", tbl_p: "Hauptpaare (BTC, ETH und andere Majors), pro Trade. Stufe nach 30-Tage-Futures-Volumen. Deine Zeile ist markiert.",
     th_tier: "Stufe", th_vol30: "30-Tage-Volumen", th_cb1m: "Cashback pro $1M Volumen (20 %)",
@@ -713,7 +715,7 @@ footer .mail { font-family: var(--mono); }
     q9: "Warum sind die Ergebnisse nur Näherungswerte?",
     a9: "<p>Der Rechner nutzt dein 30-Tage-Volumen, deinen Order-Mix und die öffentliche OKX-Gebührentabelle. Dein echtes Cashback folgt den Gebühren, die du jede Woche tatsächlich zahlst, und schwankt mit deinem Trading.</p>",
     q10: "Welche Börsen werden unterstützt?",
-    a10: "<p>OKX (20 % bis 40 % zurück), WEEX (30 % zurück) und BITGET (20 % zurück) sind heute aktiv. BYBIT, MEXC, BINANCE, BTCC und GATE folgen bald.</p>",
+    a10: "<p>OKX (20 % bis 40 % zurück), WEEX (30 % zurück), BITGET (20 % zurück) und BTCC (25 % zurück) sind heute aktiv. BYBIT, MEXC, BINANCE und GATE folgen bald.</p>",
     q11: "Ist OKX in meinem Land verfügbar?",
     a11: "<p>OKX ist nicht in jedem Land verfügbar. Wenn du dort, wo du lebst, ein OKX-Konto eröffnen kannst, bekommst du Cashback.</p>",
     q12: "Gebt ihr Trading-Signale oder Anlageberatung?",
@@ -727,7 +729,7 @@ footer .mail { font-family: var(--mono); }
     c2: "Mit GetCryptoFeeBack kommen mindestens 20 % deiner Gebühren zu dir zurück: <b>{cb}</b> pro Monat und bis zu <b>{max}</b> in Boost-Wochen.",
     week: "pro Monat · ≈ {x} jede Woche", rmin: "20 % (Minimum)", rboost: "40 % (Boost)",
     k_now_okx: "Deine Gebühren bei OKX", k_now: "Deine Gebühren heute",
-    ph_vol: "30-Tage-Volumen eingeben", empty: "Gib oben dein Futures-Volumen der letzten 30 Tage ein, um zu sehen, wie viel du monatlich an Gebühren zahlst und wie viel zu dir zurückkommt.", cb_on: "Cashback bei", wx_t: "Neu bei WEEX", wx_s: "Konto mit 30 % Cashback eröffnen", c2w: "Mit GetCryptoFeeBack auf WEEX kommen 30 % deiner Gebühren zu dir zurück: <b>{cb}</b> pro Monat.", c_okx_s: "Mindestens 20 % Cashback", c_wx_s: "Mindestens 30 % Cashback", link_h: "Schon ein Konto?", link_p: "Du willst dein bestehendes Konto mit unserem Cashback verknüpfen? Schreib uns an <a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a> oder auf Telegram an <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a>.", q13: "Muss ich mich bei WEEX verifizieren (KYC)?", a13: "<p>Das hängt von deinem Land ab. In manchen Ländern kannst du bei WEEX ein Konto eröffnen und ohne Identitätsprüfung traden, meist mit niedrigeren Limits (zum Beispiel bei Auszahlungen). Prüfe vorher die Regeln, die in deinem Land gelten.</p>", camp_tag: "Demnächst", camp_h: "Trade über unseren Link. Gewinne Preise.", camp_p: "Wir bereiten mit unseren Partnerbörsen Gewinnspiele vor, nur für Trader, die unsere Links nutzen: Reisen, Smartphones, Laptops und mehr. Eröffne dein Konto jetzt über unsere Links, um beim Start dabei zu sein.", pz1: "Reisen", pz2: "Smartphones", pz3: "Laptops", camp_btn: "Auf Telegram benachrichtigt werden", camp_fine: "Jede Aktion hat eigene offizielle Teilnahmebedingungen, die zum Start veröffentlicht werden.", bn_h: "Gewinne Reisen, Smartphones und Laptops", bn_s: "Gewinnspiele für Trader mit unserem Link", bn_cta: "Mehr erfahren →", nav_prizes: "Preise"
+    ph_vol: "30-Tage-Volumen eingeben", empty: "Gib oben dein Futures-Volumen der letzten 30 Tage ein, um zu sehen, wie viel du monatlich an Gebühren zahlst und wie viel zu dir zurückkommt.", cb_on: "Cashback bei", wx_t: "Neu bei WEEX", wx_s: "Konto mit 30 % Cashback eröffnen", c2w: "Mit GetCryptoFeeBack auf WEEX kommen 30 % deiner Gebühren zu dir zurück: <b>{cb}</b> pro Monat.", c_okx_s: "Mindestens 20 % Cashback", c_wx_s: "Mindestens 30 % Cashback", c_bt_s: "Mindestens 25 % Cashback", link_h: "Schon ein Konto?", link_p: "Du willst dein bestehendes Konto mit unserem Cashback verknüpfen? Schreib uns an <a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a> oder auf Telegram an <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a>.", q13: "Muss ich mich bei WEEX verifizieren (KYC)?", a13: "<p>Das hängt von deinem Land ab. In manchen Ländern kannst du bei WEEX ein Konto eröffnen und ohne Identitätsprüfung traden, meist mit niedrigeren Limits (zum Beispiel bei Auszahlungen). Prüfe vorher die Regeln, die in deinem Land gelten.</p>", camp_tag: "Demnächst", camp_h: "Trade über unseren Link. Gewinne Preise.", camp_p: "Wir bereiten mit unseren Partnerbörsen Gewinnspiele vor, nur für Trader, die unsere Links nutzen: Reisen, Smartphones, Laptops und mehr. Eröffne dein Konto jetzt über unsere Links, um beim Start dabei zu sein.", pz1: "Reisen", pz2: "Smartphones", pz3: "Laptops", camp_btn: "Auf Telegram benachrichtigt werden", camp_fine: "Jede Aktion hat eigene offizielle Teilnahmebedingungen, die zum Start veröffentlicht werden.", bn_h: "Gewinne Reisen, Smartphones und Laptops", bn_s: "Gewinnspiele für Trader mit unserem Link", bn_cta: "Mehr erfahren →", nav_prizes: "Preise"
   },
   fr: {
     title: "GetCryptoFeeBack | Calculateur de frais crypto : récupérez 20 % à 40 % de vos frais de trading",
@@ -751,7 +753,7 @@ footer .mail { font-family: var(--mono); }
     s2t: "Tradez comme d'habitude", s2p: "Spot et futures, comme d'habitude. Aucun volume minimum, aucune expiration.",
     s3t: "Payé chaque semaine", s3p: "Une partie des frais payés revient sur votre compte de la plateforme : au moins 20 %, chaque semaine.",
     soon_h: "D'autres plateformes bientôt",
-    soon_p: "Le cashback fonctionne déjà sur OKX, WEEX et BITGET. Nous préparons des accords de cashback avec d'autres plateformes. Vous tradez ailleurs ? Dites-nous sur Telegram laquelle vous voulez ensuite.",
+    soon_p: "Le cashback fonctionne déjà sur OKX, WEEX, BITGET et BTCC. Nous préparons des accords de cashback avec d'autres plateformes. Vous tradez ailleurs ? Dites-nous sur Telegram laquelle vous voulez ensuite.",
     live: "OKX · Actif",
     tbl_h: "Frais futures OKX par niveau", tbl_p: "Paires principales (BTC, ETH et autres majors), par trade. Niveau selon le volume futures sur 30 jours. Votre ligne est surlignée.",
     th_tier: "Niveau", th_vol30: "Volume 30 jours", th_cb1m: "Cashback par 1 M$ tradé (20 %)",
@@ -775,7 +777,7 @@ footer .mail { font-family: var(--mono); }
     q9: "Pourquoi les résultats sont-ils approximatifs ?",
     a9: "<p>Le calculateur utilise votre volume sur 30 jours, votre mix d'ordres et la grille publique de frais OKX. Votre cashback réel suit les frais que vous payez chaque semaine, il varie donc avec votre trading.</p>",
     q10: "Quelles plateformes sont prises en charge ?",
-    a10: "<p>OKX (20 % à 40 % remboursés), WEEX (30 % remboursés) et BITGET (20 % remboursés) sont actifs aujourd'hui. BYBIT, MEXC, BINANCE, BTCC et GATE arrivent bientôt.</p>",
+    a10: "<p>OKX (20 % à 40 % remboursés), WEEX (30 % remboursés), BITGET (20 % remboursés) et BTCC (25 % remboursés) sont actifs aujourd'hui. BYBIT, MEXC, BINANCE et GATE arrivent bientôt.</p>",
     q11: "OKX est-il disponible dans mon pays ?",
     a11: "<p>OKX ne couvre pas tous les pays. Si vous pouvez ouvrir un compte OKX là où vous vivez, vous pouvez recevoir le cashback.</p>",
     q12: "Donnez-vous des signaux de trading ou des conseils d'investissement ?",
@@ -789,7 +791,7 @@ footer .mail { font-family: var(--mono); }
     c2: "Avec GetCryptoFeeBack, au moins 20 % de vos frais vous reviennent : <b>{cb}</b> par mois, et jusqu'à <b>{max}</b> les semaines boost.",
     week: "par mois · ≈ {x} chaque semaine", rmin: "20 % (minimum)", rboost: "40 % (boost)",
     k_now_okx: "Vos frais sur OKX", k_now: "Vos frais actuels",
-    ph_vol: "Saisissez votre volume sur 30 jours", empty: "Indiquez ci-dessus votre volume futures des 30 derniers jours pour voir combien vous payez de frais par mois et combien vous revient.", cb_on: "Cashback sur", wx_t: "Nouveau sur WEEX", wx_s: "Ouvrir un compte avec 30 % de cashback", c2w: "Avec GetCryptoFeeBack sur WEEX, 30 % de vos frais vous reviennent : <b>{cb}</b> par mois.", c_okx_s: "Au moins 20 % de cashback", c_wx_s: "Au moins 30 % de cashback", link_h: "Déjà un compte ?", link_p: "Vous voulez lier votre compte existant à nos cashbacks ? Écrivez-nous à <a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a> ou sur Telegram à <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a>.", q13: "Dois-je vérifier mon identité (KYC) sur WEEX ?", a13: "<p>Cela dépend de votre pays. Dans certains pays, WEEX permet d'ouvrir un compte et de trader sans vérification d'identité, généralement avec des limites plus basses (par exemple sur les retraits). Vérifiez les règles applicables chez vous avant de commencer.</p>", camp_tag: "Bientôt", camp_h: "Tradez via notre lien. Gagnez des prix.", camp_p: "Nous préparons des campagnes avec prix avec nos plateformes partenaires, réservées aux traders qui utilisent nos liens : voyages, smartphones, ordinateurs portables et plus. Ouvrez votre compte via nos liens dès maintenant pour participer au lancement.", pz1: "Voyages", pz2: "Smartphones", pz3: "Ordinateurs", camp_btn: "Être prévenu sur Telegram", camp_fine: "Chaque campagne aura son propre règlement officiel, publié au lancement.", bn_h: "Gagnez des voyages, smartphones et ordinateurs", bn_s: "Campagnes avec prix pour ceux qui utilisent notre lien", bn_cta: "En savoir plus →", nav_prizes: "Prix"
+    ph_vol: "Saisissez votre volume sur 30 jours", empty: "Indiquez ci-dessus votre volume futures des 30 derniers jours pour voir combien vous payez de frais par mois et combien vous revient.", cb_on: "Cashback sur", wx_t: "Nouveau sur WEEX", wx_s: "Ouvrir un compte avec 30 % de cashback", c2w: "Avec GetCryptoFeeBack sur WEEX, 30 % de vos frais vous reviennent : <b>{cb}</b> par mois.", c_okx_s: "Au moins 20 % de cashback", c_wx_s: "Au moins 30 % de cashback", c_bt_s: "Au moins 25 % de cashback", link_h: "Déjà un compte ?", link_p: "Vous voulez lier votre compte existant à nos cashbacks ? Écrivez-nous à <a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a> ou sur Telegram à <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a>.", q13: "Dois-je vérifier mon identité (KYC) sur WEEX ?", a13: "<p>Cela dépend de votre pays. Dans certains pays, WEEX permet d'ouvrir un compte et de trader sans vérification d'identité, généralement avec des limites plus basses (par exemple sur les retraits). Vérifiez les règles applicables chez vous avant de commencer.</p>", camp_tag: "Bientôt", camp_h: "Tradez via notre lien. Gagnez des prix.", camp_p: "Nous préparons des campagnes avec prix avec nos plateformes partenaires, réservées aux traders qui utilisent nos liens : voyages, smartphones, ordinateurs portables et plus. Ouvrez votre compte via nos liens dès maintenant pour participer au lancement.", pz1: "Voyages", pz2: "Smartphones", pz3: "Ordinateurs", camp_btn: "Être prévenu sur Telegram", camp_fine: "Chaque campagne aura son propre règlement officiel, publié au lancement.", bn_h: "Gagnez des voyages, smartphones et ordinateurs", bn_s: "Campagnes avec prix pour ceux qui utilisent notre lien", bn_cta: "En savoir plus →", nav_prizes: "Prix"
   },
   ru: {
     title: "GetCryptoFeeBack | Калькулятор комиссий: верните 20–40% торговых комиссий",
@@ -813,7 +815,7 @@ footer .mail { font-family: var(--mono); }
     s2t: "Торгуйте как обычно", s2p: "Спот и фьючерсы, как обычно. Без минимального объёма и без срока действия.",
     s3t: "Выплаты каждую неделю", s3p: "Часть уплаченных комиссий возвращается на ваш аккаунт биржи: минимум 20%, каждую неделю.",
     soon_h: "Скоро другие биржи",
-    soon_p: "Кэшбэк уже работает на OKX, WEEX и BITGET. Мы договариваемся о кэшбэке с другими биржами. Торгуете в другом месте? Напишите в Telegram, какую биржу добавить следующей.",
+    soon_p: "Кэшбэк уже работает на OKX, WEEX, BITGET и BTCC. Мы договариваемся о кэшбэке с другими биржами. Торгуете в другом месте? Напишите в Telegram, какую биржу добавить следующей.",
     live: "OKX · Работает",
     tbl_h: "Комиссии фьючерсов OKX по уровням", tbl_p: "Основные пары (BTC, ETH и другие крупные монеты), за сделку. Уровень по объёму фьючерсов за 30 дней. Ваша строка выделена.",
     th_tier: "Уровень", th_vol30: "Объём за 30 дней", th_cb1m: "Кэшбэк на $1M объёма (20%)",
@@ -837,7 +839,7 @@ footer .mail { font-family: var(--mono); }
     q9: "Почему результаты приблизительные?",
     a9: "<p>Калькулятор использует ваш объём за 30 дней, состав ордеров и публичную таблицу комиссий OKX. Реальный кэшбэк зависит от комиссий, которые вы фактически платите каждую неделю, поэтому меняется вместе с вашей торговлей.</p>",
     q10: "Какие биржи поддерживаются?",
-    a10: "<p>OKX (возврат 20–40%), WEEX (возврат 30%) и BITGET (возврат 20%) уже работают. BYBIT, MEXC, BINANCE, BTCC и GATE появятся скоро.</p>",
+    a10: "<p>OKX (возврат 20–40%), WEEX (возврат 30%), BITGET (возврат 20%) и BTCC (возврат 25%) уже работают. BYBIT, MEXC, BINANCE и GATE появятся скоро.</p>",
     q11: "Доступна ли OKX в моей стране?",
     a11: "<p>OKX работает не во всех странах. Если вы можете открыть аккаунт OKX там, где живёте, вы можете получать кэшбэк.</p>",
     q12: "Вы даёте торговые сигналы или инвестиционные советы?",
@@ -851,7 +853,7 @@ footer .mail { font-family: var(--mono); }
     c2: "С GetCryptoFeeBack минимум 20% ваших комиссий возвращается вам: <b>{cb}</b> в месяц и до <b>{max}</b> в boost-недели.",
     week: "в месяц · ≈ {x} каждую неделю", rmin: "20% (минимум)", rboost: "40% (boost)",
     k_now_okx: "Ваши комиссии на OKX", k_now: "Ваши комиссии сейчас",
-    ph_vol: "Введите объём за 30 дней", empty: "Укажите выше объём фьючерсов за последние 30 дней, чтобы увидеть, сколько вы платите комиссий в месяц и сколько вернётся вам.", cb_on: "Кэшбэк на", wx_t: "Новичок в WEEX", wx_s: "Откройте аккаунт с кэшбэком 30%", c2w: "С GetCryptoFeeBack на WEEX 30% ваших комиссий возвращается вам: <b>{cb}</b> в месяц.", c_okx_s: "Кэшбэк от 20%", c_wx_s: "Кэшбэк от 30%", link_h: "Уже есть аккаунт?", link_p: "Хотите привязать текущий аккаунт к нашему кэшбэку? Напишите нам на <a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a> или в Telegram <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a>.", q13: "Нужна ли верификация (KYC) на WEEX?", a13: "<p>Зависит от страны. В некоторых странах WEEX позволяет открыть аккаунт и торговать без верификации личности, обычно с более низкими лимитами (например, на вывод). Перед началом проверьте правила для вашей страны.</p>", camp_tag: "Скоро", camp_h: "Торгуйте по нашей ссылке. Выигрывайте призы.", camp_p: "Мы готовим призовые кампании с биржами-партнёрами только для трейдеров, которые используют наши ссылки: путешествия, смартфоны, ноутбуки и многое другое. Откройте аккаунт по нашим ссылкам сейчас, чтобы участвовать при запуске.", pz1: "Путешествия", pz2: "Смартфоны", pz3: "Ноутбуки", camp_btn: "Узнать первым в Telegram", camp_fine: "У каждой кампании будут свои официальные правила, опубликованные при запуске.", bn_h: "Выигрывайте путешествия, смартфоны и ноутбуки", bn_s: "Призовые кампании для тех, кто торгует по нашей ссылке", bn_cta: "Подробнее →", nav_prizes: "Призы"
+    ph_vol: "Введите объём за 30 дней", empty: "Укажите выше объём фьючерсов за последние 30 дней, чтобы увидеть, сколько вы платите комиссий в месяц и сколько вернётся вам.", cb_on: "Кэшбэк на", wx_t: "Новичок в WEEX", wx_s: "Откройте аккаунт с кэшбэком 30%", c2w: "С GetCryptoFeeBack на WEEX 30% ваших комиссий возвращается вам: <b>{cb}</b> в месяц.", c_okx_s: "Кэшбэк от 20%", c_wx_s: "Кэшбэк от 30%", c_bt_s: "Кэшбэк от 25%", link_h: "Уже есть аккаунт?", link_p: "Хотите привязать текущий аккаунт к нашему кэшбэку? Напишите нам на <a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a> или в Telegram <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a>.", q13: "Нужна ли верификация (KYC) на WEEX?", a13: "<p>Зависит от страны. В некоторых странах WEEX позволяет открыть аккаунт и торговать без верификации личности, обычно с более низкими лимитами (например, на вывод). Перед началом проверьте правила для вашей страны.</p>", camp_tag: "Скоро", camp_h: "Торгуйте по нашей ссылке. Выигрывайте призы.", camp_p: "Мы готовим призовые кампании с биржами-партнёрами только для трейдеров, которые используют наши ссылки: путешествия, смартфоны, ноутбуки и многое другое. Откройте аккаунт по нашим ссылкам сейчас, чтобы участвовать при запуске.", pz1: "Путешествия", pz2: "Смартфоны", pz3: "Ноутбуки", camp_btn: "Узнать первым в Telegram", camp_fine: "У каждой кампании будут свои официальные правила, опубликованные при запуске.", bn_h: "Выигрывайте путешествия, смартфоны и ноутбуки", bn_s: "Призовые кампании для тех, кто торгует по нашей ссылке", bn_cta: "Подробнее →", nav_prizes: "Призы"
   },
   zh: {
     title: "GetCryptoFeeBack | 加密手续费计算器：返还 20% 至 40% 交易手续费",
@@ -875,7 +877,7 @@ footer .mail { font-family: var(--mono); }
     s2t: "照常交易", s2p: "现货和合约，照常交易。无最低交易量，无有效期限制。",
     s3t: "每周发放", s3p: "你支付的部分手续费每周返还到你的交易所账户：至少 20%。",
     soon_h: "更多交易所即将上线",
-    soon_p: "返佣目前已在 OKX、WEEX 和 BITGET 上线。我们正在与更多交易所洽谈返佣合作。在别处交易？在 Telegram 告诉我们你希望下一个支持哪家。",
+    soon_p: "返佣目前已在 OKX、WEEX、BITGET 和 BTCC 上线。我们正在与更多交易所洽谈返佣合作。在别处交易？在 Telegram 告诉我们你希望下一个支持哪家。",
     live: "OKX · 已上线",
     tbl_h: "OKX 合约各等级手续费", tbl_p: "主流交易对（BTC、ETH 等），按每笔交易计。等级按 30 天合约交易量划分。你的等级已高亮。",
     th_tier: "等级", th_vol30: "30 天交易量", th_cb1m: "每交易 100 万美元的返佣 (20%)",
@@ -899,7 +901,7 @@ footer .mail { font-family: var(--mono); }
     q9: "为什么结果是估算值？",
     a9: "<p>计算器使用你 30 天的交易量、订单构成和 OKX 公开费率表。实际返佣取决于你每周实际支付的手续费，会随你的交易而变化。</p>",
     q10: "支持哪些交易所？",
-    a10: "<p>OKX（返还 20% 至 40%）、WEEX（返还 30%）和 BITGET（返还 20%）已上线。BYBIT、MEXC、BINANCE、BTCC 和 GATE 即将支持。</p>",
+    a10: "<p>OKX（返还 20% 至 40%）、WEEX（返还 30%）、BITGET（返还 20%）和 BTCC（返还 25%）已上线。BYBIT、MEXC、BINANCE 和 GATE 即将支持。</p>",
     q11: "OKX 在我的国家可用吗？",
     a11: "<p>OKX 并非在所有国家提供服务。只要你能在居住地开设 OKX 账户，就能获得返佣。</p>",
     q12: "你们提供交易信号或投资建议吗？",
@@ -913,7 +915,7 @@ footer .mail { font-family: var(--mono); }
     c2: "使用 GetCryptoFeeBack，你所付手续费的至少 20% 会返还给你：每月 <b>{cb}</b>，加码周最高 <b>{max}</b>。",
     week: "每月 · 每周约 {x}", rmin: "20%（保底）", rboost: "40%（加码）",
     k_now_okx: "你在 OKX 支付的手续费", k_now: "你现在支付的手续费",
-    ph_vol: "输入你 30 天的交易量", empty: "在上方填写你近 30 天的合约交易量，即可查看你每月支付多少手续费，以及能拿回多少。", cb_on: "返佣交易所", wx_t: "WEEX 新用户", wx_s: "注册享 30% 返佣", c2w: "通过 GetCryptoFeeBack 在 WEEX 交易，你所付手续费的 30% 会返还给你：每月 <b>{cb}</b>。", c_okx_s: "至少 20% 返佣", c_wx_s: "至少 30% 返佣", link_h: "已有账户？", link_p: "想把现有账户绑定到我们的返佣？请发邮件至 <a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a>，或在 Telegram 联系 <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a>。", q13: "在 WEEX 需要做身份认证（KYC）吗？", a13: "<p>取决于你所在的国家。在部分国家，WEEX 允许不做身份认证即可开户并交易，但通常有较低的额度限制（例如提现）。开始前请先确认你所在地区的规定。</p>", camp_tag: "即将推出", camp_h: "通过我们的链接交易，赢取大奖。", camp_p: "我们正在与合作交易所筹备抽奖活动，仅限使用我们链接的交易者参与：旅行、智能手机、笔记本电脑等。现在就通过我们的链接开户，活动上线即可参与。", pz1: "旅行", pz2: "智能手机", pz3: "笔记本电脑", camp_btn: "在 Telegram 获取通知", camp_fine: "每项活动都将有独立的官方规则，并在上线时公布。", bn_h: "赢取旅行、智能手机和笔记本电脑", bn_s: "使用我们链接的交易者专属抽奖活动", bn_cta: "了解更多 →", nav_prizes: "奖品"
+    ph_vol: "输入你 30 天的交易量", empty: "在上方填写你近 30 天的合约交易量，即可查看你每月支付多少手续费，以及能拿回多少。", cb_on: "返佣交易所", wx_t: "WEEX 新用户", wx_s: "注册享 30% 返佣", c2w: "通过 GetCryptoFeeBack 在 WEEX 交易，你所付手续费的 30% 会返还给你：每月 <b>{cb}</b>。", c_okx_s: "至少 20% 返佣", c_wx_s: "至少 30% 返佣", c_bt_s: "至少 25% 返佣", link_h: "已有账户？", link_p: "想把现有账户绑定到我们的返佣？请发邮件至 <a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a>，或在 Telegram 联系 <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a>。", q13: "在 WEEX 需要做身份认证（KYC）吗？", a13: "<p>取决于你所在的国家。在部分国家，WEEX 允许不做身份认证即可开户并交易，但通常有较低的额度限制（例如提现）。开始前请先确认你所在地区的规定。</p>", camp_tag: "即将推出", camp_h: "通过我们的链接交易，赢取大奖。", camp_p: "我们正在与合作交易所筹备抽奖活动，仅限使用我们链接的交易者参与：旅行、智能手机、笔记本电脑等。现在就通过我们的链接开户，活动上线即可参与。", pz1: "旅行", pz2: "智能手机", pz3: "笔记本电脑", camp_btn: "在 Telegram 获取通知", camp_fine: "每项活动都将有独立的官方规则，并在上线时公布。", bn_h: "赢取旅行、智能手机和笔记本电脑", bn_s: "使用我们链接的交易者专属抽奖活动", bn_cta: "了解更多 →", nav_prizes: "奖品"
   },
   ko: {
     title: "GetCryptoFeeBack | 암호화폐 수수료 계산기: 거래 수수료의 20%~40%를 돌려받으세요",
@@ -935,7 +937,7 @@ footer .mail { font-family: var(--mono); }
     s2t: "평소처럼 거래", s2p: "현물과 선물, 평소처럼 거래하세요. 최소 거래량도 유효기간도 없습니다.",
     s3t: "매주 지급", s3p: "지불한 수수료의 일부가 매주 거래소 계정으로 돌아옵니다: 최소 20%.",
     soon_h: "더 많은 거래소 곧 지원",
-    soon_p: "현재 OKX, WEEX, BITGET에서 캐시백이 지원됩니다. 더 많은 거래소와 캐시백 제휴를 준비 중입니다. 다른 곳에서 거래하나요? 다음으로 원하는 거래소를 텔레그램으로 알려주세요.",
+    soon_p: "현재 OKX, WEEX, BITGET, BTCC에서 캐시백이 지원됩니다. 더 많은 거래소와 캐시백 제휴를 준비 중입니다. 다른 곳에서 거래하나요? 다음으로 원하는 거래소를 텔레그램으로 알려주세요.",
     live: "OKX · 지원 중",
     tbl_h: "OKX 선물 등급별 수수료", tbl_p: "주요 페어(BTC, ETH 등), 거래당 기준. 등급은 30일 선물 거래량으로 결정됩니다. 해당 등급이 강조 표시됩니다.",
     th_tier: "등급", th_vol30: "30일 거래량", th_cb1m: "100만 달러 거래당 캐시백 (20%)",
@@ -959,7 +961,7 @@ footer .mail { font-family: var(--mono); }
     q9: "결과가 왜 예상치인가요?",
     a9: "<p>계산기는 30일 거래량, 주문 구성, OKX 공개 수수료표를 사용합니다. 실제 캐시백은 매주 실제로 낸 수수료를 따르므로 거래에 따라 달라집니다.</p>",
     q10: "어떤 거래소를 지원하나요?",
-    a10: "<p>현재 OKX(20%~40% 환급), WEEX(30% 환급), BITGET(20% 환급)을 지원합니다. BYBIT, MEXC, BINANCE, BTCC, GATE는 곧 지원 예정입니다.</p>",
+    a10: "<p>현재 OKX(20%~40% 환급), WEEX(30% 환급), BITGET(20% 환급), BTCC(25% 환급)를 지원합니다. BYBIT, MEXC, BINANCE, GATE는 곧 지원 예정입니다.</p>",
     q11: "제 나라에서 OKX를 이용할 수 있나요?",
     a11: "<p>OKX는 모든 국가에서 서비스되지 않습니다. 거주 국가에서 OKX 계정을 만들 수 있다면 캐시백을 받을 수 있습니다.</p>",
     q12: "트레이딩 시그널이나 투자 조언을 제공하나요?",
@@ -975,7 +977,7 @@ footer .mail { font-family: var(--mono); }
     k_now_okx: "OKX에서 내는 수수료", k_now: "현재 내는 수수료",
     ph_vol: "30일 거래량 입력", empty: "위에 최근 30일 선물 거래량을 입력하면 매월 내는 수수료와 돌려받는 금액을 확인할 수 있습니다.", cb_on: "캐시백 거래소",
     c2w: "WEEX에서 GetCryptoFeeBack을 이용하면 내는 수수료의 30%가 돌아옵니다: 월 <b>{cb}</b>.",
-    c_okx_s: "최소 20% 캐시백", c_wx_s: "최소 30% 캐시백", link_h: "이미 계정이 있나요?",
+    c_okx_s: "최소 20% 캐시백", c_wx_s: "최소 30% 캐시백", c_bt_s: "최소 25% 캐시백", link_h: "이미 계정이 있나요?",
     link_p: "기존 계정을 저희 캐시백에 연결하고 싶나요? <a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a> 또는 텔레그램 <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a>으로 연락주세요.",
     q13: "WEEX에서 본인 인증(KYC)이 필요한가요?",
     a13: "<p>국가에 따라 다릅니다. 일부 국가에서는 WEEX에서 본인 인증 없이 계정을 만들고 거래를 시작할 수 있으며, 보통 출금 등에 더 낮은 한도가 적용됩니다. 시작하기 전에 거주 국가의 규정을 확인하세요.</p>",
@@ -1004,7 +1006,7 @@ footer .mail { font-family: var(--mono); }
     s2t: "いつも通り取引", s2p: "現物と先物をいつも通り。最低取引量も有効期限もありません。",
     s3t: "毎週お支払い", s3p: "支払った手数料の一部が毎週取引所口座に戻ります。最低20%です。",
     soon_h: "対応取引所を拡大予定",
-    soon_p: "現在、OKX、WEEX、BITGETでキャッシュバックに対応しています。ほかの取引所とも提携を準備中です。別の取引所をご利用ですか？次に希望する取引所をTelegramで教えてください。",
+    soon_p: "現在、OKX、WEEX、BITGET、BTCCでキャッシュバックに対応しています。ほかの取引所とも提携を準備中です。別の取引所をご利用ですか？次に希望する取引所をTelegramで教えてください。",
     live: "OKX · 対応中",
     tbl_h: "OKX先物のランク別手数料", tbl_p: "主要ペア（BTC、ETHなど）、1取引あたり。ランクは30日間の先物取引量で決まります。該当ランクがハイライトされます。",
     th_tier: "ランク", th_vol30: "30日取引量", th_cb1m: "100万ドル取引あたりのキャッシュバック (20%)",
@@ -1028,7 +1030,7 @@ footer .mail { font-family: var(--mono); }
     q9: "結果が概算なのはなぜですか？",
     a9: "<p>計算ツールは30日間の取引量、注文の内訳、OKXの公開手数料表を使用します。実際のキャッシュバックは毎週実際に支払った手数料に基づくため、取引に応じて変動します。</p>",
     q10: "対応している取引所は？",
-    a10: "<p>現在はOKX（20%〜40%還元）、WEEX（30%還元）、BITGET（20%還元）に対応しています。BYBIT、MEXC、BINANCE、BTCC、GATEは近日対応予定です。</p>",
+    a10: "<p>現在はOKX（20%〜40%還元）、WEEX（30%還元）、BITGET（20%還元）、BTCC（25%還元）に対応しています。BYBIT、MEXC、BINANCE、GATEは近日対応予定です。</p>",
     q11: "私の国でOKXは使えますか？",
     a11: "<p>OKXはすべての国でサービスを提供しているわけではありません。お住まいの国でOKX口座を開設できれば、キャッシュバックを受けられます。</p>",
     q12: "売買シグナルや投資助言を提供していますか？",
@@ -1044,7 +1046,7 @@ footer .mail { font-family: var(--mono); }
     k_now_okx: "OKXで支払う手数料", k_now: "現在支払っている手数料",
     ph_vol: "30日間の取引量を入力", empty: "上に過去30日の先物取引量を入力すると、毎月の手数料と還元額が表示されます。", cb_on: "キャッシュバック先",
     c2w: "WEEXでGetCryptoFeeBackを利用すると、支払った手数料の30%が戻ります：月 <b>{cb}</b>。",
-    c_okx_s: "最低20%キャッシュバック", c_wx_s: "最低30%キャッシュバック", link_h: "すでに口座をお持ちですか？",
+    c_okx_s: "最低20%キャッシュバック", c_wx_s: "最低30%キャッシュバック", c_bt_s: "最低25%キャッシュバック", link_h: "すでに口座をお持ちですか？",
     link_p: "既存の口座を当サイトのキャッシュバックに紐付けたい方は、<a href=\"mailto:support@getcryptofeeback.com\">support@getcryptofeeback.com</a> またはTelegramの <a href=\"https://t.me/getcryptofeeback\" target=\"_blank\" rel=\"noopener\">@getcryptofeeback</a> までご連絡ください。",
     q13: "WEEXでは本人確認（KYC）が必要ですか？",
     a13: "<p>国によって異なります。一部の国では、WEEXで本人確認なしに口座を開設して取引を始められますが、通常は出金などに低い上限が設けられます。始める前にお住まいの国のルールをご確認ください。</p>",
@@ -1090,7 +1092,7 @@ footer .mail { font-family: var(--mono); }
   });
   Object.keys(EXCH).forEach(k => {
     const b = document.createElement('button'); b.type = 'button'; b.textContent = k === 'Other' ? T('ex_other') : k; b.id = 'ex-' + k;
-    b.addEventListener('click', () => { ex = k; if (k === 'OKX' || k === 'WEEX' || k === 'Bitget') cbx = k; if (EXCH[k]) { $('mk').value = num(EXCH[k][0], { minimumFractionDigits: 3 }); $('tk').value = num(EXCH[k][1], { minimumFractionDigits: 3 }); } render(); });
+    b.addEventListener('click', () => { ex = k; if (k === 'OKX' || k === 'WEEX' || k === 'Bitget' || k === 'BTCC') cbx = k; if (EXCH[k]) { $('mk').value = num(EXCH[k][0], { minimumFractionDigits: 3 }); $('tk').value = num(EXCH[k][1], { minimumFractionDigits: 3 }); } render(); });
     $('exch').appendChild(b);
   });
   const o = document.createElement('option'); o.value = 'auto'; o.id = 'optAuto'; o.textContent = T('auto'); $('tier').appendChild(o);
@@ -1103,7 +1105,7 @@ footer .mail { font-family: var(--mono); }
     render();
   });
   ['tier', 'mk', 'tk', 'mix'].forEach(id => $(id).addEventListener('input', render));
-  ['OKX', 'WEEX', 'Bitget'].forEach(k => $('cbx-' + k).addEventListener('click', () => { cbx = k; render(); }));
+  ['OKX', 'WEEX', 'Bitget', 'BTCC'].forEach(k => $('cbx-' + k).addEventListener('click', () => { cbx = k; render(); }));
   $('copy').addEventListener('click', () => {
     const done = (ok) => { $('copy').textContent = ok ? T('copied') : T('sel'); setTimeout(() => { $('copy').textContent = T('copy'); }, 1800); };
     const sel = () => { const r = document.createRange(); r.selectNodeContents($('link')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
@@ -1120,7 +1122,7 @@ footer .mail { font-family: var(--mono); }
     const okxT = onOkx && $('tier').value !== 'auto' ? TIERS[Number($('tier').value)] : tierFor(vol);
     const okxFees = vol * eff(okxT[1], okxT[2], m) / 100;
     const isW = cbx !== 'OKX';
-    const P = cbx === 'WEEX' ? [WEEX_FEE, WEEX_CB, 'WEEX'] : [BITGET_FEE, BITGET_CB, 'BITGET'];
+    const P = cbx === 'WEEX' ? [WEEX_FEE, WEEX_CB, 'WEEX'] : cbx === 'BTCC' ? [BTCC_FEE, BTCC_CB, 'BTCC'] : [BITGET_FEE, BITGET_CB, 'BITGET'];
     const pName = isW ? P[2] : 'OKX', pPct = Math.round(P[1] * 100);
     document.querySelectorAll('#cbxSeg button').forEach(b => b.setAttribute('aria-pressed', b.id === 'cbx-' + cbx));
     const wFees = ex === 'WEEX' ? vol * eff(readFee('mk', WEEX_FEE[0]), readFee('tk', WEEX_FEE[1]), m) / 100 : vol * eff(WEEX_FEE[0], WEEX_FEE[1], m) / 100;
@@ -1188,7 +1190,7 @@ footer .mail { font-family: var(--mono); }
     $('vol').placeholder = T('ph_vol');
     $('langflag').innerHTML = FLAGS[lang]; $('langcode').textContent = lang.toUpperCase();
     menu.querySelectorAll('button').forEach(b => b.setAttribute('aria-current', String(b.dataset.l === lang)));
-    $('optAuto').textContent = T('auto'); $('ex-Other').textContent = T('ex_other'); $('liveW').textContent = T('live').replace('OKX', 'WEEX'); $('liveB').textContent = T('live').replace('OKX', 'BITGET'); $('copy').textContent = T('copy');
+    $('optAuto').textContent = T('auto'); $('ex-Other').textContent = T('ex_other'); $('liveW').textContent = T('live').replace('OKX', 'WEEX'); $('liveB').textContent = T('live').replace('OKX', 'BITGET'); $('liveC').textContent = T('live').replace('OKX', 'BTCC'); $('copy').textContent = T('copy');
     { const n = readVol(); $('vol').value = n ? num(n) : ''; }
     if (EXCH[ex]) { ['mk', 'tk'].forEach((id, i) => { $(id).value = num(readFee(id, EXCH[ex][i]), { minimumFractionDigits: 3 }); }); }
     document.querySelectorAll('#chips button').forEach((b, i) => { b.textContent = comp(CHIPS[i]); });
