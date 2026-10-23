@@ -945,7 +945,7 @@ footer .mail { font-family: var(--mono); }
     let now;
     if (onOkx) now = okxFees;
     else { const d = EXCH[ex]; now = vol * eff(readFee('mk', d[0]), readFee('tk', d[1]), m) / 100; }
-    const saveMonth = onOkx ? cb : now - net;
+    const saveMonth = cb;
 
     const empty = vol <= 0; $('calc').classList.toggle('isempty', empty);
     $('rTier').textContent = 'OKX · ' + okxT[0];
@@ -968,7 +968,7 @@ footer .mail { font-family: var(--mono); }
     $('lnOkx').hidden = onOkx; $('oOkx').textContent = fmt(okxFees);
     $('oCb').textContent = '−' + fmt(cb);
     $('oNet').textContent = fmt(net);
-    $('lnSave').hidden = onOkx; $('oSave').textContent = fmt(now - net);
+    $('lnSave').hidden = true; $('oSave').textContent = fmt(now - net);
 
     const tb = $('tbody'); tb.textContent = '';
     TIERS.forEach(t => {
