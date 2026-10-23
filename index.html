@@ -20,27 +20,13 @@
 <style>
 /* Layout: hero with the question and proof chips → fee story strip → calculator + fee statement → where fees go → trust → steps → existing-account band → exchanges → OKX table → FAQ → Telegram → footer. */
 :root {
-  --bg: #F2F4F1;
-  --panel: #FFFFFF;
-  --ink: #13201B;
-  --muted: #5C6B64;
-  --line: #D9E0DB;
-  --accent: #0E7C5A;
-  --accent-soft: #DDF1E8;
-  --cost: #B4541A;
-  --cost-soft: #F8E7DB;
-  --focus: #0E7C5A;
+  --bg: #0E1412; --panel: #161E1B; --ink: #E5ECE8; --muted: #93A29B; --line: #2A3631;
+  --accent: #3CC28F; --accent-soft: #173A2D; --cost: #F08A4B; --cost-soft: #3A2417; --focus: #3CC28F;
+  color-scheme: dark;
   --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
   --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --bg: #0E1412; --panel: #161E1B; --ink: #E5ECE8; --muted: #93A29B; --line: #2A3631;
-  --accent: #3CC28F; --accent-soft: #173A2D; --cost: #F08A4B; --cost-soft: #3A2417; --focus: #3CC28F; color-scheme: dark; } }
-:root[data-theme="dark"] {
-  --bg: #0E1412; --panel: #161E1B; --ink: #E5ECE8; --muted: #93A29B; --line: #2A3631;
-  --accent: #3CC28F; --accent-soft: #173A2D; --cost: #F08A4B; --cost-soft: #3A2417; --focus: #3CC28F; color-scheme: dark; }
-
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.5; }
 .wrap { max-width: 1120px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 16px 48px; display: flex; flex-direction: column; gap: 56px; }
@@ -61,7 +47,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible
 
 .hero { display: flex; flex-direction: column; gap: 10px; max-width: 62rem; }
 .hero h1 { font-family: var(--display); font-weight: 900; font-stretch: 68%; font-size: clamp(2.1rem, 5vw, 3.6rem); line-height: .95; letter-spacing: -.01em; margin: 0; text-transform: uppercase; text-wrap: balance; }
-.hero h1 em { font-style: normal; color: var(--accent); }
+.hero h1 em { font-style: normal; color: var(--cost); }
 .hero p { margin: 0; color: var(--muted); font-size: 1.12rem; max-width: 42rem; }
 .hero p b { color: var(--ink); }
 .herocta { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -145,7 +131,7 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 @media (max-width: 860px) { .kpis.three { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 420px) { .choice { grid-template-columns: 1fr; } }
 .opt { display: flex; flex-direction: column; gap: 2px; text-decoration: none; padding: 14px 16px; border-radius: 10px; background: var(--accent); color: var(--bg); }
-.opt + .opt { background: var(--ink); }
+.opt + .opt { background: var(--panel); color: var(--ink); box-shadow: inset 0 0 0 2px var(--accent); }
 .opt b { font-size: 1.02rem; }
 .opt span { font-size: .85rem; opacity: .85; }
 .linkrow { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-family: var(--mono); font-size: .85rem; color: var(--muted); }
@@ -293,6 +279,7 @@ a.ghost { text-decoration: none; }
 /* logo + language picker */
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); white-space: nowrap; }
 .brand .mark { flex: none; display: block; }
+.brand .word { color: var(--ink); }
 .brand .word span { color: var(--accent); }
 .lang { position: relative; }
 .langbtn { display: inline-flex; align-items: center; gap: 7px; font: 600 .85rem var(--body); color: var(--ink); padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); cursor: pointer; }
@@ -424,9 +411,9 @@ footer .mail { font-family: var(--mono); }
   <section>
     <h2 data-t="how">How it works</h2>
     <div class="steps">
-      <div class="step"><span class="n"><span data-t="step">STEP</span> 1</span><h3 data-t="s1t">Choose a partner exchange</h3><p data-t="s1p">Open your account on OKX or WEEX through our link. Already have an account? Contact us to link it.</p></div>
+      <div class="step"><span class="n"><span data-t="step">STEP</span> 1</span><h3 data-t="s1t">Choose a partner exchange</h3><p data-t="s1p">Open your account through our link. Already have an account? Contact us to link it.</p></div>
       <div class="step"><span class="n"><span data-t="step">STEP</span> 2</span><h3 data-t="s2t">Trade as usual</h3><p data-t="s2p">Spot and futures, as usual. No minimum volume and no expiration.</p></div>
-      <div class="step"><span class="n"><span data-t="step">STEP</span> 3</span><h3 data-t="s3t">Get paid every week</h3><p data-t="s3p">Part of the fees you paid comes back to your exchange account: at least 20% on OKX and at least 30% on WEEX.</p></div>
+      <div class="step"><span class="n"><span data-t="step">STEP</span> 3</span><h3 data-t="s3t">Get paid every week</h3><p data-t="s3p">Part of the fees you paid comes back to your exchange account: at least 20%, every week.</p></div>
     </div>
   </section>
 
@@ -511,9 +498,9 @@ footer .mail { font-family: var(--mono); }
     tg_short: "Join the Telegram",
     approx: "Approximate values, based on your volume and order mix and the public OKX fee schedule. Your real cashback follows the fees you actually pay each week. Fees on other exchanges are pre-filled with their standard VIP 0 rate.",
     how: "How it works", step: "STEP",
-    s1t: "Choose a partner exchange", s1p: "Open your account on OKX or WEEX through our link. Already have an account? Contact us to link it.",
+    s1t: "Choose a partner exchange", s1p: "Open your account through our link. Already have an account? Contact us to link it.",
     s2t: "Trade as usual", s2p: "Spot and futures, as usual. No minimum volume and no expiration.",
-    s3t: "Get paid every week", s3p: "Part of the fees you paid comes back to your exchange account: at least 20% on OKX and at least 30% on WEEX.",
+    s3t: "Get paid every week", s3p: "Part of the fees you paid comes back to your exchange account: at least 20%, every week.",
     soon_h: "More exchanges coming soon",
     soon_p: "Cashback is live on OKX and WEEX today. We are working on cashback deals with more exchanges. Trade somewhere else? Tell us on Telegram which one you want next.",
     live: "OKX · Live",
@@ -573,9 +560,9 @@ footer .mail { font-family: var(--mono); }
     tg_short: "Entrar no Telegram",
     approx: "Valores aproximados, com base no seu volume, no seu mix de ordens e na tabela pública de taxas da OKX. O cashback real segue as taxas que você paga de fato a cada semana. As taxas de outras corretoras vêm preenchidas com a taxa padrão VIP 0.",
     how: "Como funciona", step: "PASSO",
-    s1t: "Escolha uma corretora parceira", s1p: "Abra sua conta na OKX ou na WEEX pelo nosso link. Já tem conta? Fale com a gente para vincular.",
+    s1t: "Escolha uma corretora parceira", s1p: "Abra sua conta pelo nosso link. Já tem conta? Fale com a gente para vincular.",
     s2t: "Opere normalmente", s2p: "Spot e futuros, como você já faz. Sem volume mínimo e sem prazo de validade.",
-    s3t: "Receba toda semana", s3p: "Parte das taxas que você pagou volta para a sua conta na corretora: no mínimo 20% na OKX e no mínimo 30% na WEEX.",
+    s3t: "Receba toda semana", s3p: "Parte das taxas que você pagou volta para a sua conta na corretora: no mínimo 20%, toda semana.",
     soon_h: "Mais corretoras em breve",
     soon_p: "O cashback já funciona na OKX e na WEEX. Estamos fechando acordos de cashback com mais corretoras. Opera em outra? Conte no Telegram qual você quer a seguir.",
     live: "OKX · Ativo",
@@ -635,9 +622,9 @@ footer .mail { font-family: var(--mono); }
     tg_short: "Unirse al Telegram",
     approx: "Valores aproximados, según tu volumen, tu mezcla de órdenes y la tabla pública de comisiones de OKX. Tu cashback real sigue las comisiones que pagas realmente cada semana. Las comisiones de otros exchanges vienen con su tarifa estándar VIP 0.",
     how: "Cómo funciona", step: "PASO",
-    s1t: "Elige un exchange socio", s1p: "Abre tu cuenta en OKX o WEEX con nuestro enlace. ¿Ya tienes cuenta? Escríbenos para vincularla.",
+    s1t: "Elige un exchange socio", s1p: "Abre tu cuenta con nuestro enlace. ¿Ya tienes cuenta? Escríbenos para vincularla.",
     s2t: "Opera como siempre", s2p: "Spot y futuros, como siempre. Sin volumen mínimo y sin vencimiento.",
-    s3t: "Cobra cada semana", s3p: "Parte de las comisiones que pagaste vuelve a tu cuenta del exchange: al menos 20% en OKX y al menos 30% en WEEX.",
+    s3t: "Cobra cada semana", s3p: "Parte de las comisiones que pagaste vuelve a tu cuenta del exchange: al menos el 20%, cada semana.",
     soon_h: "Más exchanges muy pronto",
     soon_p: "El cashback ya funciona en OKX y WEEX. Estamos cerrando acuerdos de cashback con más exchanges. ¿Operas en otro? Dinos en Telegram cuál quieres después.",
     live: "OKX · Activo",
@@ -697,9 +684,9 @@ footer .mail { font-family: var(--mono); }
     tg_short: "Zum Telegram",
     approx: "Näherungswerte auf Basis deines Volumens, deines Order-Mix und der öffentlichen OKX-Gebührentabelle. Dein echtes Cashback richtet sich nach den Gebühren, die du jede Woche tatsächlich zahlst. Gebühren anderer Börsen sind mit ihrem Standardsatz VIP 0 vorausgefüllt.",
     how: "So funktioniert's", step: "SCHRITT",
-    s1t: "Partnerbörse wählen", s1p: "Eröffne dein Konto bei OKX oder WEEX über unseren Link. Schon ein Konto? Schreib uns, um es zu verknüpfen.",
+    s1t: "Partnerbörse wählen", s1p: "Eröffne dein Konto über unseren Link. Schon ein Konto? Schreib uns, um es zu verknüpfen.",
     s2t: "Trade wie gewohnt", s2p: "Spot und Futures wie gewohnt. Kein Mindestvolumen, kein Ablaufdatum.",
-    s3t: "Jede Woche ausgezahlt", s3p: "Ein Teil deiner gezahlten Gebühren geht zurück auf dein Börsenkonto: mindestens 20 % bei OKX und mindestens 30 % bei WEEX.",
+    s3t: "Jede Woche ausgezahlt", s3p: "Ein Teil deiner gezahlten Gebühren geht zurück auf dein Börsenkonto: mindestens 20 %, jede Woche.",
     soon_h: "Weitere Börsen bald verfügbar",
     soon_p: "Cashback läuft heute bei OKX und WEEX. Wir arbeiten an Cashback-Deals mit weiteren Börsen. Du tradest woanders? Sag uns auf Telegram, welche Börse du als Nächstes willst.",
     live: "OKX · Aktiv",
@@ -759,9 +746,9 @@ footer .mail { font-family: var(--mono); }
     tg_short: "Rejoindre le Telegram",
     approx: "Valeurs approximatives, selon votre volume, votre mix d'ordres et la grille publique de frais OKX. Votre cashback réel suit les frais que vous payez réellement chaque semaine. Les frais des autres plateformes sont préremplis avec leur taux standard VIP 0.",
     how: "Comment ça marche", step: "ÉTAPE",
-    s1t: "Choisissez une plateforme partenaire", s1p: "Ouvrez votre compte sur OKX ou WEEX via notre lien. Déjà un compte ? Contactez-nous pour le lier.",
+    s1t: "Choisissez une plateforme partenaire", s1p: "Ouvrez votre compte via notre lien. Déjà un compte ? Contactez-nous pour le lier.",
     s2t: "Tradez comme d'habitude", s2p: "Spot et futures, comme d'habitude. Aucun volume minimum, aucune expiration.",
-    s3t: "Payé chaque semaine", s3p: "Une partie des frais payés revient sur votre compte de la plateforme : au moins 20 % sur OKX et au moins 30 % sur WEEX.",
+    s3t: "Payé chaque semaine", s3p: "Une partie des frais payés revient sur votre compte de la plateforme : au moins 20 %, chaque semaine.",
     soon_h: "D'autres plateformes bientôt",
     soon_p: "Le cashback fonctionne déjà sur OKX et WEEX. Nous préparons des accords de cashback avec d'autres plateformes. Vous tradez ailleurs ? Dites-nous sur Telegram laquelle vous voulez ensuite.",
     live: "OKX · Actif",
@@ -821,9 +808,9 @@ footer .mail { font-family: var(--mono); }
     tg_short: "Перейти в Telegram",
     approx: "Приблизительные значения на основе вашего объёма, состава ордеров и публичной таблицы комиссий OKX. Реальный кэшбэк зависит от комиссий, которые вы фактически платите каждую неделю. Для других бирж подставлена стандартная ставка VIP 0.",
     how: "Как это работает", step: "ШАГ",
-    s1t: "Выберите биржу-партнёра", s1p: "Откройте аккаунт на OKX или WEEX по нашей ссылке. Уже есть аккаунт? Напишите нам, чтобы привязать его.",
+    s1t: "Выберите биржу-партнёра", s1p: "Откройте аккаунт по нашей ссылке. Уже есть аккаунт? Напишите нам, чтобы привязать его.",
     s2t: "Торгуйте как обычно", s2p: "Спот и фьючерсы, как обычно. Без минимального объёма и без срока действия.",
-    s3t: "Выплаты каждую неделю", s3p: "Часть уплаченных комиссий возвращается на ваш аккаунт биржи: минимум 20% на OKX и минимум 30% на WEEX.",
+    s3t: "Выплаты каждую неделю", s3p: "Часть уплаченных комиссий возвращается на ваш аккаунт биржи: минимум 20%, каждую неделю.",
     soon_h: "Скоро другие биржи",
     soon_p: "Кэшбэк уже работает на OKX и WEEX. Мы договариваемся о кэшбэке с другими биржами. Торгуете в другом месте? Напишите в Telegram, какую биржу добавить следующей.",
     live: "OKX · Работает",
@@ -883,9 +870,9 @@ footer .mail { font-family: var(--mono); }
     tg_short: "加入 Telegram",
     approx: "数值为估算，基于你的交易量、订单构成和 OKX 公开费率表。实际返佣取决于你每周实际支付的手续费。其他交易所预填其标准 VIP 0 费率。",
     how: "如何运作", step: "步骤",
-    s1t: "选择合作交易所", s1p: "通过我们的链接在 OKX 或 WEEX 开户。已有账户？联系我们进行绑定。",
+    s1t: "选择合作交易所", s1p: "通过我们的链接开户。已有账户？联系我们进行绑定。",
     s2t: "照常交易", s2p: "现货和合约，照常交易。无最低交易量，无有效期限制。",
-    s3t: "每周发放", s3p: "你支付的部分手续费将返还到你的交易所账户：OKX 至少 20%，WEEX 至少 30%。",
+    s3t: "每周发放", s3p: "你支付的部分手续费每周返还到你的交易所账户：至少 20%。",
     soon_h: "更多交易所即将上线",
     soon_p: "返佣目前已在 OKX 和 WEEX 上线。我们正在与更多交易所洽谈返佣合作。在别处交易？在 Telegram 告诉我们你希望下一个支持哪家。",
     live: "OKX · 已上线",
@@ -943,9 +930,9 @@ footer .mail { font-family: var(--mono); }
     tg_short: "텔레그램 참여",
     approx: "거래량, 주문 구성, OKX 공개 수수료표를 기준으로 한 예상치입니다. 실제 캐시백은 매주 실제로 지불한 수수료에 따라 달라집니다. 다른 거래소의 수수료는 기본 VIP 0 요율로 입력되어 있습니다.",
     how: "이용 방법", step: "단계",
-    s1t: "파트너 거래소 선택", s1p: "저희 링크로 OKX 또는 WEEX 계정을 개설하세요. 이미 계정이 있나요? 연결을 원하시면 문의해 주세요.",
+    s1t: "파트너 거래소 선택", s1p: "저희 링크로 계정을 개설하세요. 이미 계정이 있나요? 연결을 원하시면 문의해 주세요.",
     s2t: "평소처럼 거래", s2p: "현물과 선물, 평소처럼 거래하세요. 최소 거래량도 유효기간도 없습니다.",
-    s3t: "매주 지급", s3p: "지불한 수수료의 일부가 거래소 계정으로 돌아옵니다: OKX 최소 20%, WEEX 최소 30%.",
+    s3t: "매주 지급", s3p: "지불한 수수료의 일부가 매주 거래소 계정으로 돌아옵니다: 최소 20%.",
     soon_h: "더 많은 거래소 곧 지원",
     soon_p: "현재 OKX와 WEEX에서 캐시백이 지원됩니다. 더 많은 거래소와 캐시백 제휴를 준비 중입니다. 다른 곳에서 거래하나요? 다음으로 원하는 거래소를 텔레그램으로 알려주세요.",
     live: "OKX · 지원 중",
@@ -1012,9 +999,9 @@ footer .mail { font-family: var(--mono); }
     tg_short: "Telegramに参加",
     approx: "取引量、注文の内訳、OKXの公開手数料表に基づく概算です。実際のキャッシュバックは毎週実際に支払った手数料によって決まります。他の取引所の手数料は標準のVIP 0料率で入力されています。",
     how: "ご利用の流れ", step: "ステップ",
-    s1t: "提携取引所を選ぶ", s1p: "当サイトのリンクからOKXまたはWEEXで口座を開設してください。すでに口座をお持ちの方は、紐付けについてお問い合わせください。",
+    s1t: "提携取引所を選ぶ", s1p: "当サイトのリンクから口座を開設してください。すでに口座をお持ちの方は、紐付けについてお問い合わせください。",
     s2t: "いつも通り取引", s2p: "現物と先物をいつも通り。最低取引量も有効期限もありません。",
-    s3t: "毎週お支払い", s3p: "支払った手数料の一部が取引所口座に戻ります。OKXは最低20%、WEEXは最低30%です。",
+    s3t: "毎週お支払い", s3p: "支払った手数料の一部が毎週取引所口座に戻ります。最低20%です。",
     soon_h: "対応取引所を拡大予定",
     soon_p: "現在、OKXとWEEXでキャッシュバックに対応しています。ほかの取引所とも提携を準備中です。別の取引所をご利用ですか？次に希望する取引所をTelegramで教えてください。",
     live: "OKX · 対応中",
