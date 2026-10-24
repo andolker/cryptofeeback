@@ -6,6 +6,16 @@
 <title>GetCryptoFeeBack | Crypto Fee Calculator: get at least 20% of your trading fees back</title>
 <meta name="description" content="Free crypto fee calculator. Enter your 30-day futures volume and see how much you get back with at least 20% cashback on your trading fees, paid every week.">
 <link rel="canonical" href="https://getcryptofeeback.com/">
+<link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/">
+<link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/">
+<link rel="alternate" hreflang="es" href="https://getcryptofeeback.com/es/">
+<link rel="alternate" hreflang="de" href="https://getcryptofeeback.com/de/">
+<link rel="alternate" hreflang="fr" href="https://getcryptofeeback.com/fr/">
+<link rel="alternate" hreflang="ru" href="https://getcryptofeeback.com/ru/">
+<link rel="alternate" hreflang="zh" href="https://getcryptofeeback.com/zh/">
+<link rel="alternate" hreflang="ko" href="https://getcryptofeeback.com/ko/">
+<link rel="alternate" hreflang="ja" href="https://getcryptofeeback.com/ja/">
+<link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getcryptofeeback.com/">
 <meta property="og:title" content="GetCryptoFeeBack: get at least 20% of your trading fees back">
@@ -1104,8 +1114,8 @@ document.addEventListener('click', function (e) {
   };
   const LANGS = [['en', 'English'], ['pt', 'Português'], ['es', 'Español'], ['de', 'Deutsch'], ['fr', 'Français'], ['ru', 'Русский'], ['zh', '中文'], ['ko', '한국어'], ['ja', '日本語']];
 
-  let lang = 'en';
-  try { const s = localStorage.getItem('gcfb-lang'); if (s && I18N[s]) lang = s; } catch (e) {}
+  let lang = window.GCFB_LANG || 'en';
+  try { const s = localStorage.getItem('gcfb-lang'); if (!window.GCFB_LANG && s && I18N[s]) lang = s; } catch (e) {}
   const T = (k, v) => { let s = (I18N[lang] && I18N[lang][k] != null) ? I18N[lang][k] : I18N.en[k]; if (v) Object.keys(v).forEach(n => { s = s.split('{' + n + '}').join(v[n]); }); return s; };
   let ex = 'OKX';
   const $ = (id) => document.getElementById(id);
@@ -1222,7 +1232,7 @@ document.addEventListener('click', function (e) {
   LANGS.forEach(([c, name]) => {
     const b = document.createElement('button'); b.type = 'button'; b.dataset.l = c; b.setAttribute('lang', c);
     b.innerHTML = '<span class="fl">' + FLAGS[c] + '</span><span>' + name + '</span>';
-    b.addEventListener('click', () => { setLang(c); closeMenu(); lbtn.focus(); });
+    b.addEventListener('click', () => { try { localStorage.setItem('gcfb-lang', c); } catch (e) {} const p = c === 'en' ? '/' : '/' + c + '/'; if (location.protocol.indexOf('http') === 0 && location.pathname !== p) { location.href = p + location.search; return; } setLang(c); closeMenu(); lbtn.focus(); });
     menu.appendChild(b);
   });
   function closeMenu() { menu.hidden = true; lbtn.setAttribute('aria-expanded', 'false'); }
