@@ -147,6 +147,11 @@ th:first-child, td:first-child { text-align: left; }
 th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
 td { font-family: var(--mono); }
 tr.on td { background: var(--accent-soft); font-weight: 600; }
+.ptbl td { text-align: left; line-height: 1.35; }
+.ptbl th { text-align: left; }
+.ptbl td small { display: block; font-size: .72rem; color: var(--muted); font-weight: 400; }
+.ptbl td.on { background: var(--accent-soft); font-weight: 600; }
+.ptbl td.on small { color: var(--accent); }
 .rt th, .rt td { padding: 7px 6px; font-size: .82rem; }
 .rt th { letter-spacing: .04em; }
 .rt tr.min td { color: var(--accent); font-weight: 600; }
@@ -442,11 +447,11 @@ document.addEventListener('click', function (e) {
   </section>
 
   <section>
-    <h2 data-t="tbl_h">OKX futures fees by tier</h2>
-    <p class="hint" data-t="tbl_p">Main pairs (BTC, ETH and other majors), per trade. Tier by 30-day futures volume. Your row is highlighted.</p>
+    <h2 data-t="tbl_h">Futures fees by VIP tier</h2>
+    <p class="hint" data-t="tbl_p">Standard USDT-M futures fees on our partner exchanges (maker / taker per trade), by 30-day futures volume. Most exchanges also let you reach a tier by account balance. Enter your volume above to highlight your tier at each exchange. Rates as published by each exchange, October 2026.</p>
     <div class="tablewrap">
       <table>
-        <thead><tr><th data-t="th_tier">Tier</th><th data-t="th_vol30">30-day volume</th><th data-t="maker">Maker</th><th data-t="taker">Taker</th><th data-t="th_cb1m">Cashback per $1M traded (20%)</th></tr></thead>
+        <thead><tr><th data-t="th_tier">Tier</th><th>OKX</th><th>WEEX</th><th>BITGET</th><th>BTCC</th></tr></thead>
         <tbody id="tbody"></tbody>
       </table>
     </div>
@@ -489,8 +494,15 @@ document.addEventListener('click', function (e) {
     ["VIP 6", 0.000, 0.025, 1e9], ["VIP 7", -0.002, 0.020, 1.5e9], ["VIP 8", -0.005, 0.020, 2e9],
     ["VIP 9", -0.005, 0.015, 20e9]
   ];
-  const EXCH = { OKX: null, WEEX: [0.020, 0.080], Binance: [0.020, 0.050], Bybit: [0.020, 0.055], Bitget: [0.020, 0.060], BTCC: [0.025, 0.045], Other: [0.020, 0.050] };
-  const WEEX_FEE = [0.020, 0.080], WEEX_CB = 0.30, BITGET_FEE = [0.020, 0.060], BITGET_CB = 0.20, BTCC_FEE = [0.025, 0.045], BTCC_CB = 0.25;
+  const EXCH = { OKX: null, WEEX: [0.020, 0.080], Binance: [0.020, 0.050], Bybit: [0.020, 0.055], Bitget: [0.020, 0.060], BTCC: [0.030, 0.055], Other: [0.020, 0.050] };
+  const WEEX_FEE = [0.020, 0.080], WEEX_CB = 0.30, BITGET_FEE = [0.020, 0.060], BITGET_CB = 0.20, BTCC_FEE = [0.030, 0.055], BTCC_CB = 0.25;
+  const PT = {
+    OKX: TIERS,
+    WEEX: [["VIP 0", 0.020, 0.080, 0], ["VIP 1", 0.020, 0.075, 1e6], ["VIP 2", 0.018, 0.060, 5e6], ["VIP 3", 0.018, 0.055, 10e6], ["VIP 4", 0.016, 0.050, 30e6], ["VIP 5", 0.016, 0.048, 50e6], ["VIP 6", 0.014, 0.045, 100e6], ["VIP 7", 0.012, 0.042, 300e6], ["VIP 8", 0.010, 0.040, 500e6]],
+    BITGET: [["VIP 0", 0.020, 0.060, 0], ["VIP 1", 0.019, 0.060, 5e6], ["VIP 2", 0.016, 0.040, 10e6], ["VIP 3", 0.014, 0.0375, 20e6], ["VIP 4", 0.012, 0.035, 50e6], ["VIP 5", 0.010, 0.032, 100e6], ["VIP 6", 0.008, 0.030, 300e6], ["VIP 7", 0.000, 0.020, 1e9]],
+    BTCC: [["VIP 0", 0.030, 0.055, 0], ["VIP 1", 0.025, 0.050, 5e5], ["VIP 2", 0.022, 0.045, 7.5e6], ["VIP 3", 0.020, 0.040, 20e6], ["VIP 4", 0.018, 0.032, 75e6], ["VIP 5", 0.015, 0.025, 200e6], ["VIP 6", 0.012, 0.020, 500e6], ["VIP 7", 0.010, 0.015, 1e9]]
+  };
+  const tierIn = (list, vol) => { let t = list[0]; list.forEach(x => { if (vol >= x[3]) t = x; }); return t; };
   let cbx = 'OKX';
   const CHIPS = [1e5, 1e6, 5e6, 20e6, 50e6, 100e6];
   const CB = 0.20, CBMAX = 0.40, REF = 0.40;
@@ -521,7 +533,7 @@ document.addEventListener('click', function (e) {
     soon_h: "More exchanges coming soon",
     soon_p: "Cashback is live on OKX, WEEX, BITGET and BTCC today. We are working on cashback deals with more exchanges. Trade somewhere else? Tell us on Telegram which one you want next.",
     live: "OKX · Live",
-    tbl_h: "OKX futures fees by tier", tbl_p: "Main pairs (BTC, ETH and other majors), per trade. Tier by 30-day futures volume. Your row is highlighted.",
+    tbl_h: "Futures fees by VIP tier", tbl_p: "Standard USDT-M futures fees on our partner exchanges (maker / taker per trade), by 30-day futures volume. Most exchanges also let you reach a tier by account balance. Enter your volume above to highlight your tier at each exchange. Rates as published by each exchange, October 2026.",
     th_tier: "Tier", th_vol30: "30-day volume", th_cb1m: "Cashback per $1M traded (20%)",
     faq_h: "Frequently asked questions",
     q1: "How do exchange referral programs work?",
@@ -583,7 +595,7 @@ document.addEventListener('click', function (e) {
     soon_h: "Mais corretoras em breve",
     soon_p: "O cashback já funciona na OKX, na WEEX, na BITGET e na BTCC. Estamos fechando acordos de cashback com mais corretoras. Opera em outra? Conte no Telegram qual você quer a seguir.",
     live: "OKX · Ativo",
-    tbl_h: "Taxas de futuros da OKX por nível", tbl_p: "Pares principais (BTC, ETH e outras majors), por operação. Nível pelo volume de futuros de 30 dias. Sua linha fica destacada.",
+    tbl_h: "Taxas de futuros por nível VIP", tbl_p: "Taxas padrão de futuros USDT-M nas nossas corretoras parceiras (maker / taker por operação), pelo volume de futuros dos últimos 30 dias. A maioria também permite subir de nível pelo saldo da conta. Digite seu volume acima para destacar seu nível em cada corretora. Taxas publicadas por cada corretora em outubro de 2026.",
     th_tier: "Nível", th_vol30: "Volume 30 dias", th_cb1m: "Cashback a cada $1M operado (20%)",
     faq_h: "Perguntas frequentes",
     q1: "Como funcionam os programas de indicação das corretoras?",
@@ -645,7 +657,7 @@ document.addEventListener('click', function (e) {
     soon_h: "Más exchanges muy pronto",
     soon_p: "El cashback ya funciona en OKX, WEEX, BITGET y BTCC. Estamos cerrando acuerdos de cashback con más exchanges. ¿Operas en otro? Dinos en Telegram cuál quieres después.",
     live: "OKX · Activo",
-    tbl_h: "Comisiones de futuros de OKX por nivel", tbl_p: "Pares principales (BTC, ETH y otras majors), por operación. Nivel según el volumen de futuros de 30 días. Tu fila aparece resaltada.",
+    tbl_h: "Comisiones de futuros por nivel VIP", tbl_p: "Comisiones estándar de futuros USDT-M en nuestros exchanges socios (maker / taker por operación), según el volumen de futuros de 30 días. La mayoría también permite subir de nivel por saldo de la cuenta. Escribe tu volumen arriba para resaltar tu nivel en cada exchange. Tarifas publicadas por cada exchange en octubre de 2026.",
     th_tier: "Nivel", th_vol30: "Volumen 30 días", th_cb1m: "Cashback por cada $1M operado (20%)",
     faq_h: "Preguntas frecuentes",
     q1: "¿Cómo funcionan los programas de referidos de los exchanges?",
@@ -707,7 +719,7 @@ document.addEventListener('click', function (e) {
     soon_h: "Weitere Börsen bald verfügbar",
     soon_p: "Cashback läuft heute bei OKX, WEEX, BITGET und BTCC. Wir arbeiten an Cashback-Deals mit weiteren Börsen. Du tradest woanders? Sag uns auf Telegram, welche Börse du als Nächstes willst.",
     live: "OKX · Aktiv",
-    tbl_h: "OKX-Futures-Gebühren nach Stufe", tbl_p: "Hauptpaare (BTC, ETH und andere Majors), pro Trade. Stufe nach 30-Tage-Futures-Volumen. Deine Zeile ist markiert.",
+    tbl_h: "Futures-Gebühren nach VIP-Stufe", tbl_p: "Standard-Gebühren für USDT-M-Futures bei unseren Partnerbörsen (Maker / Taker pro Trade), nach 30-Tage-Futures-Volumen. Die meisten Börsen vergeben Stufen auch nach Kontoguthaben. Gib oben dein Volumen ein, um deine Stufe bei jeder Börse hervorzuheben. Von den Börsen veröffentlichte Sätze, Oktober 2026.",
     th_tier: "Stufe", th_vol30: "30-Tage-Volumen", th_cb1m: "Cashback pro $1M Volumen (20 %)",
     faq_h: "Häufige Fragen",
     q1: "Wie funktionieren Empfehlungsprogramme von Börsen?",
@@ -769,7 +781,7 @@ document.addEventListener('click', function (e) {
     soon_h: "D'autres plateformes bientôt",
     soon_p: "Le cashback fonctionne déjà sur OKX, WEEX, BITGET et BTCC. Nous préparons des accords de cashback avec d'autres plateformes. Vous tradez ailleurs ? Dites-nous sur Telegram laquelle vous voulez ensuite.",
     live: "OKX · Actif",
-    tbl_h: "Frais futures OKX par niveau", tbl_p: "Paires principales (BTC, ETH et autres majors), par trade. Niveau selon le volume futures sur 30 jours. Votre ligne est surlignée.",
+    tbl_h: "Frais futures par niveau VIP", tbl_p: "Frais standard des futures USDT-M sur nos plateformes partenaires (maker / taker par trade), selon le volume futures sur 30 jours. La plupart permettent aussi d'atteindre un niveau via le solde du compte. Saisissez votre volume ci-dessus pour surligner votre niveau sur chaque plateforme. Taux publiés par chaque plateforme, octobre 2026.",
     th_tier: "Niveau", th_vol30: "Volume 30 jours", th_cb1m: "Cashback par 1 M$ tradé (20 %)",
     faq_h: "Questions fréquentes",
     q1: "Comment fonctionnent les programmes de parrainage des plateformes ?",
@@ -831,7 +843,7 @@ document.addEventListener('click', function (e) {
     soon_h: "Скоро другие биржи",
     soon_p: "Кэшбэк уже работает на OKX, WEEX, BITGET и BTCC. Мы договариваемся о кэшбэке с другими биржами. Торгуете в другом месте? Напишите в Telegram, какую биржу добавить следующей.",
     live: "OKX · Работает",
-    tbl_h: "Комиссии фьючерсов OKX по уровням", tbl_p: "Основные пары (BTC, ETH и другие крупные монеты), за сделку. Уровень по объёму фьючерсов за 30 дней. Ваша строка выделена.",
+    tbl_h: "Комиссии фьючерсов по VIP-уровням", tbl_p: "Стандартные комиссии USDT-M фьючерсов на биржах-партнёрах (мейкер / тейкер за сделку) по объёму фьючерсов за 30 дней. На большинстве бирж уровень можно получить и по балансу счёта. Введите объём выше, чтобы выделить ваш уровень на каждой бирже. Ставки, опубликованные биржами, октябрь 2026.",
     th_tier: "Уровень", th_vol30: "Объём за 30 дней", th_cb1m: "Кэшбэк на $1M объёма (20%)",
     faq_h: "Частые вопросы",
     q1: "Как работают реферальные программы бирж?",
@@ -893,7 +905,7 @@ document.addEventListener('click', function (e) {
     soon_h: "更多交易所即将上线",
     soon_p: "返佣目前已在 OKX、WEEX、BITGET 和 BTCC 上线。我们正在与更多交易所洽谈返佣合作。在别处交易？在 Telegram 告诉我们你希望下一个支持哪家。",
     live: "OKX · 已上线",
-    tbl_h: "OKX 合约各等级手续费", tbl_p: "主流交易对（BTC、ETH 等），按每笔交易计。等级按 30 天合约交易量划分。你的等级已高亮。",
+    tbl_h: "各 VIP 等级合约手续费", tbl_p: "合作交易所 USDT 本位合约的标准手续费（每笔 maker / taker），按近 30 天合约交易量划分。多数交易所也可按账户资产升级。在上方输入交易量，即可高亮你在各交易所的等级。费率以各交易所 2026 年 10 月公布为准。",
     th_tier: "等级", th_vol30: "30 天交易量", th_cb1m: "每交易 100 万美元的返佣 (20%)",
     faq_h: "常见问题",
     q1: "交易所的邀请返佣计划是怎么运作的？",
@@ -953,7 +965,7 @@ document.addEventListener('click', function (e) {
     soon_h: "더 많은 거래소 곧 지원",
     soon_p: "현재 OKX, WEEX, BITGET, BTCC에서 캐시백이 지원됩니다. 더 많은 거래소와 캐시백 제휴를 준비 중입니다. 다른 곳에서 거래하나요? 다음으로 원하는 거래소를 텔레그램으로 알려주세요.",
     live: "OKX · 지원 중",
-    tbl_h: "OKX 선물 등급별 수수료", tbl_p: "주요 페어(BTC, ETH 등), 거래당 기준. 등급은 30일 선물 거래량으로 결정됩니다. 해당 등급이 강조 표시됩니다.",
+    tbl_h: "VIP 등급별 선물 수수료", tbl_p: "파트너 거래소의 USDT-M 선물 기본 수수료(거래당 메이커 / 테이커), 최근 30일 선물 거래량 기준입니다. 대부분의 거래소는 계정 잔고로도 등급을 올릴 수 있습니다. 위에 거래량을 입력하면 거래소별 내 등급이 강조됩니다. 각 거래소가 2026년 10월 공개한 수수료입니다.",
     th_tier: "등급", th_vol30: "30일 거래량", th_cb1m: "100만 달러 거래당 캐시백 (20%)",
     faq_h: "자주 묻는 질문",
     q1: "거래소 추천 프로그램은 어떻게 작동하나요?",
@@ -1022,7 +1034,7 @@ document.addEventListener('click', function (e) {
     soon_h: "対応取引所を拡大予定",
     soon_p: "現在、OKX、WEEX、BITGET、BTCCでキャッシュバックに対応しています。ほかの取引所とも提携を準備中です。別の取引所をご利用ですか？次に希望する取引所をTelegramで教えてください。",
     live: "OKX · 対応中",
-    tbl_h: "OKX先物のランク別手数料", tbl_p: "主要ペア（BTC、ETHなど）、1取引あたり。ランクは30日間の先物取引量で決まります。該当ランクがハイライトされます。",
+    tbl_h: "VIPランク別の先物手数料", tbl_p: "提携取引所のUSDT-M先物の標準手数料（1取引あたりメイカー / テイカー）、過去30日の先物取引量別です。多くの取引所では口座残高でもランクが上がります。上に取引量を入力すると、各取引所でのあなたのランクがハイライトされます。各取引所が2026年10月に公表した料率です。",
     th_tier: "ランク", th_vol30: "30日取引量", th_cb1m: "100万ドル取引あたりのキャッシュバック (20%)",
     faq_h: "よくある質問",
     q1: "取引所の紹介プログラムの仕組みは？",
@@ -1136,7 +1148,9 @@ document.addEventListener('click', function (e) {
     const okxT = onOkx && $('tier').value !== 'auto' ? TIERS[Number($('tier').value)] : tierFor(vol);
     const okxFees = vol * eff(okxT[1], okxT[2], m) / 100;
     const isW = cbx !== 'OKX';
-    const P = cbx === 'WEEX' ? [WEEX_FEE, WEEX_CB, 'WEEX'] : cbx === 'BTCC' ? [BTCC_FEE, BTCC_CB, 'BTCC'] : [BITGET_FEE, BITGET_CB, 'BITGET'];
+    const P0 = cbx === 'WEEX' ? [WEEX_CB, 'WEEX'] : cbx === 'BTCC' ? [BTCC_CB, 'BTCC'] : [BITGET_CB, 'BITGET'];
+    const pT = tierIn(PT[P0[1]], vol);
+    const P = [[pT[1], pT[2]], P0[0], P0[1]];
     const pName = isW ? P[2] : 'OKX', pPct = Math.round(P[1] * 100);
     document.querySelectorAll('#cbxSeg button').forEach(b => b.setAttribute('aria-pressed', b.id === 'cbx-' + cbx));
     const wFees = ex === 'WEEX' ? vol * eff(readFee('mk', WEEX_FEE[0]), readFee('tk', WEEX_FEE[1]), m) / 100 : vol * eff(WEEX_FEE[0], WEEX_FEE[1], m) / 100;
@@ -1176,12 +1190,23 @@ document.addEventListener('click', function (e) {
     $('oNet').textContent = fmt(net);
     $('lnSave').hidden = true; $('oSave').textContent = fmt(now - net);
 
-    const tb = $('tbody'); tb.textContent = '';
-    TIERS.forEach(t => {
-      const tr = document.createElement('tr'); if (t === okxT) tr.className = 'on';
-      [t[0], t[3] ? '≥ ' + comp(t[3]) : '—', pct(t[1]), pct(t[2]), fmt(1e6 * eff(t[1], t[2], m) / 100 * CB)].forEach(v => { const td = document.createElement('td'); td.textContent = v; tr.appendChild(td); });
+    const tb = $('tbody'); tb.textContent = ''; tb.closest('table').classList.add('ptbl');
+    const PK = ['OKX', 'WEEX', 'BITGET', 'BTCC'], rows = Math.max.apply(null, PK.map(k => PT[k].length));
+    const mine = {}; PK.forEach(k => { mine[k] = vol > 0 ? tierIn(PT[k], vol) : null; });
+    for (let i = 0; i < rows; i++) {
+      const tr = document.createElement('tr');
+      const th = document.createElement('td'); th.textContent = 'VIP ' + i; tr.appendChild(th);
+      PK.forEach(k => {
+        const t = PT[k][i], td = document.createElement('td');
+        if (t) {
+          const sm = document.createElement('small'); sm.textContent = t[3] ? '≥ ' + comp(t[3]) : '< ' + comp(PT[k][1] ? PT[k][1][3] : 0);
+          td.appendChild(sm); td.appendChild(document.createTextNode(pct(t[1]) + ' / ' + pct(t[2])));
+          if (mine[k] === t) td.className = 'on';
+        } else td.textContent = '—';
+        tr.appendChild(td);
+      });
       tb.appendChild(tr);
-    });
+    }
   }
 
   const menu = $('langmenu'), lbtn = $('langbtn');
