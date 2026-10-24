@@ -1,7 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://getcryptofeeback.com/</loc>
     <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://getcryptofeeback.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://getcryptofeeback.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getcryptofeeback.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://getcryptofeeback.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getcryptofeeback.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getcryptofeeback.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getcryptofeeback.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/"/>
+  </url>
+  <url>
+    <loc>https://getcryptofeeback.com/pt/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://getcryptofeeback.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://getcryptofeeback.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getcryptofeeback.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://getcryptofeeback.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getcryptofeeback.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getcryptofeeback.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getcryptofeeback.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/"/>
+  </url>
+  <url>
+    <loc>https://getcryptofeeback.com/es/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://getcryptofeeback.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://getcryptofeeback.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getcryptofeeback.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://getcryptofeeback.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getcryptofeeback.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getcryptofeeback.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getcryptofeeback.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/"/>
+  </url>
+  <url>
+    <loc>https://getcryptofeeback.com/de/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://getcryptofeeback.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://getcryptofeeback.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getcryptofeeback.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://getcryptofeeback.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getcryptofeeback.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getcryptofeeback.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getcryptofeeback.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/"/>
+  </url>
+  <url>
+    <loc>https://getcryptofeeback.com/fr/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://getcryptofeeback.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://getcryptofeeback.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getcryptofeeback.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://getcryptofeeback.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getcryptofeeback.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getcryptofeeback.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getcryptofeeback.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/"/>
+  </url>
+  <url>
+    <loc>https://getcryptofeeback.com/ru/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://getcryptofeeback.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://getcryptofeeback.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getcryptofeeback.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://getcryptofeeback.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getcryptofeeback.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getcryptofeeback.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getcryptofeeback.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/"/>
+  </url>
+  <url>
+    <loc>https://getcryptofeeback.com/zh/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://getcryptofeeback.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://getcryptofeeback.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getcryptofeeback.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://getcryptofeeback.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getcryptofeeback.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getcryptofeeback.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getcryptofeeback.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/"/>
+  </url>
+  <url>
+    <loc>https://getcryptofeeback.com/ko/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://getcryptofeeback.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://getcryptofeeback.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getcryptofeeback.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://getcryptofeeback.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getcryptofeeback.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getcryptofeeback.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getcryptofeeback.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/"/>
+  </url>
+  <url>
+    <loc>https://getcryptofeeback.com/ja/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://getcryptofeeback.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://getcryptofeeback.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://getcryptofeeback.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://getcryptofeeback.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://getcryptofeeback.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://getcryptofeeback.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://getcryptofeeback.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/"/>
   </url>
 </urlset>
