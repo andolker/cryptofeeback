@@ -308,6 +308,21 @@ footer .mail { font-family: var(--mono); }
 @media (max-width: 430px) { .nav a.navcta { display: none; } }
 </style>
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0} img{max-width:100%} [hidden]{display:none!important} html{scroll-behavior:smooth}</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4188cf9c-f289-4505-be81-d9af4fcc0b83"></script>
+<script>
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
+  var h = a.getAttribute('href') || '', n = null;
+  if (h.indexOf('okx.com') > -1) n = 'signup-okx';
+  else if (h.indexOf('weex.com') > -1) n = 'signup-weex';
+  else if (h.indexOf('bitget.com') > -1) n = 'signup-bitget';
+  else if (h.indexOf('btcc.com') > -1) n = 'signup-btcc';
+  else if (h.indexOf('t.me/+') > -1) n = 'telegram-group';
+  else if (h.indexOf('t.me/') > -1) n = 'telegram-support';
+  else if (h.indexOf('mailto:') === 0) n = 'email-support';
+  if (n && window.umami) { try { window.umami.track(n); } catch (err) {} }
+}, true);
+</script>
 </head>
 <body>
 
