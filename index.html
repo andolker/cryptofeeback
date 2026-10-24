@@ -297,6 +297,12 @@ a.ghost { text-decoration: none; }
 .langmenu button:hover { background: var(--bg); }
 .langmenu button[aria-current="true"] { background: var(--accent-soft); font-weight: 700; }
 footer .mail { font-family: var(--mono); }
+.social { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.soc { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); color: var(--ink); text-decoration: none; font: 600 .85rem var(--body); }
+.soc svg { color: var(--accent); flex: none; }
+.soc:hover { border-color: var(--accent); }
+.nav a.navsoc { display: inline-flex; align-items: center; justify-content: center; padding: 7px; color: var(--accent); }
+@media (max-width: 760px) { .nav a.navsoc { display: none; } }
 [hidden] { display: none !important; }
 @media (max-width: 600px) {
   .brand .mark { width: 28px; height: 28px; }
@@ -325,6 +331,7 @@ document.addEventListener('click', function (e) {
   else if (h.indexOf('t.me/+') > -1) n = 'telegram-group';
   else if (h.indexOf('t.me/') > -1) n = 'telegram-support';
   else if (h.indexOf('mailto:') === 0) n = 'email-support';
+  else if (h.indexOf('instagram.com') > -1) n = 'instagram';
   if (n && window.umami) { try { window.umami.track(n); } catch (err) {} }
 }, true);
 </script>
@@ -343,6 +350,7 @@ document.addEventListener('click', function (e) {
         <button type="button" class="langbtn" id="langbtn" aria-haspopup="true" aria-expanded="false" aria-label="Language"><span id="langflag"></span><span id="langcode">EN</span><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
         <div class="langmenu" id="langmenu" hidden></div>
       </div>
+      <a class="navsoc" href="https://t.me/+O4_1SYvIWlUzZDBk" target="_blank" rel="noopener" aria-label="Telegram"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="M5.5 11.7l11.1-4.3c.5-.2 1 .1.8.9l-1.9 8.9c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-2.9 5.3-4.8c.2-.2 0-.3-.3-.1l-6.6 4.1-2.8-.9c-.6-.2-.6-.6.1-.9z" fill="var(--bg)"/></svg></a><a class="navsoc" href="https://www.instagram.com/getcryptofeeback/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></a>
       <a href="#prizes" data-t="nav_prizes">Prizes</a>
       <a href="#faq" data-t="nav_faq">FAQ</a>
       <a class="navcta" href="#getcashback" data-t="nav_cta">Get cashback</a>
@@ -419,7 +427,7 @@ document.addEventListener('click', function (e) {
             <div class="ln total"><span data-t="ln_net">Your net fee cost</span><b id="oNet">$0</b></div>
             <div class="ln good" id="lnSave" hidden><span class="k" data-t="ln_save">Total saving vs. today</span><b id="oSave">$0</b></div>
           </div>
-          <div class="linkrow"><code id="link">okx.com/join/CRYPTOFEEBACK</code><button class="ghost" id="copy" type="button">Copy link</button><a class="ghost" href="https://t.me/+Z4K5lgP9M6EwYmZk" target="_blank" rel="noopener" data-t="tg_short">Join the Telegram</a></div>
+          <div class="linkrow"><code id="link">okx.com/join/CRYPTOFEEBACK</code><button class="ghost" id="copy" type="button">Copy link</button><a class="ghost" href="https://t.me/+O4_1SYvIWlUzZDBk" target="_blank" rel="noopener" data-t="tg_short">Join the Telegram</a></div>
           <span class="approx" data-t="approx">Approximate values, based on your volume and order mix and the public OKX fee schedule. Your real cashback follows the fees you actually pay each week. Fees on other exchanges are pre-filled with their standard VIP 0 rate.</span>
         </div>
       </details>
@@ -427,7 +435,7 @@ document.addEventListener('click', function (e) {
   </section>
 
   <section id="prizes" class="prizes">
-    <div class="ptxt"><span class="ptag" data-t="camp_tag">Coming soon</span><h2 data-t="camp_h">Trade with our link. Win prizes.</h2><p data-t="camp_p">.</p><div class="pzlist"><span data-t="pz1">Trips</span><span data-t="pz2">Smartphones</span><span data-t="pz3">Laptops</span></div><a class="btn" href="https://t.me/+Z4K5lgP9M6EwYmZk" target="_blank" rel="noopener" data-t="camp_btn">Get notified on Telegram</a><span class="fine" data-t="camp_fine">.</span></div>
+    <div class="ptxt"><span class="ptag" data-t="camp_tag">Coming soon</span><h2 data-t="camp_h">Trade with our link. Win prizes.</h2><p data-t="camp_p">.</p><div class="pzlist"><span data-t="pz1">Trips</span><span data-t="pz2">Smartphones</span><span data-t="pz3">Laptops</span></div><a class="btn" href="https://t.me/+O4_1SYvIWlUzZDBk" target="_blank" rel="noopener" data-t="camp_btn">Get notified on Telegram</a><span class="fine" data-t="camp_fine">.</span></div>
     <svg class="part" viewBox="0 0 360 200" aria-hidden="true"><defs><linearGradient id="pscr2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3CC28F"/><stop offset="1" stop-color="#0E7C5A"/></linearGradient><linearGradient id="psea2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2FA7B8"/><stop offset="1" stop-color="#0E5A63"/></linearGradient></defs><circle cx="300" cy="46" r="26" fill="#F6C453"/><circle cx="300" cy="46" r="38" fill="#F6C453" opacity=".18"/><path d="M0 150 Q45 140 90 150 T180 150 T270 150 T360 150 V200 H0 Z" fill="url(#psea2)"/><path d="M0 165 Q45 157 90 165 T180 165 T270 165 T360 165" fill="none" stroke="#E5ECE8" stroke-opacity=".35" stroke-width="2"/><path d="M0 182 Q40 172 120 178 Q200 186 240 200 H0 Z" fill="#E9D7A8"/><path d="M58 186 C62 150 66 120 78 88" fill="none" stroke="#7A5A33" stroke-width="7" stroke-linecap="round"/><g fill="#3CC28F"><ellipse cx="62" cy="84" rx="30" ry="8" transform="rotate(-25 62 84)"/><ellipse cx="96" cy="82" rx="30" ry="8" transform="rotate(20 96 82)"/><ellipse cx="74" cy="72" rx="26" ry="7" transform="rotate(-70 74 72)"/><ellipse cx="92" cy="96" rx="26" ry="7" transform="rotate(50 92 96)"/><ellipse cx="60" cy="100" rx="24" ry="7" transform="rotate(-50 60 100)"/></g><g transform="rotate(-8 181 109)"><rect x="150" y="48" width="62" height="122" rx="13" fill="#0B0F0E" stroke="#E5ECE8" stroke-width="2.5"/><rect x="156" y="56" width="50" height="106" rx="8" fill="url(#pscr2)"/><rect x="172" y="59" width="18" height="5" rx="2.5" fill="#0B0F0E"/><text x="181" y="118" text-anchor="middle" font-family="Archivo, Arial Narrow, sans-serif" font-weight="900" font-size="22" fill="#FFFFFF">%</text></g><rect x="232" y="98" width="104" height="66" rx="6" fill="#0B0F0E" stroke="#E5ECE8" stroke-width="2.5"/><rect x="238" y="104" width="92" height="54" rx="3" fill="url(#pscr2)" opacity=".9"/><path d="M246 146 L266 132 L282 140 L300 120 L320 126" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M222 166 H346 L354 178 H214 Z" fill="#C9D3CE"/><g fill="#F6C453"><path d="M128 40 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z"/><path d="M226 30 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/><path d="M20 40 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/></g></svg>
   </section>
 
@@ -477,10 +485,11 @@ document.addEventListener('click', function (e) {
 
   <section class="tgband" id="telegram">
     <div><h2 data-t="tg_h">Every week, in public</h2><p data-t="tg_p">We post how much was paid back to traders each week. Join the channel to follow the payouts, ask questions and get help moving your account.</p></div>
-    <a class="btn" href="https://t.me/+Z4K5lgP9M6EwYmZk" target="_blank" rel="noopener" data-t="tg_btn">Join on Telegram</a>
+    <a class="btn" href="https://t.me/+O4_1SYvIWlUzZDBk" target="_blank" rel="noopener" data-t="tg_btn">Join on Telegram</a>
   </section>
 
   <footer>
+    <div class="social"><a class="soc" href="https://t.me/+O4_1SYvIWlUzZDBk" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="M5.5 11.7l11.1-4.3c.5-.2 1 .1.8.9l-1.9 8.9c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-2.9 5.3-4.8c.2-.2 0-.3-.3-.1l-6.6 4.1-2.8-.9c-.6-.2-.6-.6.1-.9z" fill="var(--bg)"/></svg><span data-t="soc_tg">Telegram group · news</span></a><a class="soc" href="https://www.instagram.com/getcryptofeeback/" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a><a class="soc" href="https://t.me/getcryptofeeback" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="M5.5 11.7l11.1-4.3c.5-.2 1 .1.8.9l-1.9 8.9c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-2.9 5.3-4.8c.2-.2 0-.3-.3-.1l-6.6 4.1-2.8-.9c-.6-.2-.6-.6.1-.9z" fill="var(--bg)"/></svg><span data-t="soc_sup">Support · @getcryptofeeback</span></a></div>
     <strong>GETCRYPTOFEEBACK.COM © 2026</strong>
     <span class="mail">support@getcryptofeeback.com</span>
   </footer>
@@ -562,7 +571,7 @@ document.addEventListener('click', function (e) {
     a12: "<p>No. We only return part of your trading fees. Every trading decision is yours. Crypto involves risk; only trade what you can afford to lose.</p>",
     tg_h: "Every week, in public",
     tg_p: "We post how much was paid back to traders each week. Join the channel to follow the payouts, ask questions and get help moving your account.",
-    tg_btn: "Join on Telegram",
+    tg_btn: "Join on Telegram", soc_tg: "Telegram group · news", soc_sup: "Support · @getcryptofeeback",
     auto: "Auto (by volume)", ex_other: "Other", copy: "Copy link", copied: "Copied", sel: "Select the link",
     mk_pct: "{n}% maker", tk_pct: "{n}% taker",
     c1: "If you joined through someone's referral link, up to <b>{x}</b> of the fees you pay each month can go to them. You get none of it back.",
@@ -624,7 +633,7 @@ document.addEventListener('click', function (e) {
     a12: "<p>Não. Só devolvemos parte das suas taxas de trading. Toda decisão de operação é sua. Cripto envolve risco; opere só o que você pode perder.</p>",
     tg_h: "Toda semana, em público",
     tg_p: "Publicamos quanto foi devolvido aos traders a cada semana. Entre no canal para acompanhar os pagamentos, tirar dúvidas e ter ajuda para vincular sua conta.",
-    tg_btn: "Entrar no Telegram",
+    tg_btn: "Entrar no Telegram", soc_tg: "Grupo no Telegram · novidades", soc_sup: "Suporte · @getcryptofeeback",
     auto: "Automático (pelo volume)", ex_other: "Outra", copy: "Copiar link", copied: "Copiado", sel: "Selecione o link",
     mk_pct: "{n}% maker", tk_pct: "{n}% taker",
     c1: "Se você entrou pelo link de indicação de alguém, até <b>{x}</b> das taxas que você paga por mês podem ir para essa pessoa. Você não recebe nada de volta.",
@@ -686,7 +695,7 @@ document.addEventListener('click', function (e) {
     a12: "<p>No. Solo devolvemos parte de tus comisiones de trading. Cada decisión de operar es tuya. Las criptomonedas implican riesgo; opera solo lo que puedas permitirte perder.</p>",
     tg_h: "Cada semana, en público",
     tg_p: "Publicamos cuánto se devolvió a los traders cada semana. Únete al canal para seguir los pagos, hacer preguntas y recibir ayuda para vincular tu cuenta.",
-    tg_btn: "Unirse en Telegram",
+    tg_btn: "Unirse en Telegram", soc_tg: "Grupo de Telegram · novedades", soc_sup: "Soporte · @getcryptofeeback",
     auto: "Automático (por volumen)", ex_other: "Otro", copy: "Copiar enlace", copied: "Copiado", sel: "Selecciona el enlace",
     mk_pct: "{n}% maker", tk_pct: "{n}% taker",
     c1: "Si te registraste con el enlace de referido de alguien, hasta <b>{x}</b> de las comisiones que pagas cada mes pueden ir a esa persona. Tú no recuperas nada.",
@@ -748,7 +757,7 @@ document.addEventListener('click', function (e) {
     a12: "<p>Nein. Wir geben nur einen Teil deiner Trading-Gebühren zurück. Jede Trading-Entscheidung triffst du selbst. Krypto ist riskant; trade nur, was du verlieren kannst.</p>",
     tg_h: "Jede Woche, öffentlich",
     tg_p: "Wir veröffentlichen jede Woche, wie viel an Trader zurückgezahlt wurde. Tritt dem Kanal bei, um die Auszahlungen zu verfolgen, Fragen zu stellen und Hilfe beim Verknüpfen deines Kontos zu bekommen.",
-    tg_btn: "Auf Telegram beitreten",
+    tg_btn: "Auf Telegram beitreten", soc_tg: "Telegram-Gruppe · News", soc_sup: "Support · @getcryptofeeback",
     auto: "Automatisch (nach Volumen)", ex_other: "Andere", copy: "Link kopieren", copied: "Kopiert", sel: "Link markieren",
     mk_pct: "{n} % Maker", tk_pct: "{n} % Taker",
     c1: "Wenn du dich über den Empfehlungslink einer Person angemeldet hast, können bis zu <b>{x}</b> deiner monatlichen Gebühren an sie gehen. Du bekommst nichts davon zurück.",
@@ -810,7 +819,7 @@ document.addEventListener('click', function (e) {
     a12: "<p>Non. Nous reversons seulement une partie de vos frais de trading. Chaque décision de trading vous appartient. La crypto comporte des risques ; ne tradez que ce que vous pouvez vous permettre de perdre.</p>",
     tg_h: "Chaque semaine, en public",
     tg_p: "Nous publions chaque semaine le montant reversé aux traders. Rejoignez le canal pour suivre les paiements, poser vos questions et être aidé pour lier votre compte.",
-    tg_btn: "Rejoindre sur Telegram",
+    tg_btn: "Rejoindre sur Telegram", soc_tg: "Groupe Telegram · actus", soc_sup: "Support · @getcryptofeeback",
     auto: "Auto (selon le volume)", ex_other: "Autre", copy: "Copier le lien", copied: "Copié", sel: "Sélectionnez le lien",
     mk_pct: "{n} % maker", tk_pct: "{n} % taker",
     c1: "Si vous vous êtes inscrit via le lien de parrainage de quelqu'un, jusqu'à <b>{x}</b> de vos frais mensuels peuvent lui revenir. Vous n'en récupérez rien.",
@@ -872,7 +881,7 @@ document.addEventListener('click', function (e) {
     a12: "<p>Нет. Мы только возвращаем часть ваших торговых комиссий. Все торговые решения принимаете вы. Криптовалюты связаны с риском; торгуйте только тем, что можете позволить себе потерять.</p>",
     tg_h: "Каждую неделю, публично",
     tg_p: "Каждую неделю мы публикуем, сколько вернули трейдерам. Подписывайтесь на канал, чтобы следить за выплатами, задавать вопросы и получить помощь с привязкой аккаунта.",
-    tg_btn: "Открыть Telegram",
+    tg_btn: "Открыть Telegram", soc_tg: "Группа в Telegram · новости", soc_sup: "Поддержка · @getcryptofeeback",
     auto: "Авто (по объёму)", ex_other: "Другая", copy: "Скопировать", copied: "Скопировано", sel: "Выделите ссылку",
     mk_pct: "{n}% мейкер", tk_pct: "{n}% тейкер",
     c1: "Если вы зарегистрировались по чьей-то реферальной ссылке, до <b>{x}</b> ваших комиссий в месяц может уходить этому человеку. Вам ничего не возвращается.",
@@ -934,7 +943,7 @@ document.addEventListener('click', function (e) {
     a12: "<p>不提供。我们只返还你的部分交易手续费。所有交易决定由你自己做出。加密货币有风险，只用你能承受损失的资金交易。</p>",
     tg_h: "每周公开",
     tg_p: "我们每周公布返还给交易者的金额。加入频道，关注发放情况、提问，并获得绑定账户的帮助。",
-    tg_btn: "加入 Telegram",
+    tg_btn: "加入 Telegram", soc_tg: "Telegram 群组 · 最新动态", soc_sup: "客服 · @getcryptofeeback",
     auto: "自动（按交易量）", ex_other: "其他", copy: "复制链接", copied: "已复制", sel: "请选中链接",
     mk_pct: "{n}% 挂单", tk_pct: "{n}% 吃单",
     c1: "如果你是通过别人的邀请链接注册的，你每月手续费中最多 <b>{x}</b> 可能归对方所有，而你一分也拿不回来。",
@@ -994,7 +1003,7 @@ document.addEventListener('click', function (e) {
     a12: "<p>아니요. 저희는 거래 수수료의 일부를 돌려드릴 뿐입니다. 모든 거래 결정은 본인이 합니다. 암호화폐는 위험이 따르므로 감당할 수 있는 금액만 거래하세요.</p>",
     tg_h: "매주, 공개적으로",
     tg_p: "매주 트레이더에게 돌려준 금액을 공개합니다. 채널에 참여해 지급 내역을 확인하고, 질문하고, 계정 연결 도움을 받으세요.",
-    tg_btn: "텔레그램 참여하기",
+    tg_btn: "텔레그램 참여하기", soc_tg: "텔레그램 그룹 · 소식", soc_sup: "고객지원 · @getcryptofeeback",
     auto: "자동 (거래량 기준)", ex_other: "기타", copy: "링크 복사", copied: "복사됨", sel: "링크를 선택하세요",
     mk_pct: "메이커 {n}%", tk_pct: "테이커 {n}%",
     c1: "누군가의 추천 링크로 가입했다면, 매월 내는 수수료 중 최대 <b>{x}</b>가 그 사람에게 갈 수 있습니다. 여러분은 아무것도 돌려받지 못합니다.",
@@ -1063,7 +1072,7 @@ document.addEventListener('click', function (e) {
     a12: "<p>いいえ。当サイトは取引手数料の一部を還元するだけです。取引の判断はすべてご自身で行ってください。暗号資産にはリスクがあります。失っても問題ない範囲で取引してください。</p>",
     tg_h: "毎週、公開で",
     tg_p: "毎週トレーダーに還元した金額を公開しています。チャンネルに参加して支払い状況を確認し、質問したり、口座の紐付けのサポートを受けたりできます。",
-    tg_btn: "Telegramに参加する",
+    tg_btn: "Telegramに参加する", soc_tg: "Telegramグループ · 最新情報", soc_sup: "サポート · @getcryptofeeback",
     auto: "自動（取引量から判定）", ex_other: "その他", copy: "リンクをコピー", copied: "コピーしました", sel: "リンクを選択してください",
     mk_pct: "メイカー {n}%", tk_pct: "テイカー {n}%",
     c1: "誰かの紹介リンクから登録した場合、毎月支払う手数料のうち最大 <b>{x}</b> がその人に渡る可能性があります。あなたには何も戻りません。",
