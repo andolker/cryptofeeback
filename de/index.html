@@ -288,6 +288,20 @@ a.ghost { text-decoration: none; }
 .prizes .btn { align-self: flex-start; background: #F6C453; color: #13201B; }
 .prizes .fine { font-size: .78rem; color: #93A29B; }
 .prizes .ptxt { gap: 14px; }
+.hvs { display:grid; grid-template-columns:1.2fr 1fr; gap:28px; align-items:center; background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:22px; }
+.hvs .vid { position:relative; display:block; width:100%; aspect-ratio:16/9; border-radius:12px; border:0; padding:0; background:#0E1412 center/cover no-repeat; cursor:pointer; }
+.hvs .pl { position:absolute; left:5%; bottom:7%; width:64px; height:64px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; }
+.hvs .pl::before { content:""; margin-left:6px; border-left:20px solid #0E1412; border-top:12px solid transparent; border-bottom:12px solid transparent; }
+.hvs h2 { margin:6px 0 14px; }
+.hvs ol { margin:0; padding-left:1.2em; color:var(--muted); line-height:1.8; } .hvs ol b { color:var(--ink); }
+.hvbtns { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+.hvp { border:1px solid var(--accent); background:none; color:var(--ink); font:700 .95rem var(--body); border-radius:12px; padding:11px 16px; cursor:pointer; }
+.hvl { background:var(--accent); color:#0E1412; text-decoration:none; font-weight:700; border-radius:12px; padding:11px 16px; }
+@media (max-width:760px) { .hvs { grid-template-columns:1fr; } }
+.vmodal { position:fixed; inset:0; z-index:100; background:rgba(5,8,7,.86); display:flex; align-items:center; justify-content:center; padding:16px; }
+.vmodal .vb { position:relative; width:min(960px,100%); }
+.vmodal video { width:100%; aspect-ratio:16/9; border-radius:12px; background:#000; display:block; }
+.vmodal .vx { position:absolute; right:0; top:-44px; width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:var(--panel); color:var(--ink); font-size:20px; cursor:pointer; }
 .linkbox { border: 2px solid var(--accent); background: var(--accent-soft); border-radius: 12px; padding: 14px 16px; }
 .linkbox b { font-size: 1rem; }
 .linkbox p { margin: 4px 0 0; font-size: .92rem; }
@@ -448,6 +462,19 @@ document.addEventListener('click', function (e) {
       </details>
     </div>
   </section>
+
+  <section class="hvs" id="how-video"><button type="button" class="vid hvOpen" style="background-image:url('/media/how-it-works-en_1.jpg')" aria-label="Video ansehen"><span class="pl"></span></button><div><span class="label">So funktioniert es · 90 Sek. · auf Englisch</span><h2>Hol dir einen Teil deiner Gebühren zurück. Automatisch.</h2><ol><li><b>Wähle eine Partnerbörse</b></li><li><b>Registriere dich über unseren Link</b></li><li><b>Trade wie gewohnt</b>: mindestens 20 % deiner Gebühren jede Woche zurück</li></ol><div class="hvbtns"><button type="button" class="hvp hvOpen">▶ Video ansehen</button><a class="hvl" href="/partners/">Partnerbörsen ansehen →</a></div></div></section>
+  <div class="vmodal" id="vmodal" hidden><div class="vb"><button type="button" class="vx" id="vmClose" aria-label="Close">×</button><video id="hvVideo" controls playsinline preload="none" poster="/media/how-it-works-en_1.jpg"><source src="/media/how-it-works-en.mp4" type="video/mp4"></video></div></div>
+  <script>
+  (function () {
+    var m = document.getElementById('vmodal'), v = document.getElementById('hvVideo');
+    function close() { m.hidden = true; try { v.pause(); } catch (e) {} }
+    document.addEventListener('click', function (e) { if (!e.target.closest || !e.target.closest('.hvOpen')) return; m.hidden = false; try { v.play(); } catch (er) {} if (window.umami) { try { window.umami.track('video-how-it-works'); } catch (er) {} } });
+    document.getElementById('vmClose').addEventListener('click', close);
+    m.addEventListener('click', function (e) { if (e.target === m) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !m.hidden) close(); });
+  })();
+  </script>
 
   <section id="prizes" class="prizes">
     <div class="ptxt"><span class="ptag" data-t="camp_tag">Coming soon</span><h2 data-t="camp_h">Trade with our link. Win prizes.</h2><p data-t="camp_p">.</p><div class="pzlist"><span data-t="pz1">Trips</span><span data-t="pz2">Smartphones</span><span data-t="pz3">Laptops</span></div><a class="btn" href="https://t.me/+O4_1SYvIWlUzZDBk" target="_blank" rel="noopener" data-t="camp_btn">Get notified on Telegram</a><span class="fine" data-t="camp_fine">.</span></div>
