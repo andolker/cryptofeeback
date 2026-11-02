@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guias sobre taxas de trading cripto | GetCryptoFeeBack</title>
+<meta name="description" content="Guias diretos sobre taxas de futuros cripto: como são calculadas, como pagar menos e como funciona o cashback de taxas.">
+<link rel="canonical" href="https://getcryptofeeback.com/pt/blog/">
+<link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/blog/">
+<link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/blog/">
+<link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/blog/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Guias sobre taxas de trading cripto | GetCryptoFeeBack">
+<meta property="og:description" content="Guias diretos sobre taxas de futuros cripto: como são calculadas, como pagar menos e como funciona o cashback de taxas.">
+<meta property="og:url" content="https://getcryptofeeback.com/pt/blog/">
+<meta property="og:site_name" content="GetCryptoFeeBack">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@cryptofeeback">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='30' fill='%230E7C5A'/%3E%3Cpath d='M60 24 A36 36 0 1 1 24 60' fill='none' stroke='white' stroke-width='9' stroke-linecap='round'/%3E%3Cpolygon points='13,66 35,66 24,47' fill='white'/%3E%3Ccircle cx='50' cy='50' r='6.5' fill='none' stroke='white' stroke-width='5'/%3E%3Ccircle cx='71' cy='71' r='6.5' fill='none' stroke='white' stroke-width='5'/%3E%3Cline x1='73' y1='47' x2='48' y2='74' stroke='white' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Instrument+Sans:wght@400;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+
+:root{
+  --bg:#0E1412; --panel:#161E1B; --line:#2A3631; --fg:#E5ECE8; --muted:#93A29B;
+  --accent:#3CC28F; --accent-deep:#173A2D; --fee:#F08A4B;
+  --display:'Archivo','Arial Narrow',sans-serif;
+  --body:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--fg);font:400 17px/1.65 var(--body)}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font:900 22px/1 var(--display);font-stretch:68%;text-transform:uppercase;color:var(--fg);text-decoration:none}
+.brand span{color:var(--accent)}
+.crumb{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0 8px}
+.tabs a{font:600 14px var(--body);color:var(--muted);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px}
+.tabs a[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.tabs a:focus-visible,.cta a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.eyebrow{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:36px 0 10px}
+h1{font:900 clamp(36px,7vw,58px)/.95 var(--display);font-stretch:70%;text-transform:uppercase;margin:0 0 16px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:19px;color:var(--fg);max-width:62ch;margin:0 0 8px}
+.meta{font:500 12px var(--mono);color:var(--muted);letter-spacing:.06em;margin:0 0 28px}
+h2{font:800 26px/1.1 var(--display);font-stretch:80%;text-transform:uppercase;margin:40px 0 10px;text-wrap:balance}
+p,li{max-width:65ch}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 16px;padding-left:22px}
+li{margin-bottom:6px}
+strong{color:#fff}
+.formula{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:18px 0;font:700 clamp(15px,3.4vw,19px)/1.5 var(--mono);overflow-x:auto}
+.formula .k{color:var(--muted);font-weight:500}
+.formula .f{color:var(--fee)}
+.formula .g{color:var(--accent)}
+.tbl{overflow-x:auto;margin:18px 0}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;min-width:420px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+td.n{font-family:var(--mono);text-align:right}
+th.n{text-align:right}
+td.fee{color:var(--fee)}
+td.back{color:var(--accent)}
+.note{border-left:3px solid var(--fee);padding:4px 0 4px 14px;color:var(--muted);font-size:15px;margin:18px 0}
+.cta{background:var(--accent-deep);border:1px solid #24553f;border-radius:18px;padding:22px;margin:40px 0 0;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cta p{margin:0;font-weight:600;max-width:46ch}
+.cta a{background:var(--accent);color:var(--bg);font:700 15px var(--body);text-decoration:none;padding:12px 18px;border-radius:12px;white-space:nowrap}
+.fine{font-size:13px;color:var(--muted);margin-top:28px}
+
+
+*{box-sizing:border-box}
+body{margin:0}
+.pill{white-space:nowrap;color:var(--fg);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:600 14px var(--body)}
+.pill:hover{border-color:var(--accent)}
+.crumbs{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:32px 0 0}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--accent)}
+.eyebrow{margin-top:14px}
+.more{margin-top:48px;border-top:1px solid var(--line);padding-top:24px}
+.more h3,.list h3{font:800 20px/1.15 var(--display);font-stretch:80%;text-transform:uppercase;margin:0 0 6px}
+.cards{display:grid;gap:14px}
+.card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 20px;color:var(--fg);text-decoration:none;transition:border-color .2s}
+.card:hover,.card:focus-visible{border-color:var(--accent);outline:none}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.card .go{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:block;margin-top:10px}
+.lang{font:500 12px var(--mono);letter-spacing:.1em;color:var(--muted);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 10px}
+.foot{margin-top:48px;border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.foot a{color:var(--muted)}
+.cta a{display:inline-block}
+</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4188cf9c-f289-4505-be81-d9af4fcc0b83"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/pt/"><svg width="30" height="30" viewBox="0 0 120 120" aria-hidden="true"><rect width="120" height="120" rx="30" fill="#3CC28F"/><path d="M60 24 A36 36 0 1 1 24 60" fill="none" stroke="#0E1412" stroke-width="9" stroke-linecap="round"/><polygon points="13,66 35,66 24,47" fill="#0E1412"/><circle cx="50" cy="50" r="6.5" fill="none" stroke="#0E1412" stroke-width="5"/><circle cx="71" cy="71" r="6.5" fill="none" stroke="#0E1412" stroke-width="5"/><line x1="73" y1="47" x2="48" y2="74" stroke="#0E1412" stroke-width="5" stroke-linecap="round"/></svg>GetCrypto<span>FeeBack</span></a>
+    <div style="display:flex;gap:8px;align-items:center">
+      <a class="lang" href="/blog/" hreflang="en">EN</a>
+      <a class="pill" href="/pt/?ref=blog">Calculadora de taxas →</a>
+    </div>
+  </header>
+  <section class="list">
+    <p class="eyebrow" style="margin-top:36px">Blog</p>
+    <h1>Guias sobre <em>taxas</em></h1>
+    <p class="lede" style="margin-bottom:28px">Como as taxas funcionam de verdade, como pagar menos e como receber parte delas de volta. Números reais, sem enrolação.</p>
+    <div class="cards"><a class="card" href="/pt/blog/taxas-em-futuros-alavancados/"><h3>Como calcular a taxa em futuros alavancados de cripto</h3><p>A taxa é cobrada sobre a posição inteira, não sobre a margem. A conta exata para futuros alavancados de cripto, com tabela de 1x a 50x.</p><span class="go">Ler guia →</span></a><a class="card" href="/pt/blog/taxa-maker-vs-taker/"><h3>Taxa maker vs taker: como pagar menos em cada operação</h3><p>A mesma posição de US$ 100 mil pode custar US$ 100 ou US$ 40 em taxas. O que é maker e taker, e cinco formas de pagar menos.</p><span class="go">Ler guia →</span></a><a class="card" href="/pt/blog/cashback-de-taxas/"><h3>O que é cashback de taxas de cripto, e é seguro?</h3><p>De onde vem o dinheiro do cashback de taxas, por que você não paga nada a mais e três sinais de que o serviço é seguro.</p><span class="go">Ler guia →</span></a></div>
+  </section>
+  <footer class="foot"><span>Não é recomendação de investimento. Futuros de cripto têm alto risco, principalmente com alavancagem.</span><span><a href="/pt/">getcryptofeeback.com</a> · <a href="https://x.com/cryptofeeback" target="_blank" rel="noopener">X</a> · <a href="https://t.me/+O4_1SYvIWlUzZDBk" target="_blank" rel="noopener">Telegram</a></span></footer>
+</div>
+</body>
+</html>
