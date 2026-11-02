@@ -126,4 +126,60 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://getcryptofeeback.com/ja/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/"/>
   </url>
+  <url>
+    <loc>https://getcryptofeeback.com/blog/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/blog/"/>
+  </url>
+  <url>
+    <loc>https://getcryptofeeback.com/pt/blog/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/blog/"/>
+  </url>
+  <url>
+    <loc>https://getcryptofeeback.com/blog/trading-fees-on-leverage/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/blog/trading-fees-on-leverage/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/blog/taxas-em-futuros-alavancados/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/blog/trading-fees-on-leverage/"/>
+  </url>
+  <url>
+    <loc>https://getcryptofeeback.com/pt/blog/taxas-em-futuros-alavancados/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/blog/trading-fees-on-leverage/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/blog/taxas-em-futuros-alavancados/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/blog/trading-fees-on-leverage/"/>
+  </url>
+  <url>
+    <loc>https://getcryptofeeback.com/blog/maker-vs-taker-fees/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/blog/maker-vs-taker-fees/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/blog/taxa-maker-vs-taker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/blog/maker-vs-taker-fees/"/>
+  </url>
+  <url>
+    <loc>https://getcryptofeeback.com/pt/blog/taxa-maker-vs-taker/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/blog/maker-vs-taker-fees/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/blog/taxa-maker-vs-taker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/blog/maker-vs-taker-fees/"/>
+  </url>
+  <url>
+    <loc>https://getcryptofeeback.com/blog/trading-fee-cashback/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/blog/trading-fee-cashback/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/blog/cashback-de-taxas/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/blog/trading-fee-cashback/"/>
+  </url>
+  <url>
+    <loc>https://getcryptofeeback.com/pt/blog/cashback-de-taxas/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getcryptofeeback.com/blog/trading-fee-cashback/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://getcryptofeeback.com/pt/blog/cashback-de-taxas/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getcryptofeeback.com/blog/trading-fee-cashback/"/>
+  </url>
 </urlset>
